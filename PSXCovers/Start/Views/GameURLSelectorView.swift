@@ -14,6 +14,8 @@ import UIKit
     @IBOutlet weak var gameURLField: UITextField!
     @IBOutlet weak var useAnExampleButton: UIButton!
 
+    weak var delegate: GameURLSelectorViewDelegate? = nil
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -38,5 +40,13 @@ import UIKit
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+}
+
+//MARK: - Actions
+extension GameURLSelectorView {
+
+    @IBAction func didSelectUseAnExample(_ sender: Any) {
+        delegate?.didSelectUseAnExample()
     }
 }

@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PSXCovers-->
+        <!--Start-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="PSXCovers" id="BYZ-38-t0r" customClass="StartViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Start" id="BYZ-38-t0r" customClass="StartViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DId-dg-tPi"/>
+                    <navigationItem key="navigationItem" title="PSXCovers" largeTitleDisplayMode="always" id="RCu-4T-aFU">
+                        <barButtonItem key="rightBarButtonItem" title="Go" style="done" id="v2s-g3-PfC">
+                            <connections>
+                                <action selector="didSelectGoBarButtonItem:" destination="BYZ-38-t0r" id="aRr-Ny-G3Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="gameURLSelectorView" destination="G1o-Vm-CfV" id="ON2-py-CgK"/>
+                        <outlet property="goBarButtonItem" destination="v2s-g3-PfC" id="L0J-zL-FgL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
