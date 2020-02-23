@@ -18,6 +18,32 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameURLSelectorView.delegate = self
+        NotificationCenter.default.addObserver(
+            forName: UITextField.textDidChangeNotification,
+            object: gameURLSelectorView.gameURLField,
+            queue: OperationQueue.main
+        ) { [unowned self] _ in
+                self.updateEnabledStateForGoBarButtonItem()
+        }
+        updateEnabledStateForGoBarButtonItem()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UITextField.textDidChangeNotification,
+            object: gameURLSelectorView.gameURLField)
+    }
+}
+
+//MARK: - Text Field check
+extension StartViewController {
+    func updateEnabledStateForGoBarButtonItem() {
+        let text = gameURLSelectorView.gameURLField.text
+        let trimmedText = text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let isEmpty = trimmedText?.count ?? 0 == 0
+
+        goBarButtonItem.isEnabled = !isEmpty
     }
 }
 
@@ -25,6 +51,7 @@ class StartViewController: UIViewController {
 extension StartViewController: GameURLSelectorViewDelegate {
     func didSelectUseAnExample() {
         gameURLSelectorView.gameURLField.text = exampleURL
+        updateEnabledStateForGoBarButtonItem()
     }
 }
 
