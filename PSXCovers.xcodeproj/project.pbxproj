@@ -118,8 +118,8 @@
 		ED42511424029BE1005032DB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				EDAB7EA52402BE74004D182E /* KeyboardConstraintAdjuster.swift */,
-				ED4250FF24029639005032DB /* Main.storyboard */,
+				EDAB7EA72402CA10004D182E /* Helpers */,
+				EDAB7EA82402CA1C004D182E /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -130,6 +130,22 @@
 				EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EDAB7EA72402CA10004D182E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDAB7EA52402BE74004D182E /* KeyboardConstraintAdjuster.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EDAB7EA82402CA1C004D182E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED4250FF24029639005032DB /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
