@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		ED4250FA24029639005032DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4250F924029639005032DB /* AppDelegate.swift */; };
-		ED4250FC24029639005032DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4250FB24029639005032DB /* SceneDelegate.swift */; };
-		ED4250FE24029639005032DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4250FD24029639005032DB /* ViewController.swift */; };
+		ED4250FE24029639005032DB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4250FD24029639005032DB /* StartViewController.swift */; };
 		ED42510124029639005032DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4250FF24029639005032DB /* Main.storyboard */; };
 		ED4251032402963D005032DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED4251022402963D005032DB /* Assets.xcassets */; };
 		ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4251042402963D005032DB /* LaunchScreen.storyboard */; };
+		ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED42510D24029B55005032DB /* GameURLSelectorView.xib */; };
+		ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42511524029F59005032DB /* GameURLSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ED4250F624029639005032DB /* PSXCovers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSXCovers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4250F924029639005032DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED4250FB24029639005032DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ED4250FD24029639005032DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED4250FD24029639005032DB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		ED42510024029639005032DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED4251022402963D005032DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED4251052402963D005032DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED4251072402963D005032DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED42510D24029B55005032DB /* GameURLSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameURLSelectorView.xib; sourceTree = "<group>"; };
+		ED42511524029F59005032DB /* GameURLSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,64 @@
 		ED4250F824029639005032DB /* PSXCovers */ = {
 			isa = PBXGroup;
 			children = (
+				ED42511424029BE1005032DB /* Shared */,
+				ED42511024029BA0005032DB /* Start */,
+				ED42510F24029B5E005032DB /* Supporting files */,
+			);
+			path = PSXCovers;
+			sourceTree = "<group>";
+		};
+		ED42510F24029B5E005032DB /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
 				ED4250F924029639005032DB /* AppDelegate.swift */,
-				ED4250FB24029639005032DB /* SceneDelegate.swift */,
-				ED4250FD24029639005032DB /* ViewController.swift */,
-				ED4250FF24029639005032DB /* Main.storyboard */,
 				ED4251022402963D005032DB /* Assets.xcassets */,
 				ED4251042402963D005032DB /* LaunchScreen.storyboard */,
 				ED4251072402963D005032DB /* Info.plist */,
 			);
-			path = PSXCovers;
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		ED42511024029BA0005032DB /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				ED42511324029BBF005032DB /* Controllers */,
+				ED42511124029BB9005032DB /* Models */,
+				ED42511224029BBC005032DB /* Views */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		ED42511124029BB9005032DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ED42511224029BBC005032DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED42510D24029B55005032DB /* GameURLSelectorView.xib */,
+				ED42511524029F59005032DB /* GameURLSelectorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED42511324029BBF005032DB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED4250FD24029639005032DB /* StartViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ED42511424029BE1005032DB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				ED4250FF24029639005032DB /* Main.storyboard */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */,
+				ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */,
 				ED4251032402963D005032DB /* Assets.xcassets in Resources */,
 				ED42510124029639005032DB /* Main.storyboard in Resources */,
 			);
@@ -138,9 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED4250FE24029639005032DB /* ViewController.swift in Sources */,
+				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
+				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
 				ED4250FA24029639005032DB /* AppDelegate.swift in Sources */,
-				ED4250FC24029639005032DB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PSXCovers/Info.plist;
+				INFOPLIST_FILE = "PSXCovers/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -293,7 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.digitalby.PSXCovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PSXCovers/Info.plist;
+				INFOPLIST_FILE = "PSXCovers/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.digitalby.PSXCovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
