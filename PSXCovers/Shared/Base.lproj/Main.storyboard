@@ -38,6 +38,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="gameURLSelectorView" destination="G1o-Vm-CfV" id="ON2-py-CgK"/>
+                        <outlet property="gameURLSelectorViewBottomConstraint" destination="1sH-Uy-lWp" id="XkK-AH-CLs"/>
                         <outlet property="goBarButtonItem" destination="v2s-g3-PfC" id="L0J-zL-FgL"/>
                     </connections>
                 </viewController>

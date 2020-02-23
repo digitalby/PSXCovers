@@ -12,7 +12,9 @@ class StartViewController: UIViewController {
 
     @IBOutlet var gameURLSelectorView: GameURLSelectorView!
     @IBOutlet var goBarButtonItem: UIBarButtonItem!
+    @IBOutlet var gameURLSelectorViewBottomConstraint: NSLayoutConstraint!
 
+    private var keyboardConstraintAdjuster: KeyboardConstraintAdjuster!
     private let exampleURL = "http://psxdatacenter.com/games/P/R/SCES-00001.html"
 
     override func viewDidLoad() {
@@ -26,6 +28,10 @@ class StartViewController: UIViewController {
                 self.updateEnabledStateForGoBarButtonItem()
         }
         updateEnabledStateForGoBarButtonItem()
+        keyboardConstraintAdjuster = KeyboardConstraintAdjuster(
+            bottomConstraint: gameURLSelectorViewBottomConstraint,
+            viewToAdjust: gameURLSelectorView
+        )
     }
 
     deinit {
