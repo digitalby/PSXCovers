@@ -64,6 +64,22 @@ extension StartViewController: GameURLSelectorViewDelegate {
 
 //MARK: - Network request
 extension StartViewController {
+    func performRequest(urlString: String, completion: @escaping (AFError?) -> Void) {
+        Alamofire.request(urlString).validate().responseString { responseString in
+            if let error = responseString.result.error as? AFError {
+                completion(error)
+                return
+            }
+            guard let data = responseString.result.value else {
+                let error = AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .isoLatin1))
+                completion(error)
+                return
+            }
+            print(data)
+        }
+        completion(nil)
+    }
+
     func makeWaitAlert() -> UIAlertController {
         let alert = UIAlertController(title: "Please wait, working...", message: nil, preferredStyle: .alert)
         let throbber = UIActivityIndicatorView(style: .medium)
@@ -77,20 +93,17 @@ extension StartViewController {
         return alert
     }
 
-    func makeRequest(urlString: String) {
+    func doFetch(urlString: String) {
         let alert = makeWaitAlert()
         present(alert, animated: true) { [unowned self] in
-            print("Request started!")
-            self.requestCompleted(waitAlert: alert)
-        }
-    }
-
-    func requestCompleted(waitAlert: UIAlertController) {
-        waitAlert.dismiss(animated: true) { [unowned self] in
-            let alert = UIAlertController(title: "Done", message: "Request completed!", preferredStyle: .alert)
-            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(buttonOk)
-            self.present(alert, animated: true)
+            self.performRequest(urlString: urlString) { [unowned self] error in
+                if let error = error {
+                    print(error)
+                } else {
+                    alert.dismiss(animated: true)
+                    self.updateEnabledStateForGoBarButtonItem()
+                }
+            }
         }
     }
 }
@@ -103,6 +116,7 @@ extension StartViewController {
             !urlString.isEmpty
         else { return }
         gameURLSelectorView.gameURLField.resignFirstResponder()
-        makeRequest(urlString: urlString)
+        goBarButtonItem.isEnabled = false
+        doFetch(urlString: urlString)
     }
 }
