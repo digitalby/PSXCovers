@@ -83,10 +83,9 @@ extension StartViewController {
             self.performRequest(urlString: urlString) { [unowned self] error in
                 if let error = error {
                     print(error)
-                } else {
-                    alert.dismiss(animated: true)
-                    self.updateEnabledStateForGoBarButtonItem()
                 }
+                alert.dismiss(animated: true)
+                self.updateEnabledStateForGoBarButtonItem()
             }
         }
     }
