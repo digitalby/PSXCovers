@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 class GameHTMLDownloader {
-    func downloadGameHTML(urlString: String, completion: @escaping (String?, Error?) -> Void) {
-        Alamofire.request(urlString).validate().responseString { responseString in
+    func downloadGameHTML(at url: URL, completion: @escaping (String?, Error?) -> Void) {
+        Alamofire.request(url).validate().responseString { responseString in
             if let error = responseString.result.error {
                 completion(nil, error)
                 return

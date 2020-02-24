@@ -23,6 +23,7 @@
 		EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */; };
 		EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */; };
 		EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */; };
+		EDB77B5924046A20003F358A /* GameURLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5824046A20003F358A /* GameURLValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,7 @@
 		EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
 		EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WaitAlert.swift"; sourceTree = "<group>"; };
 		EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHTMLDownloader.swift; sourceTree = "<group>"; };
+		EDB77B5824046A20003F358A /* GameURLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */,
+				EDB77B5824046A20003F358A /* GameURLValidator.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
 				ED4250FA24029639005032DB /* AppDelegate.swift in Sources */,
+				EDB77B5924046A20003F358A /* GameURLValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

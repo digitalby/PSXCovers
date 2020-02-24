@@ -25,7 +25,7 @@ class StartViewController: UIViewController {
             object: gameURLSelectorView.gameURLField,
             queue: OperationQueue.main
         ) { [unowned self] _ in
-                self.updateEnabledStateForGoBarButtonItem()
+            self.updateEnabledStateForGoBarButtonItem()
         }
         updateEnabledStateForGoBarButtonItem()
         keyboardConstraintAdjuster = KeyboardConstraintAdjuster(
@@ -60,11 +60,11 @@ extension StartViewController: GameURLSelectorViewDelegate {
 
 //MARK: - Network request
 extension StartViewController {
-    func doFetch(urlString: String) {
+    func doFetch(at psxGameURL: URL) {
         let alert = UIAlertController.makeWaitAlert()
         let tempDownloader = GameHTMLDownloader()
         present(alert, animated: true) { [unowned self] in
-            tempDownloader.downloadGameHTML(urlString: urlString) { [unowned self] data, error in
+            tempDownloader.downloadGameHTML(at: psxGameURL) { [unowned self] data, error in
                 if let error = error {
                     print(error)
                 } else if let data = data {
@@ -80,12 +80,33 @@ extension StartViewController {
 //MARK: - Actions
 extension StartViewController {
     @IBAction func didSelectGoBarButtonItem(_ sender: Any) {
-        guard
-            let urlString = gameURLSelectorView.gameURLField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-            !urlString.isEmpty
-        else { return }
+        guard let urlString = gameURLSelectorView.gameURLField.text else {
+            updateEnabledStateForGoBarButtonItem()
+            return
+        }
         gameURLSelectorView.gameURLField.resignFirstResponder()
-        goBarButtonItem.isEnabled = false
-        doFetch(urlString: urlString)
+        do {
+            let psxGameURL = try GameURLValidator().makeValidatedPSXGameURL(urlString: urlString)
+            goBarButtonItem.isEnabled = false
+            doFetch(at: psxGameURL)
+        } catch let error as GameURLValidationError {
+            var message: String? = nil
+            switch error {
+            case .invalidURLString, .urlInitializationFailed, .urlComponentsInitializationFailed:
+                message = "You've provided an invalid link."
+            case .hostIsNotPSXDC:
+                message = "The link that you've provided is not a psxdatacenter.com link."
+            case .invalidPlatformSubpath:
+                message = "The link that you've provided is not for a PSX game."
+                    + "Please check your link, or try a different PSX game link."
+            case .invalidRegionSubpath, .invalidAlphabetGroupSubpath, .invalidPSXGameSubpath:
+                message = "The link that you've provided is not a valid PSX game link."
+                    + "Please check your link and try again."
+            }
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(buttonOk)
+            present(alert, animated: true)
+        } catch { return }
     }
 }
