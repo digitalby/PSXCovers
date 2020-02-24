@@ -16,7 +16,7 @@ class StartViewController: UIViewController {
     @IBOutlet var gameURLSelectorViewBottomConstraint: NSLayoutConstraint!
 
     private var keyboardConstraintAdjuster: KeyboardConstraintAdjuster!
-    private let exampleURL = "http://psxdatacenter.com/games/P/R/SCES-00001.html"
+    private let exampleURLString = "http://psxdatacenter.com/games/P/R/SCES-00001.html"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,18 +46,15 @@ class StartViewController: UIViewController {
 //MARK: - Text Field check
 extension StartViewController {
     func updateEnabledStateForGoBarButtonItem() {
-        let text = gameURLSelectorView.gameURLField.text
-        let trimmedText = text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let isEmpty = trimmedText?.count ?? 0 == 0
-
-        goBarButtonItem.isEnabled = !isEmpty
+        let isEmpty = gameURLSelectorView.gameURLField.text?.isEmptyOrWhitespace
+        goBarButtonItem.isEnabled = isEmpty == false
     }
 }
 
 //MARK: - Game URL Selector delegation
 extension StartViewController: GameURLSelectorViewDelegate {
     func didSelectUseAnExample() {
-        gameURLSelectorView.gameURLField.text = exampleURL
+        gameURLSelectorView.gameURLField.text = exampleURLString
         updateEnabledStateForGoBarButtonItem()
     }
 }
@@ -80,21 +77,8 @@ extension StartViewController {
         completion(nil)
     }
 
-    func makeWaitAlert() -> UIAlertController {
-        let alert = UIAlertController(title: "Please wait, working...", message: nil, preferredStyle: .alert)
-        let throbber = UIActivityIndicatorView(style: .medium)
-        throbber.startAnimating()
-        throbber.translatesAutoresizingMaskIntoConstraints = false
-        alert.view.addSubview(throbber)
-        NSLayoutConstraint.activate([
-            throbber.centerYAnchor.constraint(equalTo: alert.view.centerYAnchor),
-            throbber.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 16.0)
-        ])
-        return alert
-    }
-
     func doFetch(urlString: String) {
-        let alert = makeWaitAlert()
+        let alert = UIAlertController.makeWaitAlert()
         present(alert, animated: true) { [unowned self] in
             self.performRequest(urlString: urlString) { [unowned self] error in
                 if let error = error {

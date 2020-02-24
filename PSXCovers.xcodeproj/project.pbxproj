@@ -20,6 +20,8 @@
 		EDB77B3C2402D991003F358A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3A2402D991003F358A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDB77B3F2402D995003F358A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3E2402D995003F358A /* AlamofireImage.framework */; };
 		EDB77B402402D995003F358A /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3E2402D995003F358A /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */; };
+		EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +53,8 @@
 		EDAB7EA52402BE74004D182E /* KeyboardConstraintAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintAdjuster.swift; sourceTree = "<group>"; };
 		EDB77B3A2402D991003F358A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EDB77B3E2402D995003F358A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
+		EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WaitAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 		ED42511424029BE1005032DB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EDB77B4C24044A24003F358A /* Extensions */,
 				EDAB7EA72402CA10004D182E /* Helpers */,
 				EDAB7EA82402CA1C004D182E /* Views */,
 			);
@@ -179,6 +184,31 @@
 				EDB77B3A2402D991003F358A /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDB77B4C24044A24003F358A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B4D24044A2A003F358A /* StringEx */,
+				EDB77B5224044C09003F358A /* UIAlertControllerEx */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EDB77B4D24044A2A003F358A /* StringEx */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */,
+			);
+			path = StringEx;
+			sourceTree = "<group>";
+		};
+		EDB77B5224044C09003F358A /* UIAlertControllerEx */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */,
+			);
+			path = UIAlertControllerEx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
+				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintAdjuster.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
