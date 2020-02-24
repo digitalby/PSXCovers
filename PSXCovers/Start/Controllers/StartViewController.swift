@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class StartViewController: UIViewController {
 
@@ -61,28 +60,15 @@ extension StartViewController: GameURLSelectorViewDelegate {
 
 //MARK: - Network request
 extension StartViewController {
-    func performRequest(urlString: String, completion: @escaping (AFError?) -> Void) {
-        Alamofire.request(urlString).validate().responseString { responseString in
-            if let error = responseString.result.error as? AFError {
-                completion(error)
-                return
-            }
-            guard let data = responseString.result.value else {
-                let error = AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .isoLatin1))
-                completion(error)
-                return
-            }
-            print(data)
-        }
-        completion(nil)
-    }
-
     func doFetch(urlString: String) {
         let alert = UIAlertController.makeWaitAlert()
+        let tempDownloader = GameHTMLDownloader()
         present(alert, animated: true) { [unowned self] in
-            self.performRequest(urlString: urlString) { [unowned self] error in
+            tempDownloader.downloadGameHTML(urlString: urlString) { [unowned self] data, error in
                 if let error = error {
                     print(error)
+                } else if let data = data {
+                    print(data)
                 }
                 alert.dismiss(animated: true)
                 self.updateEnabledStateForGoBarButtonItem()
