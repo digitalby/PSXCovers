@@ -63,16 +63,20 @@ extension StartViewController: GameURLSelectorViewDelegate {
 //MARK: - Network request
 extension StartViewController {
     func downloadGame(at psxGameURL: URL) {
-        let alert = UIAlertController.makeWaitAlert()
-        present(alert, animated: true) { [unowned self] in
+        let waitAlert = UIAlertController.makeWaitAlert()
+        present(waitAlert, animated: true) { [unowned self] in
             GameHTMLDownloader().downloadGameHTML(at: psxGameURL) { [unowned self] data, error in
                 if let error = error {
-                    print(error)
+                    waitAlert.dismiss(animated: true) { [unowned self] in
+                        let alert = NetworkErrorHandler().makeAlertController(for: error)
+                        self.present(alert, animated: true)
+                    }
                 } else if let data = data {
                     self.parseGame(html: data)
                 }
-                alert.dismiss(animated: true)
-                self.updateEnabledStateForGoBarButtonItem()
+                waitAlert.dismiss(animated: true) { [unowned self] in
+                    self.updateEnabledStateForGoBarButtonItem()
+                }
             }
         }
     }
@@ -93,7 +97,6 @@ extension StartViewController {
                 let senderViewController = sender as? StartViewController,
                 let game = senderViewController.game
                 else { return }
-
             destinationViewController.game = game
         default:
             return
@@ -114,22 +117,7 @@ extension StartViewController {
             goBarButtonItem.isEnabled = false
             downloadGame(at: psxGameURL)
         } catch let error as GameURLValidationError {
-            var message: String? = nil
-            switch error {
-            case .invalidURLString, .urlInitializationFailed, .urlComponentsInitializationFailed:
-                message = "You've provided an invalid link."
-            case .hostIsNotPSXDC:
-                message = "The link that you've provided is not a psxdatacenter.com link."
-            case .invalidPlatformSubpath:
-                message = "The link that you've provided is not for a PSX game."
-                    + "Please check your link, or try a different PSX game link."
-            case .invalidRegionSubpath, .invalidAlphabetGroupSubpath, .invalidPSXGameSubpath:
-                message = "The link that you've provided is not a valid PSX game link."
-                    + "Please check your link and try again."
-            }
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(buttonOk)
+            let alert = ValidationErrorHandler().makeAlertController(for: error)
             present(alert, animated: true)
         } catch { return }
     }

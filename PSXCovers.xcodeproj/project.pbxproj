@@ -31,6 +31,8 @@
 		EDB77B6724055AFC003F358A /* HTMLReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B6524055AFC003F358A /* HTMLReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDB77B692405693F003F358A /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B682405693F003F358A /* Region.swift */; };
 		EDB77B6F24056C8C003F358A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6E24056C8B003F358A /* GameViewController.swift */; };
+		EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B7024058015003F358A /* ValidationErrorHandler.swift */; };
+		EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B722405809E003F358A /* NetworkErrorHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +75,8 @@
 		EDB77B6524055AFC003F358A /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
 		EDB77B682405693F003F358A /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		EDB77B6E24056C8B003F358A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		EDB77B7024058015003F358A /* ValidationErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorHandler.swift; sourceTree = "<group>"; };
+		EDB77B722405809E003F358A /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +139,6 @@
 				EDB77B5524045DFB003F358A /* Network */,
 				EDAB7EA22402B45D004D182E /* Protocols */,
 				ED42511324029BBF005032DB /* Controllers */,
-				ED42511124029BB9005032DB /* Models */,
 				ED42511224029BBC005032DB /* Views */,
 			);
 			path = Start;
@@ -173,6 +176,7 @@
 			children = (
 				EDB77B4C24044A24003F358A /* Extensions */,
 				EDAB7EA72402CA10004D182E /* Helpers */,
+				ED42511124029BB9005032DB /* Models */,
 				EDAB7EA82402CA1C004D182E /* Views */,
 			);
 			path = Shared;
@@ -250,6 +254,8 @@
 			children = (
 				EDB77B5824046A20003F358A /* GameURLValidator.swift */,
 				EDB77B5B240544D2003F358A /* GameHTMLParser.swift */,
+				EDB77B7024058015003F358A /* ValidationErrorHandler.swift */,
+				EDB77B722405809E003F358A /* NetworkErrorHandler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -389,12 +395,14 @@
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintAdjuster.swift in Sources */,
+				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
 				EDB77B6224055076003F358A /* Game.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
 				EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */,
+				EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */,
 				ED4250FA24029639005032DB /* AppDelegate.swift in Sources */,
 				EDB77B5924046A20003F358A /* GameURLValidator.swift in Sources */,
 			);
