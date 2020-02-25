@@ -17,6 +17,8 @@ class StartViewController: UIViewController {
     private var keyboardConstraintAdjuster: KeyboardConstraintAdjuster!
     private let exampleURLString = "http://psxdatacenter.com/games/P/R/SCES-00001.html"
 
+    private var game: Game? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         gameURLSelectorView.delegate = self
@@ -76,8 +78,26 @@ extension StartViewController {
     }
 
     func parseGame(html: String) {
-        let game = GameHTMLParser().makeGame(fromHTML: html)
-        dump(game)
+        game = GameHTMLParser().makeGame(fromHTML: html)
+        performSegue(withIdentifier: "ShowGameFromURL", sender: self)
+    }
+}
+
+//MARK: - Segues
+extension StartViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowGameFromURL":
+            guard
+                let destinationViewController = segue.destination as? GameViewController,
+                let senderViewController = sender as? StartViewController,
+                let game = senderViewController.game
+                else { return }
+
+            destinationViewController.game = game
+        default:
+            return
+        }
     }
 }
 

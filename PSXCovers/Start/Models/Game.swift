@@ -11,3 +11,15 @@ struct Game {
     let region: Region?
     let covers: [Cover]
 }
+
+extension Game {
+    var titleWithRegion: String {
+        var title = self.title
+        if
+            !title.isEmptyOrWhitespace,
+            let regionString = region?.stringValue {
+            title += " (\(regionString))"
+        }
+        return title
+    }
+}
