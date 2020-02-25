@@ -115,6 +115,7 @@
 		ED42511024029BA0005032DB /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				EDB77B5A24054319003F358A /* Helpers */,
 				EDB77B5524045DFB003F358A /* Network */,
 				EDAB7EA22402B45D004D182E /* Protocols */,
 				ED42511324029BBF005032DB /* Controllers */,
@@ -220,9 +221,16 @@
 			isa = PBXGroup;
 			children = (
 				EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */,
-				EDB77B5824046A20003F358A /* GameURLValidator.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EDB77B5A24054319003F358A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B5824046A20003F358A /* GameURLValidator.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

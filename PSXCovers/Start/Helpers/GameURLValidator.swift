@@ -21,10 +21,10 @@ enum GameURLValidationError: Error {
 
 class GameURLValidator {
 
-    private var hostPattern: String { #"(www\.)?psxdatacenter\.com"# }
-    private var pathPSXPattern: String { #"\/games"# }
-    private var pathRegionPattern: String { pathPSXPattern + #"\/[JPU]"# }
-    private var pathAlphabetGroupPattern: String { pathRegionPattern + #"\/(0-9)|[A-Z]"# }
+    fileprivate var hostPattern: String { #"(www\.)?psxdatacenter\.com"# }
+    fileprivate var pathPSXPattern: String { #"\/games"# }
+    fileprivate var pathRegionPattern: String { pathPSXPattern + #"\/[JPU]"# }
+    fileprivate var pathAlphabetGroupPattern: String { pathRegionPattern + #"\/(0-9)|[A-Z]"# }
     //Part 1 - Media: S = CD/DVD.
     //Next-gen consoles use U = UMD, B = Blu-ray, N = Network.
     //Part 2 - Publisher: C = Sony published, L = licensed.
@@ -38,10 +38,10 @@ class GameURLValidator {
     //ESPM is for some Sony Music Entertainment discs (NTSC-J).
     //Some NTSC-J games use completely different 4-letter codes.
     //Lightspan discs (NTSC-U) use LSP-\d{6} pattern.
-    private var gamePartEUAlphaCodesPattern: String { #"((S[CL]E[SD])|(PBPX))-\d{5}"# }
-    private var gamePartUSAlphaCodesPattern: String { #"(((S[CLP]US)|(PBPX))-\d{5})|(LSP-\d{6})"# }
-    private var gamePartJPAlphaCodesPattern: String { #"(([PS][ACIL][BPKZ][ADMSX])|(ESPM))-\d{5}"# }
-    private var pathGamePartNumberPattern: String {
+    fileprivate var gamePartEUAlphaCodesPattern: String { #"((S[CL]E[SD])|(PBPX))-\d{5}"# }
+    fileprivate var gamePartUSAlphaCodesPattern: String { #"(((S[CLP]US)|(PBPX))-\d{5})|(LSP-\d{6})"# }
+    fileprivate var gamePartJPAlphaCodesPattern: String { #"(([PS][ACIL][BPKZ][ADMSX])|(ESPM))-\d{5}"# }
+    fileprivate var pathGamePartNumberPattern: String {
         pathAlphabetGroupPattern
         + #"\/"#
         + "("
@@ -52,7 +52,7 @@ class GameURLValidator {
         + "(\(gamePartJPAlphaCodesPattern))"
         + ")"
     }
-    private var finalPattern: String { pathGamePartNumberPattern + #"(\.html?)?"# }
+    fileprivate var finalPattern: String { pathGamePartNumberPattern + #"(\.html?)?"# }
 
     func makeValidatedPSXGameURL(urlString: String) throws -> URL {
         //MARK: Init
