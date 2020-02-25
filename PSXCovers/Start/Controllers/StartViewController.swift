@@ -72,7 +72,7 @@ extension StartViewController {
                         self.present(alert, animated: true)
                     }
                 } else if let data = data {
-                    self.parseGame(html: data)
+                    self.parseGame(url: psxGameURL, html: data)
                 }
                 waitAlert.dismiss(animated: true) { [unowned self] in
                     self.updateEnabledStateForGoBarButtonItem()
@@ -81,8 +81,8 @@ extension StartViewController {
         }
     }
 
-    func parseGame(html: String) {
-        game = GameHTMLParser().makeGame(fromHTML: html)
+    func parseGame(url: URL, html: String) {
+        game = GameHTMLParser(gameURL: url).makeGame(fromHTML: html)
         performSegue(withIdentifier: "ShowGameFromURL", sender: self)
     }
 }

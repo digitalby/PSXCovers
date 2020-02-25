@@ -10,6 +10,12 @@ import Foundation
 import HTMLReader
 
 class GameHTMLParser {
+    let gameURL: URL
+
+    init(gameURL: URL) {
+        self.gameURL = gameURL
+    }
+
     func makeGame(fromHTML html: String) -> Game {
         let doc = HTMLDocument(string: html)
         let gameDescriptionTable = doc.firstNode(matchingSelector: "#table4")
@@ -40,10 +46,76 @@ class GameHTMLParser {
                 }
             }
         }
-        
-        
-        let game = Game(title: gameTitle, region: region, covers: [])
+
+        let gameCoversTables = doc.nodes(matchingSelector: "#table28")
+        let gameDiscTables = doc.nodes(matchingSelector: "#table29")
+        var covers = gameCoversTables.flatMap {
+            getCovers(fromTable: $0)
+        }
+        covers.append(contentsOf: gameDiscTables.flatMap {
+            getCovers(fromTable: $0)
+        })
+
+        let game = Game(url: gameURL, title: gameTitle, region: region, covers: covers)
         return game
     }
 }
 
+//MARK: - Helpers
+private extension GameHTMLParser {
+    func getCovers(fromTable node: HTMLNode) -> [Cover] {
+        var array = [Cover]()
+        guard let tbody = node.firstNode(matchingSelector: "tbody")
+            else { return array }
+        let rows = tbody.nodes(matchingSelector: "tr")
+        guard rows.count == 4
+            else { return array }
+
+        let categoryRow = rows[0]
+        let category = categoryRow
+            .firstNode(matchingSelector: "td")?
+            .textContent
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        let labelRow = rows[1]
+        let labelCols = labelRow.nodes(matchingSelector: "td")
+        let thumbnailRow = rows[2]
+        let thumbnailCols = thumbnailRow.nodes(matchingSelector: "td")
+        let labels = labelCols
+            .map { $0
+                .textContent
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+        }.filter { !$0.isEmpty }
+        let fullResLinks = thumbnailCols.flatMap { $0.nodes(matchingSelector: "a") }
+        let thumbnailImgs = fullResLinks.flatMap { $0.nodes(matchingSelector: "img") }
+        guard labels.count == thumbnailImgs.count else { return array }
+        let fullResHTMLHrefs = fullResLinks
+            .map { $0.attributes["href"] }
+            .map {
+                $0?.replacingOccurrences(
+                    of: #"\.html"#,
+                    with: #".jpg"#,
+                    options: [.regularExpression]
+                )
+        }
+        let thumbnailSrcs = thumbnailImgs.map { $0.attributes["src"] }
+        for i in 0..<labels.count {
+            var thumbnailURL: URL? = nil
+            var fullSizeURL: URL? = nil
+            if let thumbnailURLString = thumbnailSrcs[i] {
+                thumbnailURL = URL(string: thumbnailURLString, relativeTo: gameURL)
+            }
+            if let fullSizeURLString = fullResHTMLHrefs[i] {
+                fullSizeURL = URL(string: fullSizeURLString, relativeTo: gameURL)
+            }
+            let cover = Cover(
+                thumbnailImageURL: thumbnailURL?.absoluteURL,
+                fullSizeImageURL: fullSizeURL?.absoluteURL,
+                coverCategory: category,
+                coverLabel: labels[i]
+            )
+            array.append(cover)
+        }
+
+        return array
+    }
+}
