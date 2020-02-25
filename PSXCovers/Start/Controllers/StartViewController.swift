@@ -60,20 +60,24 @@ extension StartViewController: GameURLSelectorViewDelegate {
 
 //MARK: - Network request
 extension StartViewController {
-    func doFetch(at psxGameURL: URL) {
+    func downloadGame(at psxGameURL: URL) {
         let alert = UIAlertController.makeWaitAlert()
-        let tempDownloader = GameHTMLDownloader()
         present(alert, animated: true) { [unowned self] in
-            tempDownloader.downloadGameHTML(at: psxGameURL) { [unowned self] data, error in
+            GameHTMLDownloader().downloadGameHTML(at: psxGameURL) { [unowned self] data, error in
                 if let error = error {
                     print(error)
                 } else if let data = data {
-                    print(data)
+                    self.parseGame(html: data)
                 }
                 alert.dismiss(animated: true)
                 self.updateEnabledStateForGoBarButtonItem()
             }
         }
+    }
+
+    func parseGame(html: String) {
+        let game = GameHTMLParser().makeGame(fromHTML: html)
+        dump(game)
     }
 }
 
@@ -88,7 +92,7 @@ extension StartViewController {
         do {
             let psxGameURL = try GameURLValidator().makeValidatedPSXGameURL(urlString: urlString)
             goBarButtonItem.isEnabled = false
-            doFetch(at: psxGameURL)
+            downloadGame(at: psxGameURL)
         } catch let error as GameURLValidationError {
             var message: String? = nil
             switch error {

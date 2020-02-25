@@ -7,6 +7,7 @@
 //
 
 struct Game {
-    let name: String
-    let covers: [Cover] = []
+    let title: String
+    let region: Region?
+    let covers: [Cover]
 }

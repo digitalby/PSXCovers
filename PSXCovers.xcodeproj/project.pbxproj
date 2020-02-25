@@ -27,6 +27,9 @@
 		EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5B240544D2003F358A /* GameHTMLParser.swift */; };
 		EDB77B6224055076003F358A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6124055076003F358A /* Game.swift */; };
 		EDB77B6424055081003F358A /* Cover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6324055081003F358A /* Cover.swift */; };
+		EDB77B6624055AFC003F358A /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B6524055AFC003F358A /* HTMLReader.framework */; };
+		EDB77B6724055AFC003F358A /* HTMLReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B6524055AFC003F358A /* HTMLReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDB77B692405693F003F358A /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B682405693F003F358A /* Region.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +40,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EDB77B3C2402D991003F358A /* Alamofire.framework in Embed Frameworks */,
+				EDB77B6724055AFC003F358A /* HTMLReader.framework in Embed Frameworks */,
 				EDB77B402402D995003F358A /* AlamofireImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -65,6 +69,8 @@
 		EDB77B5B240544D2003F358A /* GameHTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHTMLParser.swift; sourceTree = "<group>"; };
 		EDB77B6124055076003F358A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EDB77B6324055081003F358A /* Cover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cover.swift; sourceTree = "<group>"; };
+		EDB77B6524055AFC003F358A /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
+		EDB77B682405693F003F358A /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB77B3B2402D991003F358A /* Alamofire.framework in Frameworks */,
+				EDB77B6624055AFC003F358A /* HTMLReader.framework in Frameworks */,
 				EDB77B3F2402D995003F358A /* AlamofireImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,8 +141,9 @@
 		ED42511124029BB9005032DB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EDB77B6124055076003F358A /* Game.swift */,
 				EDB77B6324055081003F358A /* Cover.swift */,
+				EDB77B6124055076003F358A /* Game.swift */,
+				EDB77B682405693F003F358A /* Region.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 		EDB77B392402D991003F358A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EDB77B6524055AFC003F358A /* HTMLReader.framework */,
 				EDB77B3E2402D995003F358A /* AlamofireImage.framework */,
 				EDB77B3A2402D991003F358A /* Alamofire.framework */,
 			);
@@ -322,6 +331,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/HTMLReader.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -343,6 +353,7 @@
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintAdjuster.swift in Sources */,
+				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
 				EDB77B6224055076003F358A /* Game.swift in Sources */,
