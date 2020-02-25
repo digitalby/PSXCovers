@@ -24,6 +24,9 @@
 		EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */; };
 		EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */; };
 		EDB77B5924046A20003F358A /* GameURLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5824046A20003F358A /* GameURLValidator.swift */; };
+		EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5B240544D2003F358A /* GameHTMLParser.swift */; };
+		EDB77B6224055076003F358A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6124055076003F358A /* Game.swift */; };
+		EDB77B6424055081003F358A /* Cover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6324055081003F358A /* Cover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +62,9 @@
 		EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WaitAlert.swift"; sourceTree = "<group>"; };
 		EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHTMLDownloader.swift; sourceTree = "<group>"; };
 		EDB77B5824046A20003F358A /* GameURLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLValidator.swift; sourceTree = "<group>"; };
+		EDB77B5B240544D2003F358A /* GameHTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHTMLParser.swift; sourceTree = "<group>"; };
+		EDB77B6124055076003F358A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EDB77B6324055081003F358A /* Cover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,8 @@
 		ED42511124029BB9005032DB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EDB77B6124055076003F358A /* Game.swift */,
+				EDB77B6324055081003F358A /* Cover.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB77B5824046A20003F358A /* GameURLValidator.swift */,
+				EDB77B5B240544D2003F358A /* GameHTMLParser.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -330,12 +339,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
+				EDB77B6424055081003F358A /* Cover.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintAdjuster.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
+				EDB77B6224055076003F358A /* Game.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
+				EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */,
 				ED4250FA24029639005032DB /* AppDelegate.swift in Sources */,
 				EDB77B5924046A20003F358A /* GameURLValidator.swift in Sources */,
 			);
