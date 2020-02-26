@@ -37,22 +37,19 @@ extension Game {
 
 //MARK: - Covers Helpers
 extension Game {
-    var sortedUniqueCoverCategories: [String] {
-        var coverCategories: [String] = []
-        for category in covers.map({ $0.coverCategory }) {
-            guard let category = category else { continue }
-            coverCategories.append(category)
-        }
+    var sortedUniqueCoverCategories: [String?] {
+        let coverCategories: [String?] = covers.map({ $0.coverCategory })
         let uniqueCoverCategories = Set(coverCategories)
-        return Array(uniqueCoverCategories).sorted()
+        return Array(uniqueCoverCategories).sorted { $0 ?? "" < $1 ?? "" }
     }
 
     var coversGroupedByCategory: [[Cover]] {
-        (sortedUniqueCoverCategories + [nil]).map { category in
+        sortedUniqueCoverCategories.map { category in
             let filteredCoverCategories = covers.filter { $0.coverCategory == category }
-            return filteredCoverCategories.sorted {
+            let sorted = filteredCoverCategories.sorted {
                 $0.coverCategory ?? "" < $1.coverCategory ?? ""
             }
+            return sorted
         }
     }
 }

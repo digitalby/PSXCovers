@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */; };
 		ED4250FA24029639005032DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4250F924029639005032DB /* AppDelegate.swift */; };
 		ED4250FE24029639005032DB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4250FD24029639005032DB /* StartViewController.swift */; };
 		ED42510124029639005032DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4250FF24029639005032DB /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverSectionHeader.swift; sourceTree = "<group>"; };
 		ED4250F624029639005032DB /* PSXCovers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSXCovers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4250F924029639005032DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED4250FD24029639005032DB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 		EDB77B6C24056C2A003F358A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintAdjuster.swift in Sources */,
+				ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */,
 				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,

@@ -15,22 +15,13 @@ class GameViewController: UICollectionViewController {
         super.viewDidLoad()
         guard let game = game else { return }
         title = game.titleWithRegion
-        print("\(game.titleWithRegion) has \(game.covers.count) cover(s):")
-        dump(game.covers)
-        print([String](repeating: "-", count: 12).joined())
-        #warning("WIP: Section titles are not displayed.")
-        dump(sectionTitles)
     }
 }
 
 //MARK: - Data Source
 extension GameViewController {
     var sectionedData: [[Cover]] { game?.coversGroupedByCategory ?? [[]] }
-    var sectionTitles: [String] { game?.sortedUniqueCoverCategories ?? [] }
-
-    override func indexTitles(for collectionView: UICollectionView) -> [String]? {
-        sectionTitles
-    }
+    var sectionTitles: [String?] { game?.sortedUniqueCoverCategories ?? [] }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         sectionedData.count
@@ -42,6 +33,26 @@ extension GameViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         collectionView.dequeueReusableCell(withReuseIdentifier: "CoverThumbnailCell", for: indexPath)
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard
+                let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: "CoverSectionHeader",
+                    for: indexPath
+                    ) as? CoverSectionHeader
+                else { fatalError() }
+            let section = indexPath.section
+            if (0..<sectionTitles.count).contains(section) {
+                header.label.text = sectionTitles[section]
+            }
+            return header
+        default:
+            assert(false)
+        }
     }
 }
 
