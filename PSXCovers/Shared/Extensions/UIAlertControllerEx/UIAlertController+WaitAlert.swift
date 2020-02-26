@@ -11,14 +11,15 @@ import UIKit
 extension UIAlertController {
     class func makeWaitAlert() -> Self {
         let alert = Self(title: "Please wait, working...", message: nil, preferredStyle: .alert)
-        let throbber = UIActivityIndicatorView(style: .medium)
-        throbber.startAnimating()
-        throbber.translatesAutoresizingMaskIntoConstraints = false
-        alert.view.addSubview(throbber)
-        NSLayoutConstraint.activate([
-            throbber.centerYAnchor.constraint(equalTo: alert.view.centerYAnchor),
-            throbber.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 16.0)
-        ])
+//FIXME: Throbber ommited because its placement has issues with Dynamic Type.
+//        let throbber = UIActivityIndicatorView(style: .medium)
+//        throbber.startAnimating()
+//        throbber.translatesAutoresizingMaskIntoConstraints = false
+//        alert.view.addSubview(throbber)
+//        NSLayoutConstraint.activate([
+//            throbber.centerYAnchor.constraint(equalTo: alert.view.centerYAnchor),
+//            throbber.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 16.0)
+//        ])
         return alert
     }
 }

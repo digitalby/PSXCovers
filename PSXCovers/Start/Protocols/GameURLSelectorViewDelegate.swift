@@ -10,4 +10,5 @@ import UIKit
 
 protocol GameURLSelectorViewDelegate: class {
     func didSelectUseAnExample()
+    func shouldReturnTextField() -> Bool
 }

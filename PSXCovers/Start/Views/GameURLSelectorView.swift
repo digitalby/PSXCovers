@@ -40,12 +40,20 @@ import UIKit
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        gameURLField.delegate = self
+    }
+}
+
+//MARK: - Text field delegate
+extension GameURLSelectorView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        delegate?.shouldReturnTextField() ?? true
     }
 }
 
 //MARK: - Actions
 extension GameURLSelectorView {
-
     @IBAction func didSelectUseAnExample(_ sender: Any) {
         delegate?.didSelectUseAnExample()
     }

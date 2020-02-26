@@ -54,6 +54,11 @@ extension StartViewController {
 
 //MARK: - Game URL Selector delegation
 extension StartViewController: GameURLSelectorViewDelegate {
+    func shouldReturnTextField() -> Bool {
+        prepareToDownloadGame()
+        return true
+    }
+
     func didSelectUseAnExample() {
         gameURLSelectorView.gameURLField.text = exampleURLString
         updateEnabledStateForGoBarButtonItem()
@@ -62,6 +67,22 @@ extension StartViewController: GameURLSelectorViewDelegate {
 
 //MARK: - Network request
 extension StartViewController {
+    func prepareToDownloadGame() {
+        gameURLSelectorView.gameURLField.resignFirstResponder()
+        guard let urlString = gameURLSelectorView.gameURLField.text, !urlString.isEmptyOrWhitespace else {
+            updateEnabledStateForGoBarButtonItem()
+            return
+        }
+        do {
+            let psxGameURL = try GameURLValidator().makeValidatedPSXGameURL(urlString: urlString)
+            goBarButtonItem.isEnabled = false
+            downloadGame(at: psxGameURL)
+        } catch let error as GameURLValidationError {
+            let alert = ValidationErrorHandler().makeAlertController(for: error)
+            present(alert, animated: true)
+        } catch { return }
+    }
+
     func downloadGame(at psxGameURL: URL) {
         let waitAlert = UIAlertController.makeWaitAlert()
         present(waitAlert, animated: true) { [unowned self] in
@@ -107,18 +128,6 @@ extension StartViewController {
 //MARK: - Actions
 extension StartViewController {
     @IBAction func didSelectGoBarButtonItem(_ sender: Any) {
-        guard let urlString = gameURLSelectorView.gameURLField.text else {
-            updateEnabledStateForGoBarButtonItem()
-            return
-        }
-        gameURLSelectorView.gameURLField.resignFirstResponder()
-        do {
-            let psxGameURL = try GameURLValidator().makeValidatedPSXGameURL(urlString: urlString)
-            goBarButtonItem.isEnabled = false
-            downloadGame(at: psxGameURL)
-        } catch let error as GameURLValidationError {
-            let alert = ValidationErrorHandler().makeAlertController(for: error)
-            present(alert, animated: true)
-        } catch { return }
+        prepareToDownloadGame()
     }
 }
