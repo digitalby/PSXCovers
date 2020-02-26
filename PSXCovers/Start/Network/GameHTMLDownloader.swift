@@ -10,13 +10,16 @@ import Foundation
 import Alamofire
 
 class GameHTMLDownloader {
+
+    static let session = Session()
+
     func downloadGameHTML(at url: URL, completion: @escaping (String?, Error?) -> Void) {
-        Alamofire.request(url).validate().responseString { responseString in
-            if let error = responseString.result.error {
+        GameHTMLDownloader.session.request(url).validate().responseString { string in
+            if let error = string.error {
                 completion(nil, error)
                 return
             }
-            guard let data = responseString.result.value else {
+            guard let data = string.value else {
                 let error = AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .isoLatin1))
                 completion(nil, error)
                 return

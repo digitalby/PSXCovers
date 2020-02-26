@@ -32,6 +32,8 @@ class NetworkErrorHandler {
                 }
             case .responseSerializationFailed(_):
                 message = "The response cannot be processed."
+            default:
+                message = error.localizedDescription
             }
         } else {
             message = error.localizedDescription

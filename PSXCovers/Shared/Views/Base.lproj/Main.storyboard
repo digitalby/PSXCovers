@@ -88,7 +88,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYa-Uq-LT9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962" y="139"/>
+            <point key="canvasLocation" x="1873" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VjI-Go-8Gu">
