@@ -32,7 +32,21 @@ extension GameViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCell(withReuseIdentifier: "CoverThumbnailCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "CoverThumbnailCell",
+            for: indexPath
+            ) as? CoverThumbnailCell
+            else { fatalError() }
+
+        cell.thumbnailImageView.image = UIImage(named: "placeholder_loading")
+        let section = indexPath.section
+        let row = indexPath.row
+        if (0..<sectionedData.count).contains(section),
+            (0..<sectionedData[section].count).contains(row) {
+            cell.label.text = sectionedData[section][row].coverLabel
+        }
+
+        return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
