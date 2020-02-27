@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIAlertController {
-    class func makeWaitAlert() -> Self {
+    class func makeWaitAlert(onCancel: (() -> Void)?) -> Self {
         let alert = Self(title: "Please wait, working...", message: nil, preferredStyle: .alert)
 //FIXME: Throbber ommited because its placement has issues with Dynamic Type.
 //        let throbber = UIActivityIndicatorView(style: .medium)
@@ -20,6 +20,14 @@ extension UIAlertController {
 //            throbber.centerYAnchor.constraint(equalTo: alert.view.centerYAnchor),
 //            throbber.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 16.0)
 //        ])
+        if let onCancel = onCancel {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                let action = UIAlertAction(title: "Cancel", style: .destructive) { _ in
+                    onCancel()
+                }
+                alert.addAction(action)
+            }
+        }
         return alert
     }
 }

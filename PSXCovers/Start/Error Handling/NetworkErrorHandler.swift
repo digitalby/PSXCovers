@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class NetworkErrorHandler {
-    func makeAlertController(for error: Error) -> UIAlertController {
+    func makeAlertController(for error: Error) -> UIAlertController? {
         var message: String? = nil
         if let error = error as? AFError {
             switch error {
@@ -32,6 +32,8 @@ class NetworkErrorHandler {
                 }
             case .responseSerializationFailed(_):
                 message = "The response cannot be processed."
+            case .explicitlyCancelled:
+                return nil
             default:
                 message = error.localizedDescription
             }

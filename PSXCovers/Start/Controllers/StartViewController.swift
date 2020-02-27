@@ -119,12 +119,14 @@ extension StartViewController {
 
     func downloadGame(at psxGameURL: URL) {
         goBarButtonItem.isEnabled = false
-        let waitAlert = UIAlertController.makeWaitAlert()
+        let waitAlert = UIAlertController.makeWaitAlert(onCancel: {
+            GameHTMLDownloader.session.cancelAllRequests()
+        })
         present(waitAlert, animated: true) { [unowned self] in
             GameHTMLDownloader().downloadGameHTML(at: psxGameURL) { [unowned self] data, error in
                 if let error = error {
                     waitAlert.dismiss(animated: true) { [unowned self] in
-                        let alert = NetworkErrorHandler().makeAlertController(for: error)
+                        guard let alert = NetworkErrorHandler().makeAlertController(for: error) else { return }
                         self.present(alert, animated: true)
                     }
                 } else if let data = data {
