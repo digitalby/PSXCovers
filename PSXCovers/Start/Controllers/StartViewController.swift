@@ -52,10 +52,9 @@ extension StartViewController {
 //MARK: - Pasteboard check
 extension StartViewController {
     func pasteFromPasteboardIfNeeded(pasteboardString: String) {
-        print(pasteboardString)
         do {
             let url = try GameURLValidator().makeValidatedPSXGameURL(urlString: pasteboardString)
-            let alert = UIAlertController(title: "Do you wish to use the link from your clipboard?", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "Do you wish to use the link from your clipboard?", preferredStyle: .alert)
             let buttonPasteAndGo = UIAlertAction(title: "Paste & Go", style: .default) { [unowned self] _ in
                 self.gameURLSelectorView.gameURLField.text = pasteboardString
                 self.downloadGame(at: url)
