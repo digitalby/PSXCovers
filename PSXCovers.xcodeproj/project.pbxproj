@@ -38,6 +38,8 @@
 		EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B7024058015003F358A /* ValidationErrorHandler.swift */; };
 		EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B722405809E003F358A /* NetworkErrorHandler.swift */; };
 		EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */; };
+		EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */; };
+		EDE92BA52407D42600B1ACC7 /* NoItemsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +89,8 @@
 		EDB77B7024058015003F358A /* ValidationErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorHandler.swift; sourceTree = "<group>"; };
 		EDB77B722405809E003F358A /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
 		EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityObserver.swift; sourceTree = "<group>"; };
+		EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemsView.swift; sourceTree = "<group>"; };
+		EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoItemsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +191,6 @@
 			children = (
 				EDB77B4C24044A24003F358A /* Extensions */,
 				ED42511124029BB9005032DB /* Models */,
-				EDAB7EA72402CA10004D182E /* Observers */,
 				EDAB7EA82402CA1C004D182E /* Views */,
 			);
 			path = Shared;
@@ -231,6 +234,7 @@
 			children = (
 				EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */,
 				ED6AC158240722090086D378 /* PasteboardObserver.swift */,
+				EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */,
 				ED6AC15C240722B90086D378 /* TextFieldObserver.swift */,
 			);
 			path = Observers;
@@ -242,14 +246,6 @@
 				EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		EDAB7EA72402CA10004D182E /* Observers */ = {
-			isa = PBXGroup;
-			children = (
-				EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */,
-			);
-			path = Observers;
 			sourceTree = "<group>";
 		};
 		EDAB7EA82402CA1C004D182E /* Views */ = {
@@ -325,6 +321,8 @@
 		EDB77B6C24056C2A003F358A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */,
+				EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */,
 				ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */,
 				ED2075832406F16900CDB8CB /* CoverThumbnailCell.swift */,
 			);
@@ -402,6 +400,7 @@
 				ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */,
 				ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */,
 				ED4251032402963D005032DB /* Assets.xcassets in Resources */,
+				EDE92BA52407D42600B1ACC7 /* NoItemsView.xib in Resources */,
 				ED42510124029639005032DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +451,7 @@
 				ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */,
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
 				EDB77B6224055076003F358A /* Game.swift in Sources */,
+				EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
 				EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */,
 				EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */,

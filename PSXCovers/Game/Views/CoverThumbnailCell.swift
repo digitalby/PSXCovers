@@ -8,7 +8,13 @@
 
 import UIKit
 
-class CoverThumbnailCell: UICollectionViewCell {
+@IBDesignable class CoverThumbnailCell: UICollectionViewCell {
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var label: UILabel!
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+       didSet {
+           layer.cornerRadius = cornerRadius
+           layer.masksToBounds = cornerRadius > 0
+       }
+    }
 }

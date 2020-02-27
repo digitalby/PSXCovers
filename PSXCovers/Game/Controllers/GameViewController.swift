@@ -8,30 +8,40 @@
 
 import UIKit
 
-class GameViewController: UICollectionViewController {
+class GameViewController: UIViewController {
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var noItemsView: NoItemsView!
+
     var game: Game? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let game = game else { return }
-        title = game.titleWithRegion
+
+        noItemsView.mainLabel.text = "There are no covers."
+        title = game?.titleWithRegion ?? ""
     }
 }
 
 //MARK: - Data Source
-extension GameViewController {
+extension GameViewController: UICollectionViewDataSource {
     var sectionedData: [[Cover]] { game?.coversGroupedByCategory ?? [[]] }
     var sectionTitles: [String?] { game?.sortedUniqueCoverCategories ?? [] }
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sectionedData.count
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        let count = sectionTitles.count
+        if count == 0 {
+            noItemsView?.isHidden = false
+        } else {
+            noItemsView?.isHidden = true
+        }
+        return count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         sectionedData[section].count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "CoverThumbnailCell",
             for: indexPath
@@ -49,7 +59,7 @@ extension GameViewController {
         return cell
     }
 
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             guard
@@ -71,6 +81,6 @@ extension GameViewController {
 }
 
 //MARK: - Delegate
-extension GameViewController {
+extension GameViewController: UICollectionViewDelegate {
 
 }
