@@ -16,8 +16,10 @@
 		ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4251042402963D005032DB /* LaunchScreen.storyboard */; };
 		ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED42510D24029B55005032DB /* GameURLSelectorView.xib */; };
 		ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42511524029F59005032DB /* GameURLSelectorView.swift */; };
+		ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC158240722090086D378 /* PasteboardObserver.swift */; };
+		ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC15C240722B90086D378 /* TextFieldObserver.swift */; };
 		EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */; };
-		EDAB7EA62402BE74004D182E /* KeyboardConstraintAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA52402BE74004D182E /* KeyboardConstraintAdjuster.swift */; };
+		EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */; };
 		EDB77B3B2402D991003F358A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3A2402D991003F358A /* Alamofire.framework */; };
 		EDB77B3C2402D991003F358A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3A2402D991003F358A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDB77B3F2402D995003F358A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3E2402D995003F358A /* AlamofireImage.framework */; };
@@ -35,6 +37,7 @@
 		EDB77B6F24056C8C003F358A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6E24056C8B003F358A /* GameViewController.swift */; };
 		EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B7024058015003F358A /* ValidationErrorHandler.swift */; };
 		EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B722405809E003F358A /* NetworkErrorHandler.swift */; };
+		EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,8 +68,10 @@
 		ED4251072402963D005032DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED42510D24029B55005032DB /* GameURLSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameURLSelectorView.xib; sourceTree = "<group>"; };
 		ED42511524029F59005032DB /* GameURLSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorView.swift; sourceTree = "<group>"; };
+		ED6AC158240722090086D378 /* PasteboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardObserver.swift; sourceTree = "<group>"; };
+		ED6AC15C240722B90086D378 /* TextFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObserver.swift; sourceTree = "<group>"; };
 		EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorViewDelegate.swift; sourceTree = "<group>"; };
-		EDAB7EA52402BE74004D182E /* KeyboardConstraintAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintAdjuster.swift; sourceTree = "<group>"; };
+		EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintObserver.swift; sourceTree = "<group>"; };
 		EDB77B3A2402D991003F358A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EDB77B3E2402D995003F358A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 		EDB77B6E24056C8B003F358A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EDB77B7024058015003F358A /* ValidationErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorHandler.swift; sourceTree = "<group>"; };
 		EDB77B722405809E003F358A /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
+		EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +145,9 @@
 		ED42511024029BA0005032DB /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				EDB77B5A24054319003F358A /* Helpers */,
+				ED6AC15A2407223B0086D378 /* Error Handling */,
 				EDB77B5524045DFB003F358A /* Network */,
+				ED6AC15B240722420086D378 /* Observers */,
 				EDAB7EA22402B45D004D182E /* Protocols */,
 				ED42511324029BBF005032DB /* Controllers */,
 				ED42511224029BBC005032DB /* Views */,
@@ -179,11 +186,54 @@
 			isa = PBXGroup;
 			children = (
 				EDB77B4C24044A24003F358A /* Extensions */,
-				EDAB7EA72402CA10004D182E /* Helpers */,
 				ED42511124029BB9005032DB /* Models */,
+				EDAB7EA72402CA10004D182E /* Observers */,
 				EDAB7EA82402CA1C004D182E /* Views */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		ED6AC1552407219C0086D378 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		ED6AC156240721B00086D378 /* Validate */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B5824046A20003F358A /* GameURLValidator.swift */,
+			);
+			path = Validate;
+			sourceTree = "<group>";
+		};
+		ED6AC157240721BF0086D378 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B5B240544D2003F358A /* GameHTMLParser.swift */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		ED6AC15A2407223B0086D378 /* Error Handling */ = {
+			isa = PBXGroup;
+			children = (
+				EDB77B7024058015003F358A /* ValidationErrorHandler.swift */,
+				EDB77B722405809E003F358A /* NetworkErrorHandler.swift */,
+			);
+			path = "Error Handling";
+			sourceTree = "<group>";
+		};
+		ED6AC15B240722420086D378 /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */,
+				ED6AC158240722090086D378 /* PasteboardObserver.swift */,
+				ED6AC15C240722B90086D378 /* TextFieldObserver.swift */,
+			);
+			path = Observers;
 			sourceTree = "<group>";
 		};
 		EDAB7EA22402B45D004D182E /* Protocols */ = {
@@ -194,12 +244,12 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		EDAB7EA72402CA10004D182E /* Helpers */ = {
+		EDAB7EA72402CA10004D182E /* Observers */ = {
 			isa = PBXGroup;
 			children = (
-				EDAB7EA52402BE74004D182E /* KeyboardConstraintAdjuster.swift */,
+				EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */,
 			);
-			path = Helpers;
+			path = Observers;
 			sourceTree = "<group>";
 		};
 		EDAB7EA82402CA1C004D182E /* Views */ = {
@@ -248,20 +298,11 @@
 		EDB77B5524045DFB003F358A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */,
+				ED6AC156240721B00086D378 /* Validate */,
+				ED6AC1552407219C0086D378 /* Download */,
+				ED6AC157240721BF0086D378 /* Parse */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		EDB77B5A24054319003F358A /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				EDB77B5824046A20003F358A /* GameURLValidator.swift */,
-				EDB77B5B240544D2003F358A /* GameHTMLParser.swift */,
-				EDB77B7024058015003F358A /* ValidationErrorHandler.swift */,
-				EDB77B722405809E003F358A /* NetworkErrorHandler.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		EDB77B6A24056C14003F358A /* Game */ = {
@@ -399,13 +440,16 @@
 				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
 				EDB77B6424055081003F358A /* Cover.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
+				EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
-				EDAB7EA62402BE74004D182E /* KeyboardConstraintAdjuster.swift in Sources */,
+				EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */,
 				ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */,
 				ED2075852406F16A00CDB8CB /* CoverThumbnailCell.swift in Sources */,
 				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
+				ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */,
+				ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */,
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
 				EDB77B6224055076003F358A /* Game.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,

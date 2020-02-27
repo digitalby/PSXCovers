@@ -1,5 +1,5 @@
 //
-//  KeyboardConstraintAdjuster.swift
+//  KeyboardConstraintObserver.swift
 //  MegaRemind
 //
 //  Created by Digital on 14/01/2020.
@@ -11,7 +11,7 @@ import UIKit
 /// Responsible for adjusting the Auto Layout bottom constraint of a view
 /// when the on-screen keyboard appears or disappears.
 /// - Copyright: digitalby
-class KeyboardConstraintAdjuster {
+class KeyboardConstraintObserver {
     /// The default duration of the constraint adjustment animation.
 /// - Copyright: digitalby
     let defaultDuration = 0.25
@@ -38,7 +38,7 @@ class KeyboardConstraintAdjuster {
 }
 
 //MARK: - Setup
-extension KeyboardConstraintAdjuster {
+extension KeyboardConstraintObserver {
     /// Initializes the adjuster, then calls the `setup` method with the specified parameters.
     /// - Parameters:
     ///   - bottomConstraint: The bottom constraint to be adjusted.
@@ -69,7 +69,7 @@ extension KeyboardConstraintAdjuster {
 }
 
 //MARK: - Obj-C constraint adjustment methods
-extension KeyboardConstraintAdjuster {
+extension KeyboardConstraintObserver {
     @objc func keyboardWillShow(_ notification: Notification) {
         guard let info = notification.userInfo else { return }
         guard let keyboardFrame = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
