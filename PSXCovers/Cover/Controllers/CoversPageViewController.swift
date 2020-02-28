@@ -14,6 +14,8 @@ class CoversPageViewController: UIPageViewController {
     var initialCoverIndex: Int!
     var flatCovers: [Cover] { game.coversGroupedByCategory.flatMap { $0 } }
 
+    var dismissTransition: DismissTransitionInteractor? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
@@ -34,6 +36,7 @@ extension CoversPageViewController {
             else { return nil }
 
         viewController.cover = cover
+        viewController.dismissTransition = dismissTransition
 
         return viewController
     }
@@ -77,5 +80,9 @@ extension CoversPageViewController: UIPageViewControllerDelegate {
 extension CoversPageViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         DismissAnimator()
+    }
+
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        dismissTransition?.hasStarted == true ? dismissTransition : nil
     }
 }

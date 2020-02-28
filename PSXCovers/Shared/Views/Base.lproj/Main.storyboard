@@ -186,8 +186,10 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx2-UE-6dE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <gestureRecognizers/>
                                     </imageView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="cx2-UE-6dE" secondAttribute="trailing" id="2pR-4P-9EY"/>
                                     <constraint firstItem="cx2-UE-6dE" firstAttribute="top" secondItem="cyl-N6-jsC" secondAttribute="top" id="7Lg-VM-3DK"/>
@@ -200,6 +202,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Nck-pb-4FT"/>
                                 <connections>
                                     <outlet property="delegate" destination="lLd-HU-X9b" id="k78-Bi-4d5"/>
+                                    <outletCollection property="gestureRecognizers" destination="dTf-kH-g8U" appends="YES" id="ErI-Gf-Mw9"/>
                                 </connections>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
@@ -207,9 +210,11 @@
                             </activityIndicatorView>
                             <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7F-ac-7CX" customClass="ImageErrorView" customModule="PSXCovers" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <gestureRecognizers/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADW-ap-GzZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem title="Done" style="done" id="cpZ-VA-Glw">
                                         <connections>
@@ -245,6 +250,7 @@
                         <outlet property="imageViewLeadingConstraint" destination="bdc-Bo-JnM" id="amw-pw-mFO"/>
                         <outlet property="imageViewTopConstraint" destination="7Lg-VM-3DK" id="ZB2-Mo-Mnh"/>
                         <outlet property="imageViewTrailingConstraint" destination="2pR-4P-9EY" id="YAy-AV-8WF"/>
+                        <outlet property="panGestureRecognizer" destination="dTf-kH-g8U" id="liL-Hm-0BA"/>
                         <outlet property="scrollView" destination="cyl-N6-jsC" id="l4Y-CT-KCj"/>
                         <outlet property="throbber" destination="yJM-5P-cAI" id="d3y-NI-D7a"/>
                         <outlet property="topToolbar" destination="ADW-ap-GzZ" id="azY-kQ-8Zb"/>
@@ -252,6 +258,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9my-h0-fCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="dTf-kH-g8U">
+                    <connections>
+                        <action selector="didRecognizePanGesture:" destination="lLd-HU-X9b" id="6P7-sc-yG6"/>
+                        <outlet property="delegate" destination="lLd-HU-X9b" id="4dI-Y5-Wg9"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2741" y="852"/>
         </scene>

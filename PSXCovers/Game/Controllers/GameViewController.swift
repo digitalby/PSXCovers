@@ -15,8 +15,8 @@ class GameViewController: UIViewController {
     let coverThumbnailDownloader = CoverThumbnailDownloader()
 
     var game: Game? = nil
-
     var selectedIndexPath: IndexPath? = nil
+    let destinationDismissTransition = DismissTransitionInteractor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,6 +126,7 @@ extension GameViewController {
             destination.game = game
             destination.initialCoverIndex = coverIndex
             destination.transitioningDelegate = destination
+            destination.dismissTransition = destinationDismissTransition
         default:
             return
         }

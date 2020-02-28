@@ -22,8 +22,12 @@ class CoverViewController: UIViewController {
     @IBOutlet var imageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet var imageViewTrailingConstraint: NSLayoutConstraint!
 
+    @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
+    
     var cover: Cover!
     let coverImageDownloader = CoverImageDownloader()
+
+    var dismissTransition: DismissTransitionInteractor? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +96,47 @@ extension CoverViewController: UIScrollViewDelegate {
 
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateImageViewConstraintsForSize(view.bounds.size)
+    }
+}
+
+//MARK: - Pan gesture recognizer
+extension CoverViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
+    }
+
+    @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {
+        let percentThreshold:CGFloat = 0.3
+
+        let location = sender.location(in: view)
+        print(location)
+        let translation = sender.translation(in: view)
+        print(translation)
+        let verticalMovement = translation.y / view.bounds.height
+        let downwardMovement = max(verticalMovement, 0.0)
+        let downwardMovementPercent = min(downwardMovement, 1.0)
+        let progress = downwardMovementPercent
+
+        guard let dismissTransition = dismissTransition else { return }
+
+        switch sender.state {
+        case .began:
+            dismissTransition.hasStarted = true
+            dismiss(animated: true, completion: nil)
+        case .changed:
+            dismissTransition.shouldFinish = progress > percentThreshold
+            dismissTransition.update(progress)
+        case .cancelled:
+            dismissTransition.hasStarted = false
+            dismissTransition.cancel()
+        case .ended:
+            dismissTransition.hasStarted = false
+            dismissTransition.shouldFinish ?
+                dismissTransition.finish() :
+                dismissTransition.cancel()
+        default:
+            break
+        }
     }
 }
 

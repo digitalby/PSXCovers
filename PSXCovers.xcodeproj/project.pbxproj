@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED09CF612409C3FD00A7E26F /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED09CF602409C3FD00A7E26F /* DismissAnimator.swift */; };
+		ED09CF632409CB6A00A7E26F /* DismissTransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED09CF622409CB6A00A7E26F /* DismissTransitionInteractor.swift */; };
 		ED1E67B824098A670089CCC3 /* ImageErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1E67B724098A670089CCC3 /* ImageErrorView.xib */; };
 		ED1E67BA240998450089CCC3 /* ImageErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E67B9240998450089CCC3 /* ImageErrorView.swift */; };
 		ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		ED09CF602409C3FD00A7E26F /* DismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
+		ED09CF622409CB6A00A7E26F /* DismissTransitionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissTransitionInteractor.swift; sourceTree = "<group>"; };
 		ED1E67B724098A670089CCC3 /* ImageErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageErrorView.xib; sourceTree = "<group>"; };
 		ED1E67B9240998450089CCC3 /* ImageErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorView.swift; sourceTree = "<group>"; };
 		ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverSectionHeader.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				ED1E67B724098A670089CCC3 /* ImageErrorView.xib */,
 				ED1E67B9240998450089CCC3 /* ImageErrorView.swift */,
 				ED09CF602409C3FD00A7E26F /* DismissAnimator.swift */,
+				ED09CF622409CB6A00A7E26F /* DismissTransitionInteractor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */,
 				ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */,
 				ED2075852406F16A00CDB8CB /* CoverThumbnailCell.swift in Sources */,
+				ED09CF632409CB6A00A7E26F /* DismissTransitionInteractor.swift in Sources */,
 				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
