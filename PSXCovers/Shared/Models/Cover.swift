@@ -15,6 +15,8 @@ struct Cover {
     let coverLabel: String?
 }
 
+extension Cover: Equatable { }
+
 extension Cover {
     var isMissing: Bool {
         let missingCoverURLString = "psxdatacenter.com/images/thumbs/none.jpg"

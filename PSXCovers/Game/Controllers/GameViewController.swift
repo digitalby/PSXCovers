@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
 
     var game: Game? = nil
 
-    var selectedCover: Cover? = nil
+    var selectedIndexPath: IndexPath? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +101,7 @@ extension GameViewController: UICollectionViewDelegate {
         let row = indexPath.row
         guard (0..<sectionedData.count).contains(section), (0..<sectionedData[section].count).contains(row) else { return }
         let cover = sectionedData[section][row]
-        selectedCover = cover
+        selectedIndexPath = indexPath
         if cover.thumbnailImageURL == nil && cover.fullSizeImageURL == nil {
             let alert = UIAlertController(title: "Error", message: "Can't load cover.", preferredStyle: .alert)
             let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -119,13 +119,24 @@ extension GameViewController {
         switch segue.identifier {
         case "PresentCover":
             guard
-                let destinationViewController = segue.destination as? CoversPageViewController,
-                let senderViewController = sender as? GameViewController,
-                let cover = senderViewController.selectedCover
+                let destination = segue.destination as? CoversPageViewController,
+                let indexPath = selectedIndexPath
                 else { return }
-            destinationViewController.cover = cover
+            let coverIndex = flattenIndexPath(indexPath)
+            destination.game = game
+            destination.initialCoverIndex = coverIndex
         default:
             return
         }
+    }
+
+    /// This method assumes the collection view is not empty and a valid index path was provided.
+    private func flattenIndexPath(_ indexPath: IndexPath) -> Int {
+        var sum = 0
+        for section in 0..<indexPath.section {
+            sum += collectionView.numberOfItems(inSection: section)
+        }
+        sum += indexPath.row
+        return sum
     }
 }

@@ -235,7 +235,7 @@
         <!--Covers Page View Controller-->
         <scene sceneID="2fU-LZ-QOV">
             <objects>
-                <pageViewController storyboardIdentifier="CoversPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="dWd-vq-DDR" customClass="CoversPageViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="CoversPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="dWd-vq-DDR" customClass="CoversPageViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VQ-Je-MVG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2741" y="139"/>
