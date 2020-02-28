@@ -12,6 +12,8 @@ class GameViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var noItemsView: NoItemsView!
 
+    let coverThumbnailDownloader = CoverThumbnailDownloader()
+
     var game: Game? = nil
 
     override func viewDidLoad() {
@@ -48,12 +50,21 @@ extension GameViewController: UICollectionViewDataSource {
             ) as? CoverThumbnailCell
             else { fatalError() }
 
-        cell.thumbnailImageView.image = UIImage(named: "placeholder_loading")
+        cell.thumbnailImageView.image = nil
         let section = indexPath.section
         let row = indexPath.row
         if (0..<sectionedData.count).contains(section),
             (0..<sectionedData[section].count).contains(row) {
-            cell.label.text = sectionedData[section][row].coverLabel
+            let cover = sectionedData[section][row]
+            cell.label.text = cover.coverLabel
+            if cover.thumbnailImageURL != nil {
+                cell.thumbnailImageView.image = UIImage(named: "placeholder_loading")
+                coverThumbnailDownloader.downloadThumbnail(for: cover) { image in
+                    cell.thumbnailImageView.image = image ?? UIImage(named: "placeholder_error")
+                }
+            } else {
+                cell.thumbnailImageView.image = UIImage(named: "placeholder_error")
+            }
         }
 
         return cell

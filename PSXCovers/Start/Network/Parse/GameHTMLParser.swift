@@ -86,9 +86,8 @@ private extension GameHTMLParser {
                 .trimmingCharacters(in: .whitespacesAndNewlines)
         }.filter { !$0.isEmpty }
         let fullResLinks = thumbnailCols.flatMap { $0.nodes(matchingSelector: "a") }
-        let thumbnailImgs = fullResLinks.flatMap { $0.nodes(matchingSelector: "img") }
-        guard labels.count == thumbnailImgs.count else { return array }
-        let fullResHTMLHrefs = fullResLinks
+        let thumbnailImgs = thumbnailCols.flatMap { $0.nodes(matchingSelector: "img") }
+        var fullResHTMLHrefs = fullResLinks
             .map { $0.attributes["href"] }
             .map {
                 $0?.replacingOccurrences(
@@ -98,6 +97,14 @@ private extension GameHTMLParser {
                 )
         }
         let thumbnailSrcs = thumbnailImgs.map { $0.attributes["src"] }
+        let delta = thumbnailSrcs.count - fullResHTMLHrefs.count
+        for _ in 0..<delta {
+            fullResHTMLHrefs.append(nil)
+        }
+        guard
+            labels.count == thumbnailSrcs.count,
+            labels.count == fullResHTMLHrefs.count
+        else { return array }
         for i in 0..<labels.count {
             var thumbnailURL: URL? = nil
             var fullSizeURL: URL? = nil

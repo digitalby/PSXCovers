@@ -16,6 +16,7 @@
 		ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4251042402963D005032DB /* LaunchScreen.storyboard */; };
 		ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED42510D24029B55005032DB /* GameURLSelectorView.xib */; };
 		ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42511524029F59005032DB /* GameURLSelectorView.swift */; };
+		ED5C304D240950140013CDEE /* CoverThumbnailDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */; };
 		ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC158240722090086D378 /* PasteboardObserver.swift */; };
 		ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC15C240722B90086D378 /* TextFieldObserver.swift */; };
 		EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */; };
@@ -70,6 +71,7 @@
 		ED4251072402963D005032DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED42510D24029B55005032DB /* GameURLSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameURLSelectorView.xib; sourceTree = "<group>"; };
 		ED42511524029F59005032DB /* GameURLSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorView.swift; sourceTree = "<group>"; };
+		ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverThumbnailDownloader.swift; sourceTree = "<group>"; };
 		ED6AC158240722090086D378 /* PasteboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardObserver.swift; sourceTree = "<group>"; };
 		ED6AC15C240722B90086D378 /* TextFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObserver.swift; sourceTree = "<group>"; };
 		EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorViewDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		ED5C304B24094FF10013CDEE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		ED6AC1552407219C0086D378 /* Download */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +314,7 @@
 		EDB77B6A24056C14003F358A /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				ED5C304B24094FF10013CDEE /* Network */,
 				EDB77B6B24056C24003F358A /* Models */,
 				EDB77B6C24056C2A003F358A /* Views */,
 				EDB77B6D24056C31003F358A /* Controllers */,
@@ -436,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB77B6F24056C8C003F358A /* GameViewController.swift in Sources */,
+				ED5C304D240950140013CDEE /* CoverThumbnailDownloader.swift in Sources */,
 				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
 				EDB77B6424055081003F358A /* Cover.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,

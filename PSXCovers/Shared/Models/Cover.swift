@@ -14,3 +14,13 @@ struct Cover {
     let coverCategory: String?
     let coverLabel: String?
 }
+
+extension Cover {
+    var isMissing: Bool {
+        let missingCoverURLString = "psxdatacenter.com/images/thumbs/none.jpg"
+        if thumbnailImageURL?.absoluteString.range(of: missingCoverURLString) == nil {
+            return false
+        }
+        return true
+    }
+}
