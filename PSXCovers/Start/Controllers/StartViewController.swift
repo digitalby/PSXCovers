@@ -23,6 +23,7 @@ class StartViewController: UIViewController {
     private let exampleURLString = "http://psxdatacenter.com/games/P/R/SCES-00001.html"
 
     private var game: Game? = nil
+    let gameHTMLDownloader = GameHTMLDownloader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,7 +123,7 @@ extension StartViewController {
             GameHTMLDownloader.session.cancelAllRequests()
         })
         present(waitAlert, animated: true) { [unowned self] in
-            GameHTMLDownloader().downloadGameHTML(at: psxGameURL) { [unowned self] data, error in
+            self.gameHTMLDownloader.downloadGameHTML(at: psxGameURL) { [unowned self] data, error in
                 if let error = error {
                     waitAlert.dismiss(animated: true) { [unowned self] in
                         guard let alert = NetworkErrorHandler().makeAlertController(for: error) else { return }

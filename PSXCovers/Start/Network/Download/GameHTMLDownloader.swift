@@ -11,12 +11,7 @@ import Alamofire
 
 class GameHTMLDownloader {
 
-    static let sessionConfig: URLSessionConfiguration = {
-        let config = URLSessionConfiguration.af.default
-        config.timeoutIntervalForResource = 30.0
-        return config
-    }()
-    static let session = Session(configuration: sessionConfig)
+    static let session = Session()
 
     func downloadGameHTML(at url: URL, completion: @escaping (String?, Error?) -> Void) {
         GameHTMLDownloader.session.request(url).validate().responseString { string in

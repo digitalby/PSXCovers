@@ -201,7 +201,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="trailing" secondItem="Fgq-on-07n" secondAttribute="trailing" id="3mT-er-Qjg"/>
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="58j-5i-llc"/>

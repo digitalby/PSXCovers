@@ -102,7 +102,7 @@ extension GameViewController: UICollectionViewDelegate {
         guard (0..<sectionedData.count).contains(section), (0..<sectionedData[section].count).contains(row) else { return }
         let cover = sectionedData[section][row]
         selectedCover = cover
-        if cover.thumbnailImageURL == nil || cover.fullSizeImageURL == nil {
+        if cover.thumbnailImageURL == nil && cover.fullSizeImageURL == nil {
             let alert = UIAlertController(title: "Error", message: "Can't load cover.", preferredStyle: .alert)
             let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(buttonOk)
