@@ -125,6 +125,7 @@ extension GameViewController {
             let coverIndex = flattenIndexPath(indexPath)
             destination.game = game
             destination.initialCoverIndex = coverIndex
+            destination.transitioningDelegate = destination
         default:
             return
         }

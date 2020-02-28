@@ -166,7 +166,7 @@
                     <connections>
                         <outlet property="collectionView" destination="T1P-qQ-u76" id="o8d-SC-l9N"/>
                         <outlet property="noItemsView" destination="Nfh-KK-j3g" id="ixr-Xt-PEi"/>
-                        <segue destination="dWd-vq-DDR" kind="presentation" identifier="PresentCover" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="EBr-fD-Wa3"/>
+                        <segue destination="dWd-vq-DDR" kind="presentation" identifier="PresentCover" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="EBr-fD-Wa3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCL-xc-WE3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -177,7 +177,7 @@
         <scene sceneID="db8-k2-jKE">
             <objects>
                 <viewController storyboardIdentifier="CoverViewController" id="lLd-HU-X9b" customClass="CoverViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wos-HX-yWs">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="wos-HX-yWs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

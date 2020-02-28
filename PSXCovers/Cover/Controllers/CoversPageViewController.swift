@@ -39,7 +39,7 @@ extension CoversPageViewController {
     }
 }
 
-//MARK: - Data Source
+//MARK: - Page Data Source
 extension CoversPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard
@@ -68,7 +68,14 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
     }
 }
 
-//MARK: - Delegate
+//MARK: - Page Delegate
 extension CoversPageViewController: UIPageViewControllerDelegate {
 
+}
+
+//MARK: - Transitioning Delegate
+extension CoversPageViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        DismissAnimator()
+    }
 }
