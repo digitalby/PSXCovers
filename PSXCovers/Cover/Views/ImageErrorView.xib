@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageErrorView" customModule="PSXCovers" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="kyx-X8-T98" id="555-NA-fL3"/>
+                <outlet property="errorLabel" destination="Jdx-A7-F1U" id="AAj-em-jeW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" contentMode="scaleToFill" id="kyx-X8-T98">
+            <rect key="frame" x="0.0" y="0.0" width="619" height="437"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accessory_error" translatesAutoresizingMaskIntoConstraints="NO" id="6aU-Z7-PI2">
+                    <rect key="frame" x="261.5" y="154.5" width="96" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="96" id="PHY-zu-NBK"/>
+                        <constraint firstAttribute="height" constant="96" id="ra4-EW-J5F"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-A7-F1U">
+                    <rect key="frame" x="0.0" y="258.5" width="619" height="21.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <size key="shadowOffset" width="1" height="1"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" notEnabled="YES"/>
+            </accessibility>
+            <constraints>
+                <constraint firstItem="Jdx-A7-F1U" firstAttribute="leading" secondItem="1Rq-eb-Ksh" secondAttribute="leading" id="3Ec-cx-yMH"/>
+                <constraint firstItem="6aU-Z7-PI2" firstAttribute="centerX" secondItem="kyx-X8-T98" secondAttribute="centerX" id="8bD-X9-vyX"/>
+                <constraint firstItem="6aU-Z7-PI2" firstAttribute="centerY" secondItem="kyx-X8-T98" secondAttribute="centerY" constant="-16" id="DzJ-iJ-pWu"/>
+                <constraint firstItem="Jdx-A7-F1U" firstAttribute="top" secondItem="6aU-Z7-PI2" secondAttribute="bottom" constant="8" id="eFL-Ud-0hB"/>
+                <constraint firstItem="Jdx-A7-F1U" firstAttribute="trailing" secondItem="1Rq-eb-Ksh" secondAttribute="trailing" id="hTm-ZT-IGF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="1Rq-eb-Ksh"/>
+            <point key="canvasLocation" x="215.21739130434784" y="124.88839285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="accessory_error" width="48" height="48"/>
+    </resources>
+</document>

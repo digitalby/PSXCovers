@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED1E67B824098A670089CCC3 /* ImageErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED1E67B724098A670089CCC3 /* ImageErrorView.xib */; };
+		ED1E67BA240998450089CCC3 /* ImageErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E67B9240998450089CCC3 /* ImageErrorView.swift */; };
 		ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */; };
 		ED2075852406F16A00CDB8CB /* CoverThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2075832406F16900CDB8CB /* CoverThumbnailCell.swift */; };
 		ED4250FA24029639005032DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4250F924029639005032DB /* AppDelegate.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ED1E67B724098A670089CCC3 /* ImageErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageErrorView.xib; sourceTree = "<group>"; };
+		ED1E67B9240998450089CCC3 /* ImageErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorView.swift; sourceTree = "<group>"; };
 		ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverSectionHeader.swift; sourceTree = "<group>"; };
 		ED2075832406F16900CDB8CB /* CoverThumbnailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverThumbnailCell.swift; sourceTree = "<group>"; };
 		ED4250F624029639005032DB /* PSXCovers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSXCovers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED1E67B42409895B0089CCC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED1E67B724098A670089CCC3 /* ImageErrorView.xib */,
+				ED1E67B9240998450089CCC3 /* ImageErrorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ED4250ED24029639005032DB = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				ED5C305524097EF30013CDEE /* Network */,
+				ED1E67B42409895B0089CCC3 /* Views */,
 				ED5C305024096D1B0013CDEE /* Controllers */,
 			);
 			path = Cover;
@@ -357,8 +371,8 @@
 		EDB77B6C24056C2A003F358A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */,
 				EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */,
+				EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */,
 				ED2075812406C02200CDB8CB /* CoverSectionHeader.swift */,
 				ED2075832406F16900CDB8CB /* CoverThumbnailCell.swift */,
 			);
@@ -435,6 +449,7 @@
 			files = (
 				ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */,
 				ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */,
+				ED1E67B824098A670089CCC3 /* ImageErrorView.xib in Resources */,
 				ED4251032402963D005032DB /* Assets.xcassets in Resources */,
 				EDE92BA52407D42600B1ACC7 /* NoItemsView.xib in Resources */,
 				ED42510124029639005032DB /* Main.storyboard in Resources */,
@@ -492,6 +507,7 @@
 				EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */,
 				ED5C305224096D350013CDEE /* CoverViewController.swift in Sources */,
 				ED5C305724097F070013CDEE /* CoverImageDownloader.swift in Sources */,
+				ED1E67BA240998450089CCC3 /* ImageErrorView.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
 				EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */,
 				EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */,

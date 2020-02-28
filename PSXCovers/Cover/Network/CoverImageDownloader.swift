@@ -11,7 +11,7 @@ import Alamofire
 
 class CoverImageDownloader {
     static let session = Session()
-    
+
     func downloadImage(for cover: Cover, completion: ((UIImage?)->())? = nil) {
         guard
             !cover.isMissing,
