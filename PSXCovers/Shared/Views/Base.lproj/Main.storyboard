@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EjO-n3-uda">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController title="Start" id="BYZ-38-t0r" customClass="StartViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1o-Vm-CfV" customClass="GameURLSelectorView" customModule="PSXCovers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="96" width="414" height="640"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -166,7 +166,7 @@
                     <connections>
                         <outlet property="collectionView" destination="T1P-qQ-u76" id="o8d-SC-l9N"/>
                         <outlet property="noItemsView" destination="Nfh-KK-j3g" id="ixr-Xt-PEi"/>
-                        <segue destination="lLd-HU-X9b" kind="presentation" identifier="PresentCover" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="YRf-SC-eHX"/>
+                        <segue destination="dWd-vq-DDR" kind="presentation" identifier="PresentCover" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="EBr-fD-Wa3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCL-xc-WE3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,37 +176,61 @@
         <!--Cover View Controller-->
         <scene sceneID="db8-k2-jKE">
             <objects>
-                <viewController id="lLd-HU-X9b" customClass="CoverViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoverViewController" id="lLd-HU-X9b" customClass="CoverViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wos-HX-yWs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx2-UE-6dE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx2-UE-6dE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
-                                <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="429.66666666666669" width="37" height="37"/>
                             </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADW-ap-GzZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                <items>
+                                    <barButtonItem title="Done" style="done" id="cpZ-VA-Glw">
+                                        <connections>
+                                            <action selector="didTapDone:" destination="lLd-HU-X9b" id="Dsu-VV-NSZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ADW-ap-GzZ" firstAttribute="trailing" secondItem="Fgq-on-07n" secondAttribute="trailing" id="3mT-er-Qjg"/>
+                            <constraint firstItem="ADW-ap-GzZ" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="7vY-zF-4R0"/>
                             <constraint firstItem="cx2-UE-6dE" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="HEJ-zI-3tq"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerX" secondItem="wos-HX-yWs" secondAttribute="centerX" id="R38-aA-WQa"/>
-                            <constraint firstItem="Fgq-on-07n" firstAttribute="bottom" secondItem="cx2-UE-6dE" secondAttribute="bottom" id="Rr7-IX-08P"/>
+                            <constraint firstAttribute="bottom" secondItem="cx2-UE-6dE" secondAttribute="bottom" id="Rr7-IX-08P"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerY" secondItem="wos-HX-yWs" secondAttribute="centerY" id="eFD-8F-rHz"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="cx2-UE-6dE" secondAttribute="trailing" id="mIu-G5-9SL"/>
-                            <constraint firstItem="cx2-UE-6dE" firstAttribute="top" secondItem="Fgq-on-07n" secondAttribute="top" id="otO-u6-Vne"/>
+                            <constraint firstItem="cx2-UE-6dE" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="otO-u6-Vne"/>
+                            <constraint firstItem="ADW-ap-GzZ" firstAttribute="bottom" secondItem="Fgq-on-07n" secondAttribute="top" constant="44" id="pDG-Zh-ld2"/>
+                            <constraint firstItem="ADW-ap-GzZ" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="reV-Ti-Yiy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fgq-on-07n"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="cx2-UE-6dE" id="Pti-o4-cZq"/>
                         <outlet property="throbber" destination="yJM-5P-cAI" id="d3y-NI-D7a"/>
+                        <outlet property="topToolbar" destination="ADW-ap-GzZ" id="azY-kQ-8Zb"/>
+                        <outlet property="topToolbarCloseItem" destination="cpZ-VA-Glw" id="HJJ-XO-hGX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9my-h0-fCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2843" y="139"/>
+            <point key="canvasLocation" x="2741" y="852"/>
+        </scene>
+        <!--Covers Page View Controller-->
+        <scene sceneID="2fU-LZ-QOV">
+            <objects>
+                <pageViewController storyboardIdentifier="CoversPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="dWd-vq-DDR" customClass="CoversPageViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VQ-Je-MVG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2741" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VjI-Go-8Gu">
@@ -214,7 +238,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EjO-n3-uda" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="brm-mm-cvb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

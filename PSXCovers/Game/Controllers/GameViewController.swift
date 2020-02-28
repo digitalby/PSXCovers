@@ -102,14 +102,15 @@ extension GameViewController: UICollectionViewDelegate {
         guard (0..<sectionedData.count).contains(section), (0..<sectionedData[section].count).contains(row) else { return }
         let cover = sectionedData[section][row]
         selectedCover = cover
-        if cover.thumbnailImageURL == nil || cover.fullSizeImageURL == nil {
-            let alert = UIAlertController(title: "Error", message: "Can't load cover.", preferredStyle: .alert)
+        if cover.isMissing {
+            let alert = UIAlertController(title: "Missing cover", message: "This cover is unavailable.\nYou can help by adding it to psxdatacenter.com", preferredStyle: .alert)
             let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(buttonOk)
             present(alert, animated: true)
             return
-        } else if cover.isMissing {
-            let alert = UIAlertController(title: "Missing cover", message: "This cover is unavailable.\nYou can help by adding it to psxdatacenter.com", preferredStyle: .alert)
+        }
+        if cover.thumbnailImageURL == nil || cover.fullSizeImageURL == nil {
+            let alert = UIAlertController(title: "Error", message: "Can't load cover.", preferredStyle: .alert)
             let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(buttonOk)
             present(alert, animated: true)
@@ -125,11 +126,11 @@ extension GameViewController {
         switch segue.identifier {
         case "PresentCover":
             guard
-                let destinationViewController = segue.destination as? CoverViewController,
+                let destinationViewController = segue.destination as? CoversPageViewController,
                 let senderViewController = sender as? GameViewController,
                 let cover = senderViewController.selectedCover
                 else { return }
-            //Do the logic
+            destinationViewController.cover = cover
         default:
             return
         }
