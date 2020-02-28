@@ -17,6 +17,7 @@
 		ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED42510D24029B55005032DB /* GameURLSelectorView.xib */; };
 		ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42511524029F59005032DB /* GameURLSelectorView.swift */; };
 		ED5C304D240950140013CDEE /* CoverThumbnailDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */; };
+		ED5C305224096D350013CDEE /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C305124096D350013CDEE /* CoverViewController.swift */; };
 		ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC158240722090086D378 /* PasteboardObserver.swift */; };
 		ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC15C240722B90086D378 /* TextFieldObserver.swift */; };
 		EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */; };
@@ -72,6 +73,7 @@
 		ED42510D24029B55005032DB /* GameURLSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameURLSelectorView.xib; sourceTree = "<group>"; };
 		ED42511524029F59005032DB /* GameURLSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorView.swift; sourceTree = "<group>"; };
 		ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverThumbnailDownloader.swift; sourceTree = "<group>"; };
+		ED5C305124096D350013CDEE /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
 		ED6AC158240722090086D378 /* PasteboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardObserver.swift; sourceTree = "<group>"; };
 		ED6AC15C240722B90086D378 /* TextFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObserver.swift; sourceTree = "<group>"; };
 		EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorViewDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				ED42511424029BE1005032DB /* Shared */,
+				ED5C304E24096D040013CDEE /* Cover */,
 				EDB77B6A24056C14003F358A /* Game */,
 				ED42511024029BA0005032DB /* Start */,
 				ED42510F24029B5E005032DB /* Supporting files */,
@@ -204,6 +207,22 @@
 				ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		ED5C304E24096D040013CDEE /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				ED5C305024096D1B0013CDEE /* Controllers */,
+			);
+			path = Cover;
+			sourceTree = "<group>";
+		};
+		ED5C305024096D1B0013CDEE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED5C305124096D350013CDEE /* CoverViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		ED6AC1552407219C0086D378 /* Download */ = {
@@ -315,18 +334,10 @@
 			isa = PBXGroup;
 			children = (
 				ED5C304B24094FF10013CDEE /* Network */,
-				EDB77B6B24056C24003F358A /* Models */,
 				EDB77B6C24056C2A003F358A /* Views */,
 				EDB77B6D24056C31003F358A /* Controllers */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		EDB77B6B24056C24003F358A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		EDB77B6C24056C2A003F358A /* Views */ = {
@@ -464,6 +475,7 @@
 				ED4250FE24029639005032DB /* StartViewController.swift in Sources */,
 				EDB77B6224055076003F358A /* Game.swift in Sources */,
 				EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */,
+				ED5C305224096D350013CDEE /* CoverViewController.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
 				EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */,
 				EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */,

@@ -166,11 +166,47 @@
                     <connections>
                         <outlet property="collectionView" destination="T1P-qQ-u76" id="o8d-SC-l9N"/>
                         <outlet property="noItemsView" destination="Nfh-KK-j3g" id="ixr-Xt-PEi"/>
+                        <segue destination="lLd-HU-X9b" kind="presentation" identifier="PresentCover" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="YRf-SC-eHX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCL-xc-WE3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1847" y="139"/>
+        </scene>
+        <!--Cover View Controller-->
+        <scene sceneID="db8-k2-jKE">
+            <objects>
+                <viewController id="lLd-HU-X9b" customClass="CoverViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wos-HX-yWs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx2-UE-6dE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
+                                <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cx2-UE-6dE" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="HEJ-zI-3tq"/>
+                            <constraint firstItem="yJM-5P-cAI" firstAttribute="centerX" secondItem="wos-HX-yWs" secondAttribute="centerX" id="R38-aA-WQa"/>
+                            <constraint firstItem="Fgq-on-07n" firstAttribute="bottom" secondItem="cx2-UE-6dE" secondAttribute="bottom" id="Rr7-IX-08P"/>
+                            <constraint firstItem="yJM-5P-cAI" firstAttribute="centerY" secondItem="wos-HX-yWs" secondAttribute="centerY" id="eFD-8F-rHz"/>
+                            <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="cx2-UE-6dE" secondAttribute="trailing" id="mIu-G5-9SL"/>
+                            <constraint firstItem="cx2-UE-6dE" firstAttribute="top" secondItem="Fgq-on-07n" secondAttribute="top" id="otO-u6-Vne"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fgq-on-07n"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="cx2-UE-6dE" id="Pti-o4-cZq"/>
+                        <outlet property="throbber" destination="yJM-5P-cAI" id="d3y-NI-D7a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9my-h0-fCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2843" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VjI-Go-8Gu">
