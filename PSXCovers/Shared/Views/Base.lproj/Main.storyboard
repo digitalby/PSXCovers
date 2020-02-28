@@ -181,9 +181,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx2-UE-6dE">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-N6-jsC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx2-UE-6dE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cx2-UE-6dE" secondAttribute="trailing" id="2pR-4P-9EY"/>
+                                    <constraint firstItem="cx2-UE-6dE" firstAttribute="top" secondItem="cyl-N6-jsC" secondAttribute="top" id="7Lg-VM-3DK"/>
+                                    <constraint firstItem="cx2-UE-6dE" firstAttribute="centerY" secondItem="cyl-N6-jsC" secondAttribute="centerY" placeholder="YES" id="Gdq-PZ-6tt"/>
+                                    <constraint firstItem="cx2-UE-6dE" firstAttribute="leading" secondItem="cyl-N6-jsC" secondAttribute="leading" id="bdc-Bo-JnM"/>
+                                    <constraint firstItem="cx2-UE-6dE" firstAttribute="centerX" secondItem="cyl-N6-jsC" secondAttribute="centerX" placeholder="YES" id="nlG-NP-abc"/>
+                                    <constraint firstAttribute="bottom" secondItem="cx2-UE-6dE" secondAttribute="bottom" id="tCL-sL-sb9"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hHz-0j-Lay"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Nck-pb-4FT"/>
+                                <connections>
+                                    <outlet property="delegate" destination="lLd-HU-X9b" id="k78-Bi-4d5"/>
+                                </connections>
+                            </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
                                 <rect key="frame" x="188.66666666666666" y="429.66666666666669" width="37" height="37"/>
                             </activityIndicatorView>
@@ -203,19 +221,19 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cyl-N6-jsC" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="2vO-wB-Qt7"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="trailing" secondItem="Fgq-on-07n" secondAttribute="trailing" id="3mT-er-Qjg"/>
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="58j-5i-llc"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="7vY-zF-4R0"/>
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="top" secondItem="ADW-ap-GzZ" secondAttribute="bottom" id="CJa-Eg-BqQ"/>
-                            <constraint firstItem="cx2-UE-6dE" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="HEJ-zI-3tq"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerX" secondItem="wos-HX-yWs" secondAttribute="centerX" id="R38-aA-WQa"/>
-                            <constraint firstAttribute="bottom" secondItem="cx2-UE-6dE" secondAttribute="bottom" id="Rr7-IX-08P"/>
+                            <constraint firstAttribute="trailing" secondItem="cyl-N6-jsC" secondAttribute="trailing" id="Vw6-ZW-pbZ"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerY" secondItem="wos-HX-yWs" secondAttribute="centerY" id="eFD-8F-rHz"/>
-                            <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="cx2-UE-6dE" secondAttribute="trailing" id="mIu-G5-9SL"/>
-                            <constraint firstItem="cx2-UE-6dE" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="otO-u6-Vne"/>
+                            <constraint firstAttribute="bottom" secondItem="cyl-N6-jsC" secondAttribute="bottom" id="ed8-P3-jUl"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="bottom" secondItem="Fgq-on-07n" secondAttribute="top" constant="44" id="pDG-Zh-ld2"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="X7F-ac-7CX" secondAttribute="trailing" id="pep-LY-WVS"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="reV-Ti-Yiy"/>
+                            <constraint firstItem="cyl-N6-jsC" firstAttribute="leading" secondItem="wos-HX-yWs" secondAttribute="leading" id="sdB-h4-jPU"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="bottom" secondItem="X7F-ac-7CX" secondAttribute="bottom" id="tRn-Yo-6su"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fgq-on-07n"/>
@@ -223,6 +241,11 @@
                     <connections>
                         <outlet property="imageErrorView" destination="X7F-ac-7CX" id="dK1-t0-LNI"/>
                         <outlet property="imageView" destination="cx2-UE-6dE" id="Pti-o4-cZq"/>
+                        <outlet property="imageViewBottomConstraint" destination="tCL-sL-sb9" id="1S1-6e-5g4"/>
+                        <outlet property="imageViewLeadingConstraint" destination="bdc-Bo-JnM" id="amw-pw-mFO"/>
+                        <outlet property="imageViewTopConstraint" destination="7Lg-VM-3DK" id="ZB2-Mo-Mnh"/>
+                        <outlet property="imageViewTrailingConstraint" destination="2pR-4P-9EY" id="YAy-AV-8WF"/>
+                        <outlet property="scrollView" destination="cyl-N6-jsC" id="l4Y-CT-KCj"/>
                         <outlet property="throbber" destination="yJM-5P-cAI" id="d3y-NI-D7a"/>
                         <outlet property="topToolbar" destination="ADW-ap-GzZ" id="azY-kQ-8Zb"/>
                         <outlet property="topToolbarCloseItem" destination="cpZ-VA-Glw" id="HJJ-XO-hGX"/>

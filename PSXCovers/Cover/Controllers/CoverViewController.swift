@@ -11,10 +11,16 @@ import UIKit
 class CoverViewController: UIViewController {
 
     @IBOutlet var imageErrorView: ImageErrorView!
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var throbber: UIActivityIndicatorView!
     @IBOutlet var topToolbar: UIToolbar!
     @IBOutlet var topToolbarCloseItem: UIBarButtonItem!
+
+    @IBOutlet var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var imageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var imageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var imageViewTrailingConstraint: NSLayoutConstraint!
 
     var cover: Cover!
     let coverImageDownloader = CoverImageDownloader()
@@ -23,7 +29,10 @@ class CoverViewController: UIViewController {
         super.viewDidLoad()
         loadCoverImage()
     }
+}
 
+//MARK: - Displaying an image
+extension CoverViewController {
     func loadCoverImage() {
         if cover.fullSizeImageURL != nil {
             coverImageDownloader.downloadImage(for: cover) { [weak self] image in
@@ -31,6 +40,10 @@ class CoverViewController: UIViewController {
                 if let image = image {
                     self.throbber.stopAnimating()
                     self.imageView.image = image
+                    self.imageView.sizeToFit()
+                    self.scrollView.contentSize = self.imageView.bounds.size
+                    self.updateZoomScale()
+                    self.updateImageViewConstraintsForSize(self.view.bounds.size)
                 } else {
                     self.displayErrorView(errorText: "Cover download error.")
                 }
@@ -46,6 +59,39 @@ class CoverViewController: UIViewController {
         throbber.stopAnimating()
         imageErrorView.isHidden = false
         imageErrorView.errorLabel.text = errorText
+    }
+
+    func updateZoomScale() {
+        let viewSize = view.bounds.size
+        let widthScale = viewSize.width / imageView.bounds.width
+        let heightScale = viewSize.height / imageView.bounds.height
+
+        let minScale = min(widthScale, heightScale)
+
+        scrollView.minimumZoomScale = minScale
+        scrollView.zoomScale = minScale
+    }
+
+    func updateImageViewConstraintsForSize(_ size: CGSize) {
+        let verticalSpace = size.height - imageView.frame.height
+
+        let yOffset = max(0, verticalSpace / 2)
+        imageViewTopConstraint.constant = yOffset
+        imageViewBottomConstraint.constant = yOffset
+
+        let horizontalSpace = size.width - imageView.frame.width
+        let xOffset = max(0, horizontalSpace / 2)
+        imageViewLeadingConstraint.constant = xOffset
+        imageViewTrailingConstraint.constant = xOffset
+    }
+}
+
+//MARK: - Scroll view delegate
+extension CoverViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? { imageView }
+
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        updateImageViewConstraintsForSize(view.bounds.size)
     }
 }
 
