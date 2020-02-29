@@ -286,14 +286,16 @@
                         <viewLayoutGuide key="safeArea" id="Fgq-on-07n"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="dTf-kH-g8U" appends="YES" id="FI8-sG-IAz"/>
+                            <outletCollection property="gestureRecognizers" destination="NR9-3l-loN" appends="YES" id="Ahf-ga-Tq4"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="blackoutView" destination="PKF-dn-Twf" id="nsg-J1-2dI"/>
                         <outlet property="blackoutViewLeadingConstraint" destination="pLg-fO-scE" id="dn9-gX-85S"/>
                         <outlet property="blackoutViewTrailingConstraint" destination="zyw-nk-tjN" id="1tS-GI-WrI"/>
+                        <outlet property="bottomLabel" destination="OV3-9D-1oC" id="TWQ-cA-hH5"/>
+                        <outlet property="bottomOverlayGradientImageView" destination="w8i-Ey-d2w" id="cbc-NF-0p4"/>
                         <outlet property="bottomToolbar" destination="iNp-jt-KCJ" id="AUR-3U-kRf"/>
-                        <outlet property="bottomToolbarLabel" destination="OV3-9D-1oC" id="TWQ-cA-hH5"/>
                         <outlet property="imageErrorView" destination="X7F-ac-7CX" id="dK1-t0-LNI"/>
                         <outlet property="imageView" destination="cx2-UE-6dE" id="Pti-o4-cZq"/>
                         <outlet property="imageViewBottomConstraint" destination="tCL-sL-sb9" id="1S1-6e-5g4"/>
@@ -302,6 +304,7 @@
                         <outlet property="imageViewTrailingConstraint" destination="2pR-4P-9EY" id="YAy-AV-8WF"/>
                         <outlet property="panGestureRecognizer" destination="dTf-kH-g8U" id="liL-Hm-0BA"/>
                         <outlet property="scrollView" destination="cyl-N6-jsC" id="l4Y-CT-KCj"/>
+                        <outlet property="tapGestureRecognizer" destination="NR9-3l-loN" id="cdx-Pn-pGS"/>
                         <outlet property="throbber" destination="yJM-5P-cAI" id="d3y-NI-D7a"/>
                         <outlet property="topToolbar" destination="ADW-ap-GzZ" id="azY-kQ-8Zb"/>
                         <outlet property="topToolbarActionItem" destination="wo1-m8-6U2" id="odY-fD-zaD"/>
@@ -315,6 +318,12 @@
                         <outlet property="delegate" destination="lLd-HU-X9b" id="4dI-Y5-Wg9"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="NR9-3l-loN">
+                    <connections>
+                        <action selector="didRecognizeTapGesture:" destination="lLd-HU-X9b" id="8Iw-Uy-wYI"/>
+                        <outlet property="delegate" destination="lLd-HU-X9b" id="73T-zh-drb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2741" y="852"/>
         </scene>
@@ -336,6 +345,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cab-cw-nqU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3om-eq-X7E"/>
                     </connections>

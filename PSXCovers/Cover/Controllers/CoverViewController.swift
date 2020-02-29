@@ -20,7 +20,8 @@ class CoverViewController: UIViewController {
     @IBOutlet var topToolbarActionItem: UIBarButtonItem!
 
     @IBOutlet var bottomToolbar: UIToolbar!
-    @IBOutlet var bottomToolbarLabel: UILabel!
+    @IBOutlet var bottomOverlayGradientImageView: UIImageView!
+    @IBOutlet var bottomLabel: UILabel!
 
     @IBOutlet var imageViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet var imageViewTopConstraint: NSLayoutConstraint!
@@ -32,17 +33,20 @@ class CoverViewController: UIViewController {
     @IBOutlet var blackoutViewTrailingConstraint: NSLayoutConstraint!
 
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
     var cover: Cover!
     let coverImageDownloader = CoverImageDownloader()
+
+    var displayingToolbars = true
+    lazy var toolbarViews = [bottomToolbar, bottomOverlayGradientImageView, bottomLabel, topToolbar]
 
     var dismissTransition: DismissTransitionInteractor? = nil
     var isTrackingPanLocation = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(cover.coverLabel)
-        bottomToolbarLabel.text = cover.coverLabel
+        bottomLabel.text = cover.coverLabel
         loadCoverImage()
     }
 }
@@ -115,6 +119,11 @@ extension CoverViewController: UIScrollViewDelegate {
 extension CoverViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         true
+    }
+
+    @IBAction func didRecognizeTapGesture(_ sender: UITapGestureRecognizer) {
+        displayingToolbars.toggle()
+        toolbarViews.forEach { $0?.isHidden = !displayingToolbars }
     }
 
     @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {
