@@ -218,15 +218,37 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <gestureRecognizers/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="overlay_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="w8i-Ey-d2w">
+                                <rect key="frame" x="0.0" y="718" width="414" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="OJ3-Rc-zCJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV3-9D-1oC">
+                                <rect key="frame" x="0.0" y="759.33333333333337" width="414" height="102.66666666666663"/>
+                                <string key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="iNp-jt-KCJ">
+                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items/>
+                            </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADW-ap-GzZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <barButtonItem title="Done" style="done" id="cpZ-VA-Glw">
+                                    <barButtonItem style="done" systemItem="done" id="cpZ-VA-Glw">
                                         <connections>
                                             <action selector="didTapDone:" destination="lLd-HU-X9b" id="Dsu-VV-NSZ"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MZt-aF-0vL"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ofy-QW-IOO"/>
+                                    <barButtonItem systemItem="action" id="wo1-m8-6U2"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -235,18 +257,28 @@
                             <constraint firstItem="cyl-N6-jsC" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="2vO-wB-Qt7"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="trailing" secondItem="Fgq-on-07n" secondAttribute="trailing" id="3mT-er-Qjg"/>
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="58j-5i-llc"/>
+                            <constraint firstAttribute="bottom" secondItem="iNp-jt-KCJ" secondAttribute="bottom" id="6wQ-Gw-zyJ"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="7vY-zF-4R0"/>
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="top" secondItem="ADW-ap-GzZ" secondAttribute="bottom" id="CJa-Eg-BqQ"/>
+                            <constraint firstItem="OV3-9D-1oC" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="CS0-a4-LR3"/>
+                            <constraint firstItem="iNp-jt-KCJ" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="Pm4-bW-b0B"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerX" secondItem="wos-HX-yWs" secondAttribute="centerX" id="R38-aA-WQa"/>
+                            <constraint firstItem="OV3-9D-1oC" firstAttribute="bottom" secondItem="w8i-Ey-d2w" secondAttribute="bottom" id="TKM-Hz-3Eb"/>
                             <constraint firstAttribute="trailing" secondItem="cyl-N6-jsC" secondAttribute="trailing" id="Vw6-ZW-pbZ"/>
+                            <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="OV3-9D-1oC" secondAttribute="trailing" id="ZwX-AI-cxb"/>
+                            <constraint firstItem="w8i-Ey-d2w" firstAttribute="leading" secondItem="wos-HX-yWs" secondAttribute="leading" id="b7e-5s-ewg"/>
+                            <constraint firstItem="iNp-jt-KCJ" firstAttribute="top" secondItem="OV3-9D-1oC" secondAttribute="bottom" id="bTK-qD-1xl"/>
                             <constraint firstAttribute="bottom" secondItem="PKF-dn-Twf" secondAttribute="bottom" id="bjz-U1-DUc"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerY" secondItem="wos-HX-yWs" secondAttribute="centerY" id="eFD-8F-rHz"/>
                             <constraint firstItem="PKF-dn-Twf" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="eLB-5D-0E7"/>
                             <constraint firstAttribute="bottom" secondItem="cyl-N6-jsC" secondAttribute="bottom" id="ed8-P3-jUl"/>
+                            <constraint firstItem="iNp-jt-KCJ" firstAttribute="trailing" secondItem="Fgq-on-07n" secondAttribute="trailing" id="mhb-0c-fUc"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="bottom" secondItem="Fgq-on-07n" secondAttribute="top" constant="44" id="pDG-Zh-ld2"/>
                             <constraint firstItem="PKF-dn-Twf" firstAttribute="leading" secondItem="wos-HX-yWs" secondAttribute="leading" id="pLg-fO-scE"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="X7F-ac-7CX" secondAttribute="trailing" id="pep-LY-WVS"/>
-                            <constraint firstItem="ADW-ap-GzZ" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="reV-Ti-Yiy"/>
+                            <constraint firstItem="ADW-ap-GzZ" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" symbolic="YES" id="reV-Ti-Yiy"/>
+                            <constraint firstItem="iNp-jt-KCJ" firstAttribute="top" secondItem="Fgq-on-07n" secondAttribute="bottom" id="rs1-3a-gn2"/>
+                            <constraint firstAttribute="trailing" secondItem="w8i-Ey-d2w" secondAttribute="trailing" id="s7V-bB-yWA"/>
                             <constraint firstItem="cyl-N6-jsC" firstAttribute="leading" secondItem="wos-HX-yWs" secondAttribute="leading" id="sdB-h4-jPU"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="bottom" secondItem="X7F-ac-7CX" secondAttribute="bottom" id="tRn-Yo-6su"/>
                             <constraint firstItem="PKF-dn-Twf" firstAttribute="trailing" secondItem="wos-HX-yWs" secondAttribute="trailing" id="zyw-nk-tjN"/>
@@ -260,6 +292,8 @@
                         <outlet property="blackoutView" destination="PKF-dn-Twf" id="nsg-J1-2dI"/>
                         <outlet property="blackoutViewLeadingConstraint" destination="pLg-fO-scE" id="dn9-gX-85S"/>
                         <outlet property="blackoutViewTrailingConstraint" destination="zyw-nk-tjN" id="1tS-GI-WrI"/>
+                        <outlet property="bottomToolbar" destination="iNp-jt-KCJ" id="AUR-3U-kRf"/>
+                        <outlet property="bottomToolbarLabel" destination="OV3-9D-1oC" id="TWQ-cA-hH5"/>
                         <outlet property="imageErrorView" destination="X7F-ac-7CX" id="dK1-t0-LNI"/>
                         <outlet property="imageView" destination="cx2-UE-6dE" id="Pti-o4-cZq"/>
                         <outlet property="imageViewBottomConstraint" destination="tCL-sL-sb9" id="1S1-6e-5g4"/>
@@ -270,7 +304,8 @@
                         <outlet property="scrollView" destination="cyl-N6-jsC" id="l4Y-CT-KCj"/>
                         <outlet property="throbber" destination="yJM-5P-cAI" id="d3y-NI-D7a"/>
                         <outlet property="topToolbar" destination="ADW-ap-GzZ" id="azY-kQ-8Zb"/>
-                        <outlet property="topToolbarCloseItem" destination="cpZ-VA-Glw" id="HJJ-XO-hGX"/>
+                        <outlet property="topToolbarActionItem" destination="wo1-m8-6U2" id="odY-fD-zaD"/>
+                        <outlet property="topToolbarDoneItem" destination="cpZ-VA-Glw" id="HJJ-XO-hGX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9my-h0-fCz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -311,6 +346,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="overlay_gradient" width="0.3333333432674408" height="341.33334350585938"/>
         <image name="placeholder_loading" width="96" height="96"/>
     </resources>
 </document>

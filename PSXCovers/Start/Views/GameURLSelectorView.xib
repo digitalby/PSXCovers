@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="326" height="209"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Supply a PSXDC URL for a PSX game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVT-L0-PcX">
-                    <rect key="frame" x="0.0" y="59" width="285" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Supply a PSXDC URL for a PSX game:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVT-L0-PcX">
+                    <rect key="frame" x="0.0" y="58.5" width="326" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -30,16 +30,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="or, alternatively, use an" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6X-1N-Ipq">
-                    <rect key="frame" x="0.0" y="129.5" width="175" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jXV-0F-3BG">
-                    <rect key="frame" x="179" y="125" width="60" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jXV-0F-3BG">
+                    <rect key="frame" x="0.0" y="129.5" width="326" height="30"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                    <state key="normal" title="example"/>
+                    <state key="normal" title="or, alternatively, tap to use an example"/>
                     <connections>
                         <action selector="didSelectUseAnExample:" destination="-1" eventType="touchUpInside" id="6yT-0w-8cV"/>
                     </connections>
@@ -47,20 +41,17 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="D6X-1N-Ipq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3se-gp-WI7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5hO-Ul-yyT" secondAttribute="trailing" id="5Vj-dg-67e"/>
                 <constraint firstItem="5hO-Ul-yyT" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="JRR-wk-bjU"/>
-                <constraint firstItem="D6X-1N-Ipq" firstAttribute="top" secondItem="5hO-Ul-yyT" secondAttribute="bottom" constant="8" id="RSS-w9-r9d"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jXV-0F-3BG" secondAttribute="trailing" id="OR0-Mm-dPd"/>
+                <constraint firstItem="jXV-0F-3BG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="UJg-gS-ibE"/>
                 <constraint firstItem="5hO-Ul-yyT" firstAttribute="top" secondItem="LVT-L0-PcX" secondAttribute="bottom" constant="8" id="bBK-rb-cQD"/>
                 <constraint firstItem="5hO-Ul-yyT" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="c08-9T-mVU"/>
                 <constraint firstItem="LVT-L0-PcX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="eVr-Ij-N4R"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LVT-L0-PcX" secondAttribute="trailing" id="fVh-H3-yV9"/>
-                <constraint firstItem="jXV-0F-3BG" firstAttribute="firstBaseline" secondItem="D6X-1N-Ipq" secondAttribute="firstBaseline" id="hGF-u5-ne1"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jXV-0F-3BG" secondAttribute="trailing" id="hQN-xN-Kdk"/>
-                <constraint firstItem="jXV-0F-3BG" firstAttribute="leading" secondItem="D6X-1N-Ipq" secondAttribute="trailing" constant="4" id="ktS-AL-RBM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LVT-L0-PcX" secondAttribute="trailing" id="fVh-H3-yV9"/>
                 <constraint firstItem="5hO-Ul-yyT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="l7o-vA-rWW"/>
+                <constraint firstItem="jXV-0F-3BG" firstAttribute="top" secondItem="5hO-Ul-yyT" secondAttribute="bottom" constant="8" id="nvA-cf-HOs"/>
                 <constraint firstItem="5hO-Ul-yyT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="pcj-HD-itm"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D6X-1N-Ipq" secondAttribute="trailing" id="pi6-vU-8TR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

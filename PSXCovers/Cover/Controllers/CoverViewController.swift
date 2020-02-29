@@ -14,8 +14,13 @@ class CoverViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var throbber: UIActivityIndicatorView!
+
     @IBOutlet var topToolbar: UIToolbar!
-    @IBOutlet var topToolbarCloseItem: UIBarButtonItem!
+    @IBOutlet var topToolbarDoneItem: UIBarButtonItem!
+    @IBOutlet var topToolbarActionItem: UIBarButtonItem!
+
+    @IBOutlet var bottomToolbar: UIToolbar!
+    @IBOutlet var bottomToolbarLabel: UILabel!
 
     @IBOutlet var imageViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet var imageViewTopConstraint: NSLayoutConstraint!
@@ -36,6 +41,8 @@ class CoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(cover.coverLabel)
+        bottomToolbarLabel.text = cover.coverLabel
         loadCoverImage()
     }
 }
@@ -142,7 +149,7 @@ extension CoverViewController: UIGestureRecognizerDelegate {
 
         guard isTrackingPanLocation else { return }
 
-        let percentThreshold: CGFloat = 0.2
+        let percentThreshold: CGFloat = 0.1
 
         let verticalMovement = translation.y / view.bounds.height
         let downwardMovement = max(verticalMovement, 0.0)

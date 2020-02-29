@@ -26,19 +26,19 @@ class CoverViewControllerFactory {
         viewController.cover = cover
         viewController.dismissTransition = transition
 
+        viewController.loadViewIfNeeded()
+
         return viewController
     }
 
     func makeLeadingCoverViewController(with cover: Cover) -> CoverViewController? {
         let controller = makeCoverViewController(with: cover)
-        controller?.loadViewIfNeeded()
         controller?.blackoutViewLeadingConstraint.constant = -5000
         return controller
     }
 
     func makeTrailingCoverViewController(with cover: Cover) -> CoverViewController? {
         let controller = makeCoverViewController(with: cover)
-        controller?.loadViewIfNeeded()
         controller?.blackoutViewTrailingConstraint.constant = 5000
         return controller
     }
