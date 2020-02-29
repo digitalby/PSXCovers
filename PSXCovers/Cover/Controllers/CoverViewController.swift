@@ -28,6 +28,7 @@ class CoverViewController: UIViewController {
     let coverImageDownloader = CoverImageDownloader()
 
     var dismissTransition: DismissTransitionInteractor? = nil
+    var isTrackingPanLocation = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,12 +107,33 @@ extension CoverViewController: UIGestureRecognizerDelegate {
     }
 
     @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {
-        let percentThreshold:CGFloat = 0.3
+        //Scroll view friendly version
+//        if panGestureRecognizer.state == .began && scrollView.contentOffset.y == 0 {
+//            panGestureRecognizer.setTranslation(.zero, in: scrollView)
+//
+//            isTrackingPanLocation = true
+//        } else if
+//            ![UIGestureRecognizer.State.ended, .cancelled, .failed].contains(panGestureRecognizer.state),
+//            isTrackingPanLocation {
+//            let offset = panGestureRecognizer.translation(in: scrollView)
+//            let threshold: CGFloat = 144.0
+//            let isEligible = offset.y > threshold
+//            if isEligible {
+//                panGestureRecognizer.isEnabled = false
+//                panGestureRecognizer.isEnabled = true
+//                //Ready to dismiss
+//            }
+//
+//            if offset.y < 0 {
+//                isTrackingPanLocation = false
+//            }
+//        } else {
+//            isTrackingPanLocation = true
+//        }
 
-        let location = sender.location(in: view)
-        print(location)
+        let percentThreshold: CGFloat = 0.3
+
         let translation = sender.translation(in: view)
-        print(translation)
         let verticalMovement = translation.y / view.bounds.height
         let downwardMovement = max(verticalMovement, 0.0)
         let downwardMovementPercent = min(downwardMovement, 1.0)
@@ -125,7 +147,7 @@ extension CoverViewController: UIGestureRecognizerDelegate {
             dismiss(animated: true, completion: nil)
         case .changed:
             dismissTransition.shouldFinish = progress > percentThreshold
-            dismissTransition.update(progress)
+            dismissTransition.update(progress * 3.0)
         case .cancelled:
             dismissTransition.hasStarted = false
             dismissTransition.cancel()

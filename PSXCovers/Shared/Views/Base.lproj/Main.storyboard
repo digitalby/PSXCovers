@@ -202,7 +202,6 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Nck-pb-4FT"/>
                                 <connections>
                                     <outlet property="delegate" destination="lLd-HU-X9b" id="k78-Bi-4d5"/>
-                                    <outletCollection property="gestureRecognizers" destination="dTf-kH-g8U" appends="YES" id="ErI-Gf-Mw9"/>
                                 </connections>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
@@ -242,6 +241,9 @@
                             <constraint firstItem="Fgq-on-07n" firstAttribute="bottom" secondItem="X7F-ac-7CX" secondAttribute="bottom" id="tRn-Yo-6su"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fgq-on-07n"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dTf-kH-g8U" appends="YES" id="FI8-sG-IAz"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="imageErrorView" destination="X7F-ac-7CX" id="dK1-t0-LNI"/>

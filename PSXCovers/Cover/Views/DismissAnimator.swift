@@ -17,8 +17,12 @@ class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: 1 / 3, animations: {
             child?.view.alpha = 0.0
         }, completion: {_ in
-            child?.view.removeFromSuperview()
-            transitionContext.completeTransition(true)
+            if transitionContext.transitionWasCancelled {
+                transitionContext.completeTransition(false)
+            } else {
+                //child?.view.removeFromSuperview()
+                transitionContext.completeTransition(true)
+            }
         })
     }
 
