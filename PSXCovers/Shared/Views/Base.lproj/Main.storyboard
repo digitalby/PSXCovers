@@ -181,6 +181,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKF-dn-Twf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-N6-jsC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
@@ -232,13 +239,17 @@
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="top" secondItem="ADW-ap-GzZ" secondAttribute="bottom" id="CJa-Eg-BqQ"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerX" secondItem="wos-HX-yWs" secondAttribute="centerX" id="R38-aA-WQa"/>
                             <constraint firstAttribute="trailing" secondItem="cyl-N6-jsC" secondAttribute="trailing" id="Vw6-ZW-pbZ"/>
+                            <constraint firstAttribute="bottom" secondItem="PKF-dn-Twf" secondAttribute="bottom" id="bjz-U1-DUc"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerY" secondItem="wos-HX-yWs" secondAttribute="centerY" id="eFD-8F-rHz"/>
+                            <constraint firstItem="PKF-dn-Twf" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="eLB-5D-0E7"/>
                             <constraint firstAttribute="bottom" secondItem="cyl-N6-jsC" secondAttribute="bottom" id="ed8-P3-jUl"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="bottom" secondItem="Fgq-on-07n" secondAttribute="top" constant="44" id="pDG-Zh-ld2"/>
+                            <constraint firstItem="PKF-dn-Twf" firstAttribute="leading" secondItem="wos-HX-yWs" secondAttribute="leading" id="pLg-fO-scE"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="X7F-ac-7CX" secondAttribute="trailing" id="pep-LY-WVS"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="reV-Ti-Yiy"/>
                             <constraint firstItem="cyl-N6-jsC" firstAttribute="leading" secondItem="wos-HX-yWs" secondAttribute="leading" id="sdB-h4-jPU"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="bottom" secondItem="X7F-ac-7CX" secondAttribute="bottom" id="tRn-Yo-6su"/>
+                            <constraint firstItem="PKF-dn-Twf" firstAttribute="trailing" secondItem="wos-HX-yWs" secondAttribute="trailing" id="zyw-nk-tjN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fgq-on-07n"/>
                         <connections>
@@ -246,6 +257,9 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="blackoutView" destination="PKF-dn-Twf" id="nsg-J1-2dI"/>
+                        <outlet property="blackoutViewLeadingConstraint" destination="pLg-fO-scE" id="dn9-gX-85S"/>
+                        <outlet property="blackoutViewTrailingConstraint" destination="zyw-nk-tjN" id="1tS-GI-WrI"/>
                         <outlet property="imageErrorView" destination="X7F-ac-7CX" id="dK1-t0-LNI"/>
                         <outlet property="imageView" destination="cx2-UE-6dE" id="Pti-o4-cZq"/>
                         <outlet property="imageViewBottomConstraint" destination="tCL-sL-sb9" id="1S1-6e-5g4"/>

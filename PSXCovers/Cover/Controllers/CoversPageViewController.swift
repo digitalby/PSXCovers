@@ -14,6 +14,7 @@ class CoversPageViewController: UIPageViewController {
     var initialCoverIndex: Int!
     var flatCovers: [Cover] { game.coversGroupedByCategory.flatMap { $0 } }
 
+    lazy var factory = CoverViewControllerFactory(storyboard: storyboard, transition: dismissTransition)
     var dismissTransition: DismissTransitionInteractor? = nil
 
     override func viewDidLoad() {
@@ -22,23 +23,16 @@ class CoversPageViewController: UIPageViewController {
         delegate = self
 
         let cover = flatCovers[initialCoverIndex]
-        guard let viewController = makeCoverViewController(with: cover) else { return }
-        setViewControllers([viewController], direction: .forward, animated: false)
-    }
-}
-
-//MARK: - View controller instantiation helper
-extension CoversPageViewController {
-    func makeCoverViewController(with cover: Cover) -> CoverViewController? {
-        guard
-            let storyboard = storyboard,
-            let viewController = storyboard.instantiateViewController(identifier: "CoverViewController") as? CoverViewController
-            else { return nil }
-
-        viewController.cover = cover
-        viewController.dismissTransition = dismissTransition
-
-        return viewController
+        var viewController: CoverViewController? = nil
+        if initialCoverIndex == 0 {
+            viewController = factory.makeLeadingCoverViewController(with: cover)
+        } else if initialCoverIndex == flatCovers.count - 1 {
+            viewController = factory.makeTrailingCoverViewController(with: cover)
+        } else {
+            viewController = factory.makeCoverViewController(with: cover)
+        }
+        guard let unwrappedViewController = viewController else { return }
+        setViewControllers([unwrappedViewController], direction: .forward, animated: false)
     }
 }
 
@@ -48,11 +42,15 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
         guard
             let coverViewController = viewController as? CoverViewController,
             let cover = coverViewController.cover,
-            let index = flatCovers.firstIndex(of: cover),
-            (0..<flatCovers.count).contains(index - 1)
+            let index = flatCovers.firstIndex(of: cover)
         else { return nil }
 
-        let newViewController = makeCoverViewController(with: flatCovers[index - 1])
+        let newIndex = index - 1
+        guard (0..<flatCovers.count).contains(newIndex) else { return nil }
+        let newCover = flatCovers[newIndex]
+        let newViewController = newIndex == 0 ?
+            factory.makeLeadingCoverViewController(with: newCover) :
+            factory.makeCoverViewController(with: newCover)
 
         return newViewController
     }
@@ -61,11 +59,16 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
         guard
             let coverViewController = viewController as? CoverViewController,
             let cover = coverViewController.cover,
-            let index = flatCovers.firstIndex(of: cover),
-            (0..<flatCovers.count).contains(index + 1)
+            let index = flatCovers.firstIndex(of: cover)
         else { return nil }
 
-        let newViewController = makeCoverViewController(with: flatCovers[index + 1])
+        let newIndex = index + 1
+        guard (0..<flatCovers.count).contains(newIndex) else { return nil }
+        let newCover = flatCovers[newIndex]
+
+        let newViewController = newIndex == flatCovers.count - 1 ?
+            factory.makeTrailingCoverViewController(with: newCover) :
+            factory.makeCoverViewController(with: newCover)
 
         return newViewController
     }

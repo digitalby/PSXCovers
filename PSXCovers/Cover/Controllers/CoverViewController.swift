@@ -22,6 +22,10 @@ class CoverViewController: UIViewController {
     @IBOutlet var imageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet var imageViewTrailingConstraint: NSLayoutConstraint!
 
+    @IBOutlet var blackoutView: UIView!
+    @IBOutlet var blackoutViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var blackoutViewTrailingConstraint: NSLayoutConstraint!
+
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
     var cover: Cover!
@@ -110,7 +114,6 @@ extension CoverViewController: UIGestureRecognizerDelegate {
         let translation = sender.translation(in: view)
         if sender.state == .began && scrollView.contentOffset.y == 0 {
             sender.setTranslation(.zero, in: scrollView)
-            print("rdy")
             isTrackingPanLocation = true
         } else if
             ![UIGestureRecognizer.State.ended, .cancelled, .failed].contains(sender.state),
