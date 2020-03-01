@@ -247,6 +247,9 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MZt-aF-0vL"/>
+                                    <barButtonItem enabled="NO" title="Item" id="8DR-AS-UGd">
+                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ofy-QW-IOO"/>
                                     <barButtonItem enabled="NO" systemItem="action" id="wo1-m8-6U2">
                                         <connections>
@@ -313,6 +316,7 @@
                         <outlet property="throbber" destination="yJM-5P-cAI" id="d3y-NI-D7a"/>
                         <outlet property="topToolbar" destination="ADW-ap-GzZ" id="azY-kQ-8Zb"/>
                         <outlet property="topToolbarActionItem" destination="wo1-m8-6U2" id="odY-fD-zaD"/>
+                        <outlet property="topToolbarCenterItem" destination="8DR-AS-UGd" id="Phf-Wk-hQB"/>
                         <outlet property="topToolbarDoneItem" destination="cpZ-VA-Glw" id="HJJ-XO-hGX"/>
                     </connections>
                 </viewController>

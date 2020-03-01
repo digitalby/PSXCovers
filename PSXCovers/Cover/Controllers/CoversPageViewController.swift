@@ -32,6 +32,7 @@ class CoversPageViewController: UIPageViewController {
             viewController = factory.makeCoverViewController(with: cover)
         }
         guard let unwrappedViewController = viewController else { return }
+        unwrappedViewController.topToolbarCenterItem.title = "\(initialCoverIndex + 1)/\(flatCovers.count)"
         setViewControllers([unwrappedViewController], direction: .forward, animated: false)
     }
 
@@ -65,6 +66,7 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
         let newViewController = newIndex == 0 ?
             factory.makeLeadingCoverViewController(with: newCover) :
             factory.makeCoverViewController(with: newCover)
+        newViewController?.topToolbarCenterItem.title = "\(newIndex + 1)/\(flatCovers.count)"
         newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
         setNeedsStatusBarAppearanceUpdate()
         return newViewController
@@ -84,6 +86,7 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
         let newViewController = newIndex == flatCovers.count - 1 ?
             factory.makeTrailingCoverViewController(with: newCover) :
             factory.makeCoverViewController(with: newCover)
+        newViewController?.topToolbarCenterItem.title = "\(newIndex + 1)/\(flatCovers.count)"
         newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
         setNeedsStatusBarAppearanceUpdate()
         return newViewController

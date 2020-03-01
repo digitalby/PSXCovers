@@ -17,6 +17,7 @@ class CoverViewController: UIViewController {
 
     @IBOutlet var topToolbar: UIToolbar!
     @IBOutlet var topToolbarDoneItem: UIBarButtonItem!
+    @IBOutlet var topToolbarCenterItem: UIBarButtonItem!
     @IBOutlet var topToolbarActionItem: UIBarButtonItem!
 
     @IBOutlet var bottomToolbar: UIToolbar!
