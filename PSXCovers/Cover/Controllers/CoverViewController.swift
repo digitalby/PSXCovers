@@ -132,7 +132,15 @@ extension CoverViewController: UIGestureRecognizerDelegate {
     }
 
     @IBAction func didRecognizeTapGesture(_ sender: UITapGestureRecognizer) {
-        displayingToolbars.toggle()
+        let newAlpha: CGFloat = !displayingToolbars ? 1.0 : 0.0
+        if !displayingToolbars {
+            displayingToolbars = true
+        }
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
+            self?.toolbarViews.forEach { $0?.alpha = newAlpha }
+        }) { [weak self] _ in
+            if newAlpha == 0.0 { self?.displayingToolbars = false }
+        }
     }
 
     @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {
