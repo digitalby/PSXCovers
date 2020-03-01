@@ -132,7 +132,9 @@ extension StartViewController {
                         self.present(alert, animated: true)
                     }
                 } else if let data = data {
-                    self.parseGame(url: psxGameURL, html: data)
+                    waitAlert.dismiss(animated: true) { [unowned self] in
+                        self.parseGame(url: psxGameURL, html: data)
+                    }
                 }
                 waitAlert.dismiss(animated: true) { [unowned self] in
                     self.updateEnabledStateForGoBarButtonItem()

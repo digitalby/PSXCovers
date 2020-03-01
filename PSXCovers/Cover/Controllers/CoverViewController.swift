@@ -77,7 +77,7 @@ extension CoverViewController {
                     self.displayErrorView(errorText: "Cover download error.")
                 }
             }
-        } else if cover.isMissing {
+        } else if cover.thumbnailImage == .missing {
             displayErrorView(errorText: "This cover is unavailable.\nYou can help by adding it to psxdatacenter.com")
         } else {
             self.displayErrorView(errorText: "Can't load cover.")

@@ -9,19 +9,18 @@
 import UIKit
 import Alamofire
 
+private let missingCoverURLString = "psxdatacenter.com/images/thumbs/none.jpg"
+
 class CoverThumbnailDownloader {
     static let session = Session()
 
-    func downloadThumbnail(for cover: Cover, completion: ((UIImage?)->())? = nil) {
-        var image: UIImage? = nil
+    func downloadThumbnail(for cover: Cover, completion: ((ThumbnailImage)->())? = nil) {
         guard let coverURL = cover.thumbnailImageURL else {
-            image = UIImage(named: "placeholder_error")
-            completion?(image)
+            completion?(.error)
             return
         }
-        guard !cover.isMissing else {
-            image = UIImage(named: "placeholder_missing")
-            completion?(image)
+        guard coverURL.absoluteString.range(of: missingCoverURLString) == nil else {
+            completion?(.missing)
             return
         }
         type(of: self).session.request(coverURL).validate().response { response in
@@ -30,12 +29,10 @@ class CoverThumbnailDownloader {
                 let data = response.data,
                 let imageFromData = UIImage(data: data)
                 else {
-                    image = UIImage(named: "placeholder_error")
-                    completion?(image)
+                    completion?(.error)
                     return
             }
-            image = imageFromData
-            completion?(image)
+            completion?(.with(imageFromData))
         }
     }
 }

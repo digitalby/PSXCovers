@@ -14,7 +14,7 @@ class CoverImageDownloader {
 
     func downloadImage(for cover: Cover, completion: ((UIImage?)->())? = nil) {
         guard
-            !cover.isMissing,
+            cover.thumbnailImage != .missing,
             let url = cover.fullSizeImageURL
             else {
                 completion?(nil)

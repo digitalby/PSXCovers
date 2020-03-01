@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
 
     let coverThumbnailDownloader = CoverThumbnailDownloader()
 
-    var game: Game? = nil
+    var game: Game!
     var selectedIndexPath: IndexPath? = nil
     let destinationDismissTransition = DismissTransitionInteractor()
 
@@ -22,7 +22,16 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         noItemsView.mainLabel.text = "There are no covers."
-        title = game?.titleWithRegion ?? ""
+        title = game.titleWithRegion
+        game.covers.forEach { cover in
+            coverThumbnailDownloader.downloadThumbnail(for: cover) { [weak self] image in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    cover.thumbnailImage = image
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     }
 
     override var prefersStatusBarHidden: Bool { false }
@@ -54,20 +63,16 @@ extension GameViewController: UICollectionViewDataSource {
             ) as? CoverThumbnailCell
             else { fatalError() }
 
-        cell.thumbnailImageView.image = nil
         let section = indexPath.section
         let row = indexPath.row
         if (0..<sectionedData.count).contains(section),
             (0..<sectionedData[section].count).contains(row) {
             let cover = sectionedData[section][row]
             cell.label.text = cover.coverLabel
-            if cover.thumbnailImageURL != nil {
-                cell.thumbnailImageView.image = UIImage(named: "placeholder_loading")
-                coverThumbnailDownloader.downloadThumbnail(for: cover) { image in
-                    cell.thumbnailImageView.image = image ?? UIImage(named: "placeholder_error")
-                }
+            if let coverImage = cover.thumbnailImage {
+                setImage(coverImage, for: cell)
             } else {
-                cell.thumbnailImageView.image = UIImage(named: "placeholder_error")
+                cell.thumbnailImageView.image = ImageConstants.placeholderLoading
             }
         }
 
@@ -91,6 +96,20 @@ extension GameViewController: UICollectionViewDataSource {
             return header
         default:
             assert(false)
+        }
+    }
+
+    private func setImage(_ coverImage: ThumbnailImage, for cell: CoverThumbnailCell) {
+        switch coverImage {
+        case .error:
+            cell.thumbnailImageView.image = ImageConstants.placeholderError
+            break
+        case .missing:
+            cell.thumbnailImageView.image = ImageConstants.placeholderMissing
+            break
+        case .with(let image):
+            cell.thumbnailImageView.image = image
+            break
         }
     }
 }
