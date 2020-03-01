@@ -38,7 +38,12 @@ class CoverViewController: UIViewController {
     var cover: Cover!
     let coverImageDownloader = CoverImageDownloader()
 
-    var displayingToolbars = true
+    var displayingToolbars = true {
+        didSet {
+            self.setNeedsStatusBarAppearanceUpdate()
+            toolbarViews.forEach { $0?.isHidden = !displayingToolbars }
+        }
+    }
     lazy var toolbarViews = [bottomToolbar, bottomOverlayGradientImageView, bottomLabel, topToolbar]
 
     var dismissTransition: DismissTransitionInteractor? = nil
@@ -49,6 +54,8 @@ class CoverViewController: UIViewController {
         bottomLabel.text = cover.coverLabel
         loadCoverImage()
     }
+
+    override var prefersStatusBarHidden: Bool { !displayingToolbars }
 }
 
 //MARK: - Displaying an image
@@ -118,12 +125,14 @@ extension CoverViewController: UIScrollViewDelegate {
 //MARK: - Pan gesture recognizer
 extension CoverViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        true
+        if gestureRecognizer is UIPanGestureRecognizer, otherGestureRecognizer is UITapGestureRecognizer {
+            return false
+        }
+        return true
     }
 
     @IBAction func didRecognizeTapGesture(_ sender: UITapGestureRecognizer) {
         displayingToolbars.toggle()
-        toolbarViews.forEach { $0?.isHidden = !displayingToolbars }
     }
 
     @IBAction func didRecognizePanGesture(_ sender: UIPanGestureRecognizer) {

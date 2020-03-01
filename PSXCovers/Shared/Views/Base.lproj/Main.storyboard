@@ -225,7 +225,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV3-9D-1oC">
-                                <rect key="frame" x="0.0" y="759.33333333333337" width="414" height="102.66666666666663"/>
+                                <rect key="frame" x="0.0" y="751.33333333333337" width="414" height="102.66666666666663"/>
                                 <string key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -259,15 +259,16 @@
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="58j-5i-llc"/>
                             <constraint firstAttribute="bottom" secondItem="iNp-jt-KCJ" secondAttribute="bottom" id="6wQ-Gw-zyJ"/>
                             <constraint firstItem="ADW-ap-GzZ" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="7vY-zF-4R0"/>
+                            <constraint firstItem="ADW-ap-GzZ" firstAttribute="top" secondItem="Fgq-on-07n" secondAttribute="top" priority="750" id="Bk4-ik-Ide"/>
                             <constraint firstItem="X7F-ac-7CX" firstAttribute="top" secondItem="ADW-ap-GzZ" secondAttribute="bottom" id="CJa-Eg-BqQ"/>
                             <constraint firstItem="OV3-9D-1oC" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="CS0-a4-LR3"/>
+                            <constraint firstItem="iNp-jt-KCJ" firstAttribute="top" secondItem="w8i-Ey-d2w" secondAttribute="bottom" id="FKZ-pB-w9F"/>
                             <constraint firstItem="iNp-jt-KCJ" firstAttribute="leading" secondItem="Fgq-on-07n" secondAttribute="leading" id="Pm4-bW-b0B"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerX" secondItem="wos-HX-yWs" secondAttribute="centerX" id="R38-aA-WQa"/>
-                            <constraint firstItem="OV3-9D-1oC" firstAttribute="bottom" secondItem="w8i-Ey-d2w" secondAttribute="bottom" id="TKM-Hz-3Eb"/>
+                            <constraint firstItem="OV3-9D-1oC" firstAttribute="bottom" secondItem="w8i-Ey-d2w" secondAttribute="bottom" constant="-8" id="TKM-Hz-3Eb"/>
                             <constraint firstAttribute="trailing" secondItem="cyl-N6-jsC" secondAttribute="trailing" id="Vw6-ZW-pbZ"/>
                             <constraint firstItem="Fgq-on-07n" firstAttribute="trailing" secondItem="OV3-9D-1oC" secondAttribute="trailing" id="ZwX-AI-cxb"/>
                             <constraint firstItem="w8i-Ey-d2w" firstAttribute="leading" secondItem="wos-HX-yWs" secondAttribute="leading" id="b7e-5s-ewg"/>
-                            <constraint firstItem="iNp-jt-KCJ" firstAttribute="top" secondItem="OV3-9D-1oC" secondAttribute="bottom" id="bTK-qD-1xl"/>
                             <constraint firstAttribute="bottom" secondItem="PKF-dn-Twf" secondAttribute="bottom" id="bjz-U1-DUc"/>
                             <constraint firstItem="yJM-5P-cAI" firstAttribute="centerY" secondItem="wos-HX-yWs" secondAttribute="centerY" id="eFD-8F-rHz"/>
                             <constraint firstItem="PKF-dn-Twf" firstAttribute="top" secondItem="wos-HX-yWs" secondAttribute="top" id="eLB-5D-0E7"/>
@@ -318,7 +319,7 @@
                         <outlet property="delegate" destination="lLd-HU-X9b" id="4dI-Y5-Wg9"/>
                     </connections>
                 </panGestureRecognizer>
-                <tapGestureRecognizer id="NR9-3l-loN">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="NR9-3l-loN">
                     <connections>
                         <action selector="didRecognizeTapGesture:" destination="lLd-HU-X9b" id="8Iw-Uy-wYI"/>
                         <outlet property="delegate" destination="lLd-HU-X9b" id="73T-zh-drb"/>

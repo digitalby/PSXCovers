@@ -24,6 +24,8 @@ class GameViewController: UIViewController {
         noItemsView.mainLabel.text = "There are no covers."
         title = game?.titleWithRegion ?? ""
     }
+
+    override var prefersStatusBarHidden: Bool { false }
 }
 
 //MARK: - Data Source
@@ -127,6 +129,7 @@ extension GameViewController {
             destination.initialCoverIndex = coverIndex
             destination.transitioningDelegate = destination
             destination.dismissTransition = destinationDismissTransition
+            destination.modalPresentationCapturesStatusBarAppearance = true
         default:
             return
         }

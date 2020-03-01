@@ -40,6 +40,8 @@ class StartViewController: UIViewController {
         appActivityObserver = AppActivityObserver(becameActiveCallback: checkPasteboard)
         checkPasteboard()
     }
+
+    override var prefersStatusBarHidden: Bool { false }
 }
 
 //MARK: - Text Field check

@@ -34,6 +34,20 @@ class CoversPageViewController: UIPageViewController {
         guard let unwrappedViewController = viewController else { return }
         setViewControllers([unwrappedViewController], direction: .forward, animated: false)
     }
+
+    override var prefersStatusBarHidden: Bool {
+        guard let viewController = currentCoverViewController else {
+            return false
+        }
+        return viewController.prefersStatusBarHidden
+    }
+}
+
+//MARK: - Helper
+extension CoversPageViewController {
+    var currentCoverViewController: CoverViewController? {
+        viewControllers?.first as? CoverViewController
+    }
 }
 
 //MARK: - Page Data Source
@@ -51,7 +65,8 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
         let newViewController = newIndex == 0 ?
             factory.makeLeadingCoverViewController(with: newCover) :
             factory.makeCoverViewController(with: newCover)
-
+        newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
+        setNeedsStatusBarAppearanceUpdate()
         return newViewController
     }
 
@@ -69,7 +84,8 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
         let newViewController = newIndex == flatCovers.count - 1 ?
             factory.makeTrailingCoverViewController(with: newCover) :
             factory.makeCoverViewController(with: newCover)
-
+        newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
+        setNeedsStatusBarAppearanceUpdate()
         return newViewController
     }
 }
