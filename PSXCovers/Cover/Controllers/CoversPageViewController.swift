@@ -67,8 +67,7 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
             factory.makeLeadingCoverViewController(with: newCover) :
             factory.makeCoverViewController(with: newCover)
         newViewController?.topToolbarCenterItem.title = "\(newIndex + 1)/\(flatCovers.count)"
-        newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
-        setNeedsStatusBarAppearanceUpdate()
+        prepare(newViewController: newViewController)
         return newViewController
     }
 
@@ -87,9 +86,16 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
             factory.makeTrailingCoverViewController(with: newCover) :
             factory.makeCoverViewController(with: newCover)
         newViewController?.topToolbarCenterItem.title = "\(newIndex + 1)/\(flatCovers.count)"
+        prepare(newViewController: newViewController)
+        return newViewController
+    }
+
+    private func prepare(newViewController: CoverViewController?) {
         newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
         setNeedsStatusBarAppearanceUpdate()
-        return newViewController
+        currentCoverViewController?.panGestureRecognizer.isEnabled = false
+        currentCoverViewController?.panGestureRecognizer.isEnabled = true
+        currentCoverViewController?.dismissTransition?.cancel()
     }
 }
 

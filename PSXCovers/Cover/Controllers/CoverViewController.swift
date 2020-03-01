@@ -127,7 +127,9 @@ extension CoverViewController: UIScrollViewDelegate {
 //MARK: - Pan gesture recognizer
 extension CoverViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer is UIPanGestureRecognizer, otherGestureRecognizer is UITapGestureRecognizer {
+        if (gestureRecognizer is UITapGestureRecognizer && otherGestureRecognizer is UIPanGestureRecognizer)
+            ||
+            (gestureRecognizer is UIPanGestureRecognizer && otherGestureRecognizer is UITapGestureRecognizer) {
             return false
         }
         return true
@@ -177,7 +179,7 @@ extension CoverViewController: UIGestureRecognizerDelegate {
 
         guard isTrackingPanLocation else { return }
 
-        let percentThreshold: CGFloat = 0.1
+        let percentThreshold: CGFloat = 0.25
 
         let verticalMovement = translation.y / view.bounds.height
         let downwardMovement = max(verticalMovement, 0.0)
