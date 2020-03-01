@@ -71,6 +71,7 @@ extension CoverViewController {
                     self.scrollView.contentSize = self.imageView.bounds.size
                     self.updateZoomScale()
                     self.updateImageViewConstraintsForSize(self.view.bounds.size)
+                    self.topToolbarActionItem.isEnabled = true
                 } else {
                     self.displayErrorView(errorText: "Cover download error.")
                 }
@@ -199,5 +200,15 @@ extension CoverViewController: UIGestureRecognizerDelegate {
 extension CoverViewController {
     @IBAction func didTapDone(_ sender: Any) {
         dismiss(animated: true)
+    }
+
+    @IBAction func didTapActionItem(_ sender: Any) {
+        var array = [Any]()
+        if let url = cover.fullSizeImageURL { array.append(url) }
+        if let image = imageView.image { array.append(image) }
+        guard !array.isEmpty else { return }
+
+        let activityViewController = UIActivityViewController(activityItems: array, applicationActivities: nil)
+        present(activityViewController, animated: true)
     }
 }
