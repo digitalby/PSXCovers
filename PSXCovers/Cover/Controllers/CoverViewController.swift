@@ -43,6 +43,8 @@ class CoverViewController: UIViewController {
         didSet {
             self.setNeedsStatusBarAppearanceUpdate()
             toolbarViews.forEach { $0?.isHidden = !displayingToolbars }
+            self.setNeedsStatusBarAppearanceUpdate()
+            toolbarViews.forEach { $0?.updateConstraints() }
         }
     }
     lazy var toolbarViews = [bottomToolbar, bottomOverlayGradientImageView, bottomLabel, topToolbar]
