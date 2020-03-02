@@ -10,9 +10,9 @@ import UIKit
 
 class PasteboardObserver {
 
-    let callback: (String?) -> Void
+    let callback: () -> ()
 
-    init(changedCallback: @escaping (String?) -> Void) {
+    init(changedCallback: @escaping () -> ()) {
         self.callback = changedCallback
         NotificationCenter.default.addObserver(
             self,
@@ -29,13 +29,11 @@ class PasteboardObserver {
             object: nil
         )
     }
-
 }
 
 //MARK: - Selectors
 private extension PasteboardObserver {
     @objc func pasteboardChanged(_ notification: Notification) {
-        let pasteboardString = UIPasteboard.general.string
-        callback(pasteboardString)
+        callback()
     }
 }

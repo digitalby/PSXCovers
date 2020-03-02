@@ -10,16 +10,14 @@ import UIKit
 
 class StartViewController: UIViewController {
 
-    @IBOutlet var gameURLSelectorView: GameURLSelectorView!
+    @IBOutlet var gameURLSelectorView: GameURLSelectionView!
     @IBOutlet var goBarButtonItem: UIBarButtonItem!
     @IBOutlet var gameURLSelectorViewBottomConstraint: NSLayoutConstraint!
 
     private var keyboardConstraintObserver: KeyboardConstraintObserver!
     private var textFieldObserver: TextFieldObserver!
-    private var pasteboardObserver: PasteboardObserver!
-    private var appActivityObserver: AppActivityObserver!
+    private var pasteboardListener: GameURLPasteboardListener!
 
-    private var lastValidPasteboardString: String? = nil
     private let exampleURLString = "http://psxdatacenter.com/games/P/R/SCES-00001.html"
 
     private var game: Game? = nil
@@ -36,8 +34,17 @@ class StartViewController: UIViewController {
             bottomConstraint: gameURLSelectorViewBottomConstraint,
             viewToAdjust: gameURLSelectorView
         )
-        appActivityObserver = AppActivityObserver(becameActiveCallback: checkPasteboard)
-        checkPasteboard()
+        pasteboardListener = GameURLPasteboardListener(
+            viewController: self,
+            pasteCallback: { [unowned self] url in
+                self.gameURLSelectorView.gameURLField.text = url.absoluteString
+                self.updateEnabledStateForGoBarButtonItem()
+            },
+            pasteAndGoCallback: { [unowned self] url in
+                self.gameURLSelectorView.gameURLField.text = url.absoluteString
+                self.downloadGame(at: url)
+            }
+        )
     }
 
     override var prefersStatusBarHidden: Bool { false }
@@ -48,43 +55,6 @@ extension StartViewController {
     func updateEnabledStateForGoBarButtonItem() {
         let isEmpty = gameURLSelectorView.gameURLField.text?.isEmptyOrWhitespace
         goBarButtonItem.isEnabled = isEmpty == false
-    }
-}
-
-//MARK: - Pasteboard check
-extension StartViewController {
-    func pasteFromPasteboardIfNeeded(pasteboardString: String) {
-        do {
-            let url = try GameURLValidator().makeValidatedPSXGameURL(urlString: pasteboardString)
-            let alert = UIAlertController(title: nil, message: "Do you wish to use the link from your clipboard?", preferredStyle: .alert)
-            let buttonPasteAndGo = UIAlertAction(title: "Paste & Go", style: .default) { [unowned self] _ in
-                self.gameURLSelectorView.gameURLField.text = pasteboardString
-                self.downloadGame(at: url)
-            }
-            alert.addAction(buttonPasteAndGo)
-            let buttonPaste = UIAlertAction(title: "Paste", style: .default) { [unowned self] _ in
-                self.gameURLSelectorView.gameURLField.text = pasteboardString
-                self.updateEnabledStateForGoBarButtonItem()
-            }
-            alert.addAction(buttonPaste)
-            let buttonCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alert.addAction(buttonCancel)
-            present(alert, animated: true)
-        } catch { return }
-    }
-
-    func checkPasteboard() {
-        guard
-            let pasteboardString = UIPasteboard.general.string?.trimmingCharacters(in: .whitespacesAndNewlines)
-            else { return }
-        let textFieldString = gameURLSelectorView.gameURLField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard
-            lastValidPasteboardString != pasteboardString,
-            textFieldString?.range(of: pasteboardString) == nil
-        else { return }
-        lastValidPasteboardString = pasteboardString
-        guard navigationController?.topViewController == self else { return }
-        pasteFromPasteboardIfNeeded(pasteboardString: pasteboardString)
     }
 }
 
@@ -159,6 +129,7 @@ extension StartViewController {
                 let game = senderViewController.game
                 else { return }
             destinationViewController.game = game
+
         default:
             return
         }

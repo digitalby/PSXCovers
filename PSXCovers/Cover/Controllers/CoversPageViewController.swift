@@ -15,12 +15,13 @@ class CoversPageViewController: UIPageViewController {
     var flatCovers: [Cover] { game.coversGroupedByCategory.flatMap { $0 } }
 
     lazy var factory = CoverViewControllerFactory(storyboard: storyboard, transition: dismissTransition)
+    lazy var handler = CoversPageViewControllerHandler(coversPageViewController: self)
     var dismissTransition: DismissTransitionInteractor? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = self
-        delegate = self
+        dataSource = handler
+        delegate = handler
 
         let cover = flatCovers[initialCoverIndex]
         var viewController: CoverViewController? = nil
@@ -48,65 +49,6 @@ class CoversPageViewController: UIPageViewController {
 extension CoversPageViewController {
     var currentCoverViewController: CoverViewController? {
         viewControllers?.first as? CoverViewController
-    }
-}
-
-//MARK: - Page Data Source
-extension CoversPageViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard
-            let coverViewController = viewController as? CoverViewController,
-            let cover = coverViewController.cover,
-            let index = flatCovers.firstIndex(of: cover)
-        else { return nil }
-
-        let newIndex = index - 1
-        guard (0..<flatCovers.count).contains(newIndex) else { return nil }
-        let newCover = flatCovers[newIndex]
-        let newViewController = newIndex == 0 ?
-            factory.makeLeadingCoverViewController(with: newCover) :
-            factory.makeCoverViewController(with: newCover)
-        newViewController?.topToolbarCenterItem.title = "\(newIndex + 1)/\(flatCovers.count)"
-        return newViewController
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard
-            let coverViewController = viewController as? CoverViewController,
-            let cover = coverViewController.cover,
-            let index = flatCovers.firstIndex(of: cover)
-        else { return nil }
-
-        let newIndex = index + 1
-        guard (0..<flatCovers.count).contains(newIndex) else { return nil }
-        let newCover = flatCovers[newIndex]
-
-        let newViewController = newIndex == flatCovers.count - 1 ?
-            factory.makeTrailingCoverViewController(with: newCover) :
-            factory.makeCoverViewController(with: newCover)
-        newViewController?.topToolbarCenterItem.title = "\(newIndex + 1)/\(flatCovers.count)"
-        return newViewController
-    }
-
-    private func prepare(newViewController: CoverViewController?) {
-        newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
-    }
-}
-
-//MARK: - Page Delegate
-extension CoversPageViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        currentCoverViewController?.panGestureRecognizer.isEnabled = false
-        currentCoverViewController?.dismissTransition?.cancel()
-        pendingViewControllers.forEach { prepare(newViewController: ($0 as? CoverViewController)) }
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed {
-            previousViewControllers.forEach { ($0 as? CoverViewController)?.panGestureRecognizer.isEnabled = true }
-        } else {
-            currentCoverViewController?.panGestureRecognizer.isEnabled = true
-        }
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  GameURLSelectorView.swift
+//  GameURLSelectionView.swift
 //  PSXCovers
 //
 //  Created by Digital on 23/02/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class GameURLSelectorView: UIView {
+@IBDesignable class GameURLSelectionView: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet var enclosingView: UIVisualEffectView!
@@ -54,14 +54,14 @@ import UIKit
 }
 
 //MARK: - Text field delegate
-extension GameURLSelectorView: UITextFieldDelegate {
+extension GameURLSelectionView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         delegate?.shouldReturnTextField() ?? true
     }
 }
 
 //MARK: - Actions
-extension GameURLSelectorView {
+extension GameURLSelectionView {
     @IBAction func didSelectUseAnExample(_ sender: Any) {
         delegate?.didSelectUseAnExample()
     }

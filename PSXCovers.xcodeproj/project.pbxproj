@@ -18,8 +18,8 @@
 		ED42510124029639005032DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4250FF24029639005032DB /* Main.storyboard */; };
 		ED4251032402963D005032DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED4251022402963D005032DB /* Assets.xcassets */; };
 		ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4251042402963D005032DB /* LaunchScreen.storyboard */; };
-		ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED42510D24029B55005032DB /* GameURLSelectorView.xib */; };
-		ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42511524029F59005032DB /* GameURLSelectorView.swift */; };
+		ED42510E24029B55005032DB /* GameURLSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED42510D24029B55005032DB /* GameURLSelectionView.xib */; };
+		ED42511624029F59005032DB /* GameURLSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42511524029F59005032DB /* GameURLSelectionView.swift */; };
 		ED5C304D240950140013CDEE /* CoverThumbnailDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */; };
 		ED5C305224096D350013CDEE /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C305124096D350013CDEE /* CoverViewController.swift */; };
 		ED5C305424097C4E0013CDEE /* CoversPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C305324097C4E0013CDEE /* CoversPageViewController.swift */; };
@@ -50,6 +50,13 @@
 		EDE56DBD240D81E500EE2049 /* GameURLValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */; };
 		EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */; };
 		EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DC0240D825400EE2049 /* Typealiases.swift */; };
+		EDE56DC4240D840F00EE2049 /* GameURLPasteboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DC3240D840F00EE2049 /* GameURLPasteboardListener.swift */; };
+		EDE56DC9240D956000EE2049 /* ThumbnailCollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DC8240D956000EE2049 /* ThumbnailCollectionHelper.swift */; };
+		EDE56DCB240D9CE800EE2049 /* CoversPageViewControllerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHandler.swift */; };
+		EDE56DCD240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DCC240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift */; };
+		EDE56DCF240DA20000EE2049 /* CoverViewControllerErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DCE240DA20000EE2049 /* CoverViewControllerErrorHandler.swift */; };
+		EDE56DD1240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DD0240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift */; };
+		EDE56DD3240DA7C700EE2049 /* CoverThumbnailCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DD2240DA7C700EE2049 /* CoverThumbnailCellConfigurator.swift */; };
 		EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */; };
 		EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */; };
 		EDE92BA52407D42600B1ACC7 /* NoItemsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */; };
@@ -85,8 +92,8 @@
 		ED4251022402963D005032DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED4251052402963D005032DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED4251072402963D005032DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED42510D24029B55005032DB /* GameURLSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameURLSelectorView.xib; sourceTree = "<group>"; };
-		ED42511524029F59005032DB /* GameURLSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorView.swift; sourceTree = "<group>"; };
+		ED42510D24029B55005032DB /* GameURLSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameURLSelectionView.xib; sourceTree = "<group>"; };
+		ED42511524029F59005032DB /* GameURLSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectionView.swift; sourceTree = "<group>"; };
 		ED5C304C240950130013CDEE /* CoverThumbnailDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverThumbnailDownloader.swift; sourceTree = "<group>"; };
 		ED5C305124096D350013CDEE /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
 		ED5C305324097C4E0013CDEE /* CoversPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversPageViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +121,13 @@
 		EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLValidationError.swift; sourceTree = "<group>"; };
 		EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageDownloadError.swift; sourceTree = "<group>"; };
 		EDE56DC0240D825400EE2049 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		EDE56DC3240D840F00EE2049 /* GameURLPasteboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLPasteboardListener.swift; sourceTree = "<group>"; };
+		EDE56DC8240D956000EE2049 /* ThumbnailCollectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionHelper.swift; sourceTree = "<group>"; };
+		EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversPageViewControllerHandler.swift; sourceTree = "<group>"; };
+		EDE56DCC240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerImageHandler.swift; sourceTree = "<group>"; };
+		EDE56DCE240DA20000EE2049 /* CoverViewControllerErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerErrorHandler.swift; sourceTree = "<group>"; };
+		EDE56DD0240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerGestureHandler.swift; sourceTree = "<group>"; };
+		EDE56DD2240DA7C700EE2049 /* CoverThumbnailCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverThumbnailCellConfigurator.swift; sourceTree = "<group>"; };
 		EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityObserver.swift; sourceTree = "<group>"; };
 		EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemsView.swift; sourceTree = "<group>"; };
 		EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoItemsView.xib; sourceTree = "<group>"; };
@@ -187,6 +201,7 @@
 		ED42511024029BA0005032DB /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				EDE56DC2240D839300EE2049 /* Helpers */,
 				ED6AC15A2407223B0086D378 /* Error Handling */,
 				EDB77B5524045DFB003F358A /* Network */,
 				ED6AC15B240722420086D378 /* Observers */,
@@ -210,8 +225,8 @@
 		ED42511224029BBC005032DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ED42510D24029B55005032DB /* GameURLSelectorView.xib */,
-				ED42511524029F59005032DB /* GameURLSelectorView.swift */,
+				ED42510D24029B55005032DB /* GameURLSelectionView.xib */,
+				ED42511524029F59005032DB /* GameURLSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +393,7 @@
 		EDB77B6A24056C14003F358A /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				EDE56DC7240D953F00EE2049 /* Helpers */,
 				ED5C304B24094FF10013CDEE /* Network */,
 				EDB77B6C24056C2A003F358A /* Views */,
 				EDB77B6D24056C31003F358A /* Controllers */,
@@ -408,6 +424,10 @@
 			isa = PBXGroup;
 			children = (
 				EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */,
+				EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHandler.swift */,
+				EDE56DCC240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift */,
+				EDE56DCE240DA20000EE2049 /* CoverViewControllerErrorHandler.swift */,
+				EDE56DD0240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -438,6 +458,23 @@
 				EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		EDE56DC2240D839300EE2049 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDE56DC3240D840F00EE2049 /* GameURLPasteboardListener.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EDE56DC7240D953F00EE2049 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDE56DC8240D956000EE2049 /* ThumbnailCollectionHelper.swift */,
+				EDE56DD2240DA7C700EE2049 /* CoverThumbnailCellConfigurator.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,7 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED4251062402963D005032DB /* LaunchScreen.storyboard in Resources */,
-				ED42510E24029B55005032DB /* GameURLSelectorView.xib in Resources */,
+				ED42510E24029B55005032DB /* GameURLSelectionView.xib in Resources */,
 				ED1E67B824098A670089CCC3 /* ImageErrorView.xib in Resources */,
 				ED4251032402963D005032DB /* Assets.xcassets in Resources */,
 				EDE92BA52407D42600B1ACC7 /* NoItemsView.xib in Resources */,
@@ -543,19 +580,25 @@
 				ED5C305424097C4E0013CDEE /* CoversPageViewController.swift in Sources */,
 				ED5C304D240950140013CDEE /* CoverThumbnailDownloader.swift in Sources */,
 				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
+				EDE56DC4240D840F00EE2049 /* GameURLPasteboardListener.swift in Sources */,
 				EDB77B6424055081003F358A /* Cover.swift in Sources */,
 				EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
+				EDE56DC9240D956000EE2049 /* ThumbnailCollectionHelper.swift in Sources */,
+				EDE56DCD240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift in Sources */,
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */,
 				ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */,
+				EDE56DCB240D9CE800EE2049 /* CoversPageViewControllerHandler.swift in Sources */,
 				ED2075852406F16A00CDB8CB /* CoverThumbnailCell.swift in Sources */,
 				ED09CF632409CB6A00A7E26F /* DismissTransitionInteractor.swift in Sources */,
 				EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */,
 				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */,
+				EDE56DD1240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift in Sources */,
+				EDE56DCF240DA20000EE2049 /* CoverViewControllerErrorHandler.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */,
 				ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */,
@@ -565,7 +608,8 @@
 				ED5C305224096D350013CDEE /* CoverViewController.swift in Sources */,
 				ED5C305724097F070013CDEE /* CoverImageDownloader.swift in Sources */,
 				ED1E67BA240998450089CCC3 /* ImageErrorView.swift in Sources */,
-				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
+				EDE56DD3240DA7C700EE2049 /* CoverThumbnailCellConfigurator.swift in Sources */,
+				ED42511624029F59005032DB /* GameURLSelectionView.swift in Sources */,
 				EDE56DBD240D81E500EE2049 /* GameURLValidationError.swift in Sources */,
 				EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */,
 				ED5E00DE240C4D1B0077FD99 /* ImageConstants.swift in Sources */,

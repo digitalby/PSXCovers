@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EjO-n3-uda">
-    <device id="ipad10_5" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController title="Start" id="BYZ-38-t0r" customClass="StartViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1o-Vm-CfV" customClass="GameURLSelectorView" customModule="PSXCovers" customModuleProvider="target">
-                                <rect key="frame" x="16" y="102" width="802" height="1010"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1o-Vm-CfV" customClass="GameURLSelectionView" customModule="PSXCovers" customModuleProvider="target">
+                                <rect key="frame" x="16" y="91" width="288" height="477"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -61,11 +61,11 @@
             <objects>
                 <viewController id="jAf-KF-fez" customClass="GameViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gLi-ZE-s2Q">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1P-qQ-u76">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="hCv-Vd-OWH">
                                     <size key="itemSize" width="150" height="150"/>
@@ -128,11 +128,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CoverSectionHeader" id="f2q-iP-3o3" customClass="CoverSectionHeader" customModule="PSXCovers" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="834" height="32"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpY-DQ-wYh">
-                                            <rect key="frame" x="8" y="2" width="818" height="28"/>
+                                            <rect key="frame" x="8" y="2" width="304" height="28"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -150,13 +150,9 @@
                                         <outlet property="label" destination="BpY-DQ-wYh" id="r9G-Yl-LC3"/>
                                     </connections>
                                 </collectionReusableView>
-                                <connections>
-                                    <outlet property="dataSource" destination="jAf-KF-fez" id="5aT-vH-8in"/>
-                                    <outlet property="delegate" destination="jAf-KF-fez" id="DGj-65-kKZ"/>
-                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfh-KK-j3g" customClass="NoItemsView" customModule="PSXCovers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="102" width="834" height="1010"/>
+                                <rect key="frame" x="0.0" y="91" width="320" height="477"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -195,21 +191,21 @@
             <objects>
                 <viewController storyboardIdentifier="CoverViewController" id="lLd-HU-X9b" customClass="CoverViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="wos-HX-yWs">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKF-dn-Twf">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-N6-jsC">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cx2-UE-6dE">
-                                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <gestureRecognizers/>
                                     </imageView>
                                 </subviews>
@@ -224,25 +220,23 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="hHz-0j-Lay"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Nck-pb-4FT"/>
-                                <connections>
-                                    <outlet property="delegate" destination="lLd-HU-X9b" id="k78-Bi-4d5"/>
-                                </connections>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
-                                <rect key="frame" x="398.5" y="537.5" width="37" height="37"/>
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7F-ac-7CX" customClass="ImageErrorView" customModule="PSXCovers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="834" height="1068"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <gestureRecognizers/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="overlay_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="w8i-Ey-d2w">
-                                <rect key="frame" x="0.0" y="968" width="834" height="144"/>
+                                <rect key="frame" x="0.0" y="424" width="320" height="144"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="144" id="OJ3-Rc-zCJ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV3-9D-1oC">
-                                <rect key="frame" x="0.0" y="1042" width="834" height="62"/>
+                                <rect key="frame" x="0.0" y="416.5" width="320" height="143.5"/>
                                 <string key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -251,12 +245,12 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="iNp-jt-KCJ">
-                                <rect key="frame" x="0.0" y="1112" width="834" height="0.0"/>
+                                <rect key="frame" x="0.0" y="568" width="320" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADW-ap-GzZ">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="done" systemItem="done" id="cpZ-VA-Glw">
                                         <connections>
@@ -340,13 +334,11 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="dTf-kH-g8U">
                     <connections>
                         <action selector="didRecognizePanGesture:" destination="lLd-HU-X9b" id="6P7-sc-yG6"/>
-                        <outlet property="delegate" destination="lLd-HU-X9b" id="4dI-Y5-Wg9"/>
                     </connections>
                 </panGestureRecognizer>
                 <tapGestureRecognizer cancelsTouchesInView="NO" id="NR9-3l-loN">
                     <connections>
                         <action selector="didRecognizeTapGesture:" destination="lLd-HU-X9b" id="8Iw-Uy-wYI"/>
-                        <outlet property="delegate" destination="lLd-HU-X9b" id="73T-zh-drb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -366,7 +358,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EjO-n3-uda" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="brm-mm-cvb">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="102"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

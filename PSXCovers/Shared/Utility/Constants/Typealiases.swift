@@ -10,3 +10,4 @@ import UIKit
 
 typealias UIImageDownloadCompletion = (UIImage?, Error?)->()
 typealias HTMLDownloadCompletion = (String?, Error?) -> Void
+typealias URLCallback = (URL)->(Void)

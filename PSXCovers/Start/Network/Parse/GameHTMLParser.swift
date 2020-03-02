@@ -18,35 +18,9 @@ class GameHTMLParser {
 
     func makeGame(fromHTML html: String) -> Game {
         let doc = HTMLDocument(string: html)
-        let gameDescriptionTable = doc.firstNode(matchingSelector: "#table4")
-        var gameTitle = ""
-        var region: Region? = nil
-        if let descriptionTableRows = gameDescriptionTable?
-            .firstNode(matchingSelector: "tbody")?
-            .nodes(matchingSelector: "tr") {
-            for tr in descriptionTableRows {
-                let nodes = tr.nodes(matchingSelector: "td")
-                let firstNodeText = nodes
-                    .first?
-                    .textContent
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
-                let lastNodeText = nodes
-                    .last?
-                    .textContent
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
-                    ?? ""
-                switch firstNodeText {
-                case "Region":
-                    guard region == nil else { continue }
-                    region = Region(fromString: lastNodeText)
-                case "Official Title":
-                    guard gameTitle == "" else { continue }
-                    gameTitle = lastNodeText
-                default: continue
-                }
-            }
-        }
-
+        let gameDescriptionTable = doc.firstNode(matchingSelector: "#table4") ?? HTMLElement()
+        let title = getTitle(fromTable: gameDescriptionTable) ?? ""
+        let region = getRegion(fromTable: gameDescriptionTable)
         let gameCoversTables = doc.nodes(matchingSelector: "#table28")
         let gameDiscTables = doc.nodes(matchingSelector: "#table29")
         var covers = gameCoversTables.flatMap {
@@ -56,13 +30,58 @@ class GameHTMLParser {
             getCovers(fromTable: $0)
         })
 
-        let game = Game(url: gameURL, title: gameTitle, region: region, covers: covers)
+        let game = Game(url: gameURL, title: title, region: region, covers: covers)
         return game
     }
 }
 
 //MARK: - Helpers
 private extension GameHTMLParser {
+    func getRows(fromTable node: HTMLNode) -> [HTMLNode] {
+        if let tableRows = node
+            .firstNode(matchingSelector: "tbody")?
+            .nodes(matchingSelector: "tr") {
+            return tableRows
+        }
+        return []
+    }
+
+    func makeTuple(fromRow node: HTMLNode) -> (String?, String?)? {
+        let nodes = node.nodes(matchingSelector: "td")
+        guard nodes.count == 2 else { return nil }
+        let firstNodeText = nodes
+            .first?
+            .textContent
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        let lastNodeText = nodes
+            .last?
+            .textContent
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return (firstNodeText, lastNodeText)
+    }
+
+    func getTitle(fromTable node: HTMLNode) -> String? {
+        for tr in getRows(fromTable: node) {
+            if let tuple = makeTuple(fromRow: tr) {
+                if tuple.0 == "Official Title" {
+                    return tuple.1
+                }
+            }
+        }
+        return nil
+    }
+
+    func getRegion(fromTable node: HTMLNode) -> Region? {
+        for tr in getRows(fromTable: node) {
+            if let tuple = makeTuple(fromRow: tr) {
+                if tuple.0 == "Region" {
+                    return Region(fromString: tuple.1 ?? "")
+                }
+            }
+        }
+        return nil
+    }
+
     func getCovers(fromTable node: HTMLNode) -> [Cover] {
         var array = [Cover]()
         guard let tbody = node.firstNode(matchingSelector: "tbody")

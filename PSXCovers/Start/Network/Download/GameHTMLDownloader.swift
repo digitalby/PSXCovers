@@ -13,7 +13,7 @@ class GameHTMLDownloader {
 
     static let session = Session()
 
-    func downloadGameHTML(at url: URL, completion: @escaping HTMLDownloadCompletion? = nil) {
+    func downloadGameHTML(at url: URL, completion: HTMLDownloadCompletion? = nil) {
         GameHTMLDownloader.session.request(url).validate().responseString { string in
             if let error = string.error {
                 completion?(nil, error)
