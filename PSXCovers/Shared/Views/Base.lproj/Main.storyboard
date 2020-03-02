@@ -61,7 +61,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="hCv-Vd-OWH">
                                     <size key="itemSize" width="150" height="150"/>
-                                    <size key="estimatedItemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="48" height="32"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
@@ -88,14 +87,12 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="36T-EG-uCC"/>
                                                 <constraint firstItem="081-eS-l0B" firstAttribute="top" secondItem="5aB-ZK-6Ay" secondAttribute="bottom" constant="8" id="7Ud-0u-5mM"/>
                                                 <constraint firstItem="5aB-ZK-6Ay" firstAttribute="width" secondItem="uZy-Lt-CCj" secondAttribute="width" constant="-16" id="AT6-xH-yIs"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="081-eS-l0B" secondAttribute="trailing" id="Ist-s7-x2a"/>
                                                 <constraint firstItem="081-eS-l0B" firstAttribute="centerX" secondItem="uZy-Lt-CCj" secondAttribute="centerX" id="PJw-u5-BRb"/>
                                                 <constraint firstItem="5aB-ZK-6Ay" firstAttribute="centerX" secondItem="uZy-Lt-CCj" secondAttribute="centerX" id="RsN-ck-J6K"/>
                                                 <constraint firstAttribute="width" secondItem="uZy-Lt-CCj" secondAttribute="height" multiplier="1:1" id="TrH-hL-KDt"/>
-                                                <constraint firstAttribute="height" constant="150" id="bGE-Kn-EQq"/>
                                                 <constraint firstItem="081-eS-l0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uZy-Lt-CCj" secondAttribute="leading" id="ftm-Jv-4OS"/>
                                                 <constraint firstItem="5aB-ZK-6Ay" firstAttribute="top" secondItem="uZy-Lt-CCj" secondAttribute="top" constant="8" id="iCO-RM-Okp"/>
                                                 <constraint firstAttribute="bottom" secondItem="081-eS-l0B" secondAttribute="bottom" constant="8" id="mUZ-pN-LXc"/>

@@ -134,6 +134,18 @@ extension GameViewController: UICollectionViewDelegate {
     }
 }
 
+//MARK: - Flow Layout Delegate
+extension GameViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let bounds = UIScreen.main.bounds
+        let cellWidth = bounds.width / 2 - 16
+        let cellHeight = bounds.height / 2 - 16
+        let minimumDimension = min(cellWidth, cellHeight)
+        let cellSize = min(minimumDimension, 238)
+        return CGSize(width: cellSize, height: cellSize)
+    }
+}
+
 //MARK: - Segue
 extension GameViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
