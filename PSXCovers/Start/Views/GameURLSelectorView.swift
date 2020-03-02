@@ -11,10 +11,18 @@ import UIKit
 @IBDesignable class GameURLSelectorView: UIView {
 
     @IBOutlet var contentView: UIView!
+    @IBOutlet var enclosingView: UIVisualEffectView!
     @IBOutlet weak var gameURLField: UITextField!
     @IBOutlet weak var useAnExampleButton: UIButton!
 
-    weak var delegate: GameURLSelectorViewDelegate? = nil
+    @IBOutlet weak var delegate: GameURLSelectorViewDelegate? = nil
+
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            enclosingView.layer.cornerRadius = cornerRadius
+            enclosingView.layer.masksToBounds = cornerRadius > 0
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

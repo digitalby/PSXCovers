@@ -21,7 +21,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        noItemsView.mainLabel.text = "There are no covers."
         title = game.titleWithRegion
         game.covers.forEach { cover in
             coverThumbnailDownloader.downloadThumbnail(for: cover) { [weak self] image in

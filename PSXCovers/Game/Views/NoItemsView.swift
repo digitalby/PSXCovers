@@ -11,6 +11,11 @@ import UIKit
 @IBDesignable class NoItemsView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var mainLabel: UILabel!
+    @IBInspectable var mainLabelText: String = "" {
+        didSet {
+            mainLabel.text = mainLabelText
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

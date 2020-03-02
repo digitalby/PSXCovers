@@ -27,7 +27,6 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameURLSelectorView.delegate = self
         updateEnabledStateForGoBarButtonItem()
         textFieldObserver = TextFieldObserver(
             textField: gameURLSelectorView.gameURLField,

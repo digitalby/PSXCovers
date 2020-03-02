@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GameURLSelectorViewDelegate: class {
+@objc protocol GameURLSelectorViewDelegate: class {
     func didSelectUseAnExample()
     func shouldReturnTextField() -> Bool
 }
