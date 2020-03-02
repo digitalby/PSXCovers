@@ -9,20 +9,11 @@
 import UIKit
 import Alamofire
 
-enum CoverImageDownloadError: Error {
-    case requestAlreadyPresent
-    case coverIsMissing
-    case responseError(Error)
-    case dataError
-}
-
-typealias DownloadCompletion = (UIImage?, Error?)->()
-
 class CoverImageDownloader {
     static let session = Session()
     static var pendingURLs = Set<URL>()
 
-    func downloadImage(for cover: Cover, completion: DownloadCompletion? = nil) {
+    func downloadImage(for cover: Cover, completion: UIImageDownloadCompletion? = nil) {
         guard
             cover.thumbnailImage != .missing,
             let url = cover.fullSizeImageURL
@@ -30,7 +21,7 @@ class CoverImageDownloader {
                 completion?(nil, CoverImageDownloadError.coverIsMissing)
                 return
         }
-        let removePendingAndComplete: DownloadCompletion = { image, error in
+        let removePendingAndComplete: UIImageDownloadCompletion = { image, error in
             type(of: self).pendingURLs.remove(url)
             completion?(image, error)
         }

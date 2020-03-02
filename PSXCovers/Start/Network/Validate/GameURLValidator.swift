@@ -8,17 +8,6 @@
 
 import Foundation
 
-enum GameURLValidationError: Error {
-    case invalidURLString
-    case urlInitializationFailed
-    case urlComponentsInitializationFailed
-    case hostIsNotPSXDC
-    case invalidPlatformSubpath
-    case invalidRegionSubpath
-    case invalidAlphabetGroupSubpath
-    case invalidPSXGameSubpath
-}
-
 class GameURLValidator {
 
     fileprivate var hostPattern: String { #"(www\.)?psxdatacenter\.com"# }

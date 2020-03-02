@@ -13,18 +13,18 @@ class GameHTMLDownloader {
 
     static let session = Session()
 
-    func downloadGameHTML(at url: URL, completion: @escaping (String?, Error?) -> Void) {
+    func downloadGameHTML(at url: URL, completion: @escaping HTMLDownloadCompletion? = nil) {
         GameHTMLDownloader.session.request(url).validate().responseString { string in
             if let error = string.error {
-                completion(nil, error)
+                completion?(nil, error)
                 return
             }
             guard let data = string.value else {
                 let error = AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .isoLatin1))
-                completion(nil, error)
+                completion?(nil, error)
                 return
             }
-            completion(data, nil)
+            completion?(data, nil)
         }
     }
 }

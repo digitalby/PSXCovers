@@ -47,6 +47,9 @@
 		EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B7024058015003F358A /* ValidationErrorHandler.swift */; };
 		EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B722405809E003F358A /* NetworkErrorHandler.swift */; };
 		EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */; };
+		EDE56DBD240D81E500EE2049 /* GameURLValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */; };
+		EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */; };
+		EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DC0240D825400EE2049 /* Typealiases.swift */; };
 		EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */; };
 		EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */; };
 		EDE92BA52407D42600B1ACC7 /* NoItemsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */; };
@@ -108,6 +111,9 @@
 		EDB77B7024058015003F358A /* ValidationErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorHandler.swift; sourceTree = "<group>"; };
 		EDB77B722405809E003F358A /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
 		EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerFactory.swift; sourceTree = "<group>"; };
+		EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLValidationError.swift; sourceTree = "<group>"; };
+		EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageDownloadError.swift; sourceTree = "<group>"; };
+		EDE56DC0240D825400EE2049 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		EDE92BA024072BCA00B1ACC7 /* AppActivityObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityObserver.swift; sourceTree = "<group>"; };
 		EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemsView.swift; sourceTree = "<group>"; };
 		EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoItemsView.xib; sourceTree = "<group>"; };
@@ -221,8 +227,7 @@
 		ED42511424029BE1005032DB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				ED5E00DD240C4D1B0077FD99 /* ImageConstants.swift */,
-				EDB77B4C24044A24003F358A /* Extensions */,
+				EDE56DB9240D819100EE2049 /* Utility */,
 				ED42511124029BB9005032DB /* Models */,
 				EDAB7EA82402CA1C004D182E /* Views */,
 			);
@@ -407,6 +412,34 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EDE56DB9240D819100EE2049 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EDE56DBA240D81A000EE2049 /* Constants */,
+				EDE56DBB240D81D700EE2049 /* Errors */,
+				EDB77B4C24044A24003F358A /* Extensions */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		EDE56DBA240D81A000EE2049 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				ED5E00DD240C4D1B0077FD99 /* ImageConstants.swift */,
+				EDE56DC0240D825400EE2049 /* Typealiases.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		EDE56DBB240D81D700EE2049 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */,
+				EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -511,6 +544,7 @@
 				ED5C304D240950140013CDEE /* CoverThumbnailDownloader.swift in Sources */,
 				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
 				EDB77B6424055081003F358A /* Cover.swift in Sources */,
+				EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
@@ -521,6 +555,7 @@
 				EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */,
 				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
+				EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */,
 				ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */,
@@ -531,6 +566,7 @@
 				ED5C305724097F070013CDEE /* CoverImageDownloader.swift in Sources */,
 				ED1E67BA240998450089CCC3 /* ImageErrorView.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectorView.swift in Sources */,
+				EDE56DBD240D81E500EE2049 /* GameURLValidationError.swift in Sources */,
 				EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */,
 				ED5E00DE240C4D1B0077FD99 /* ImageConstants.swift in Sources */,
 				EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */,
