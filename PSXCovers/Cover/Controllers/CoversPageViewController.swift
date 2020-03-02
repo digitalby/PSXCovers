@@ -93,15 +93,23 @@ extension CoversPageViewController: UIPageViewControllerDataSource {
     private func prepare(newViewController: CoverViewController?) {
         newViewController?.displayingToolbars = currentCoverViewController?.displayingToolbars ?? true
         setNeedsStatusBarAppearanceUpdate()
-        currentCoverViewController?.panGestureRecognizer.isEnabled = false
-        currentCoverViewController?.panGestureRecognizer.isEnabled = true
-        currentCoverViewController?.dismissTransition?.cancel()
     }
 }
 
 //MARK: - Page Delegate
 extension CoversPageViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        currentCoverViewController?.panGestureRecognizer.isEnabled = false
+        currentCoverViewController?.dismissTransition?.cancel()
+    }
 
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            previousViewControllers.forEach { ($0 as? CoverViewController)?.panGestureRecognizer.isEnabled = true }
+        } else {
+            currentCoverViewController?.panGestureRecognizer.isEnabled = true
+        }
+    }
 }
 
 //MARK: - Transitioning Delegate
