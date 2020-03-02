@@ -62,25 +62,43 @@ class CoverViewController: UIViewController {
 //MARK: - Displaying an image
 extension CoverViewController {
     func loadCoverImage() {
-        if cover.fullSizeImageURL != nil {
-            coverImageDownloader.downloadImage(for: cover) { [weak self] image in
-                guard let self = self else { return }
-                if let image = image {
-                    self.throbber.stopAnimating()
-                    self.imageView.image = image
-                    self.imageView.sizeToFit()
-                    self.scrollView.contentSize = self.imageView.bounds.size
-                    self.updateZoomScale()
-                    self.updateImageViewConstraintsForSize(self.view.bounds.size)
-                    self.topToolbarActionItem.isEnabled = true
+        if let image = cover.fullSizeImage {
+            throbber.stopAnimating()
+            imageView.image = image
+            imageView.sizeToFit()
+            scrollView.contentSize = self.imageView.bounds.size
+            updateZoomScale()
+            updateImageViewConstraintsForSize(self.view.bounds.size)
+            topToolbarActionItem.isEnabled = true
+            return
+        }
+        coverImageDownloader.downloadImage(for: cover) { [weak cover, weak self] image, error in
+            if let error = error {
+                var errorText: String!
+                if let downloadError = error as? CoverImageDownloadError {
+                    switch downloadError {
+                    case .requestAlreadyPresent:
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self?.loadCoverImage()
+                        }
+                        return
+                    case .coverIsMissing:
+                        errorText = "This cover is unavailable.\nYou can help by adding it to psxdatacenter.com"
+                    case .responseError(_):
+                        errorText = "Can't load cover due to a network error."
+                    case .dataError:
+                        errorText = "The cover cannot be displayed."
+                    }
                 } else {
-                    self.displayErrorView(errorText: "Cover download error.")
+                    errorText = "Cover download error."
                 }
+                self?.displayErrorView(errorText: errorText)
+                return
             }
-        } else if cover.thumbnailImage == .missing {
-            displayErrorView(errorText: "This cover is unavailable.\nYou can help by adding it to psxdatacenter.com")
-        } else {
-            self.displayErrorView(errorText: "Can't load cover.")
+            if let image = image {
+                cover?.fullSizeImage = image
+                self?.loadCoverImage()
+            }
         }
     }
 
