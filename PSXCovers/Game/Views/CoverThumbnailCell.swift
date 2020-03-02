@@ -9,6 +9,7 @@
 import UIKit
 
 @IBDesignable class CoverThumbnailCell: UICollectionViewCell {
+    @IBOutlet var highlightView: UIView!
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var label: UILabel!
     @IBInspectable var cornerRadius: CGFloat = 0 {

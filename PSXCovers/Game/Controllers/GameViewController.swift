@@ -132,6 +132,20 @@ extension GameViewController: UICollectionViewDelegate {
         }
         performSegue(withIdentifier: "PresentCover", sender: self)
     }
+
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        guard let item = collectionView.cellForItem(at: indexPath) as? CoverThumbnailCell else { return }
+        UIView.animate(withDuration: 1/8) {
+            item.highlightView.alpha = 0.5
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        guard let item = collectionView.cellForItem(at: indexPath) as? CoverThumbnailCell else { return }
+        UIView.animate(withDuration: 1/8) {
+            item.highlightView.alpha = 0.0
+        }
+    }
 }
 
 //MARK: - Flow Layout Delegate

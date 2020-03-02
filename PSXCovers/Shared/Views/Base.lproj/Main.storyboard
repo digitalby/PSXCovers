@@ -68,7 +68,7 @@
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CoverThumbnailCell" id="nLZ-rT-E7h" customClass="CoverThumbnailCell" customModule="PSXCovers" customModuleProvider="target">
                                         <rect key="frame" x="8" y="40" width="150" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" verifyAmbiguity="off" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uZy-Lt-CCj">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -84,18 +84,26 @@
                                                     <color key="shadowColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <view opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WdC-UR-gr7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="WdC-UR-gr7" firstAttribute="height" secondItem="uZy-Lt-CCj" secondAttribute="height" id="63v-YF-RZu"/>
                                                 <constraint firstItem="081-eS-l0B" firstAttribute="top" secondItem="5aB-ZK-6Ay" secondAttribute="bottom" constant="8" id="7Ud-0u-5mM"/>
                                                 <constraint firstItem="5aB-ZK-6Ay" firstAttribute="width" secondItem="uZy-Lt-CCj" secondAttribute="width" constant="-16" id="AT6-xH-yIs"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="081-eS-l0B" secondAttribute="trailing" id="Ist-s7-x2a"/>
+                                                <constraint firstItem="WdC-UR-gr7" firstAttribute="width" secondItem="uZy-Lt-CCj" secondAttribute="width" id="LPP-UM-1gQ"/>
+                                                <constraint firstItem="WdC-UR-gr7" firstAttribute="centerX" secondItem="uZy-Lt-CCj" secondAttribute="centerX" id="Oxw-qa-gDc"/>
                                                 <constraint firstItem="081-eS-l0B" firstAttribute="centerX" secondItem="uZy-Lt-CCj" secondAttribute="centerX" id="PJw-u5-BRb"/>
                                                 <constraint firstItem="5aB-ZK-6Ay" firstAttribute="centerX" secondItem="uZy-Lt-CCj" secondAttribute="centerX" id="RsN-ck-J6K"/>
                                                 <constraint firstAttribute="width" secondItem="uZy-Lt-CCj" secondAttribute="height" multiplier="1:1" id="TrH-hL-KDt"/>
                                                 <constraint firstItem="081-eS-l0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uZy-Lt-CCj" secondAttribute="leading" id="ftm-Jv-4OS"/>
                                                 <constraint firstItem="5aB-ZK-6Ay" firstAttribute="top" secondItem="uZy-Lt-CCj" secondAttribute="top" constant="8" id="iCO-RM-Okp"/>
                                                 <constraint firstAttribute="bottom" secondItem="081-eS-l0B" secondAttribute="bottom" constant="8" id="mUZ-pN-LXc"/>
+                                                <constraint firstItem="WdC-UR-gr7" firstAttribute="centerY" secondItem="uZy-Lt-CCj" secondAttribute="centerY" id="qQT-q5-AEx"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="150" height="150"/>
@@ -105,6 +113,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="highlightView" destination="WdC-UR-gr7" id="1ji-Vx-M2Y"/>
                                             <outlet property="label" destination="081-eS-l0B" id="P91-q6-DLI"/>
                                             <outlet property="thumbnailImageView" destination="5aB-ZK-6Ay" id="vFi-sV-ll8"/>
                                         </connections>
