@@ -52,7 +52,7 @@
 		EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DC0240D825400EE2049 /* Typealiases.swift */; };
 		EDE56DC4240D840F00EE2049 /* GameURLPasteboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DC3240D840F00EE2049 /* GameURLPasteboardListener.swift */; };
 		EDE56DC9240D956000EE2049 /* ThumbnailCollectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DC8240D956000EE2049 /* ThumbnailCollectionHelper.swift */; };
-		EDE56DCB240D9CE800EE2049 /* CoversPageViewControllerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHandler.swift */; };
+		EDE56DCB240D9CE800EE2049 /* CoversPageViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHelper.swift */; };
 		EDE56DCD240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DCC240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift */; };
 		EDE56DCF240DA20000EE2049 /* CoverViewControllerErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DCE240DA20000EE2049 /* CoverViewControllerErrorHandler.swift */; };
 		EDE56DD1240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DD0240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift */; };
@@ -123,7 +123,7 @@
 		EDE56DC0240D825400EE2049 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		EDE56DC3240D840F00EE2049 /* GameURLPasteboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLPasteboardListener.swift; sourceTree = "<group>"; };
 		EDE56DC8240D956000EE2049 /* ThumbnailCollectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionHelper.swift; sourceTree = "<group>"; };
-		EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversPageViewControllerHandler.swift; sourceTree = "<group>"; };
+		EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversPageViewControllerHelper.swift; sourceTree = "<group>"; };
 		EDE56DCC240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerImageHandler.swift; sourceTree = "<group>"; };
 		EDE56DCE240DA20000EE2049 /* CoverViewControllerErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerErrorHandler.swift; sourceTree = "<group>"; };
 		EDE56DD0240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerGestureHandler.swift; sourceTree = "<group>"; };
@@ -424,7 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */,
-				EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHandler.swift */,
+				EDE56DCA240D9CE800EE2049 /* CoversPageViewControllerHelper.swift */,
 				EDE56DCC240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift */,
 				EDE56DCE240DA20000EE2049 /* CoverViewControllerErrorHandler.swift */,
 				EDE56DD0240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift */,
@@ -590,7 +590,7 @@
 				EDE56DCD240D9F4D00EE2049 /* CoverViewControllerImageHandler.swift in Sources */,
 				EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */,
 				ED2075822406C02200CDB8CB /* CoverSectionHeader.swift in Sources */,
-				EDE56DCB240D9CE800EE2049 /* CoversPageViewControllerHandler.swift in Sources */,
+				EDE56DCB240D9CE800EE2049 /* CoversPageViewControllerHelper.swift in Sources */,
 				ED2075852406F16A00CDB8CB /* CoverThumbnailCell.swift in Sources */,
 				ED09CF632409CB6A00A7E26F /* DismissTransitionInteractor.swift in Sources */,
 				EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */,

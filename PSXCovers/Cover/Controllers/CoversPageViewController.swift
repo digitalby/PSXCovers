@@ -15,13 +15,13 @@ class CoversPageViewController: UIPageViewController {
     var flatCovers: [Cover] { game.coversGroupedByCategory.flatMap { $0 } }
 
     lazy var factory = CoverViewControllerFactory(storyboard: storyboard, transition: dismissTransition)
-    lazy var handler = CoversPageViewControllerHandler(coversPageViewController: self)
+    lazy var helper = CoversPageViewControllerHelper(coversPageViewController: self)
     var dismissTransition: DismissTransitionInteractor? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = handler
-        delegate = handler
+        dataSource = helper
+        delegate = helper
 
         let cover = flatCovers[initialCoverIndex]
         var viewController: CoverViewController? = nil

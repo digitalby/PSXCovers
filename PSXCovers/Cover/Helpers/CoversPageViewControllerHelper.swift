@@ -1,5 +1,5 @@
 //
-//  CoversPageViewControllerHandler.swift
+//  CoversPageViewControllerHelper.swift
 //  PSXCovers
 //
 //  Created by Digital on 02/03/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoversPageViewControllerHandler: NSObject {
+class CoversPageViewControllerHelper: NSObject {
     weak var coversPageViewController: CoversPageViewController? = nil
 
     init(coversPageViewController: CoversPageViewController) {
@@ -17,7 +17,7 @@ class CoversPageViewControllerHandler: NSObject {
 }
 
 //MARK: - Page Data Source
-extension CoversPageViewControllerHandler: UIPageViewControllerDataSource {
+extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard
             let coversPageViewController = coversPageViewController,
@@ -68,7 +68,7 @@ extension CoversPageViewControllerHandler: UIPageViewControllerDataSource {
 }
 
 //MARK: - Page Delegate
-extension CoversPageViewControllerHandler: UIPageViewControllerDelegate {
+extension CoversPageViewControllerHelper: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         coversPageViewController?.currentCoverViewController?.panGestureRecognizer.isEnabled = false
         coversPageViewController?.currentCoverViewController?.dismissTransition?.cancel()
