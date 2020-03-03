@@ -43,6 +43,7 @@
 		EDBE0880240E6F1400BBD592 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE087F240E6F1400BBD592 /* DownloadsViewController.swift */; };
 		EDBE0882240E6F8000BBD592 /* DownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0881240E6F8000BBD592 /* DownloadCell.swift */; };
 		EDBE0885240E701100BBD592 /* DownloadsTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0884240E701100BBD592 /* DownloadsTableViewHelper.swift */; };
+		EDBF118D240E8645008A7B08 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF118C240E8645008A7B08 /* DataService.swift */; };
 		EDD05A6F240E532F00E96195 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; };
 		EDD05A70240E532F00E96195 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDD05A72240E533100E96195 /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; };
@@ -123,6 +124,7 @@
 		EDBE087F240E6F1400BBD592 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		EDBE0881240E6F8000BBD592 /* DownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCell.swift; sourceTree = "<group>"; };
 		EDBE0884240E701100BBD592 /* DownloadsTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsTableViewHelper.swift; sourceTree = "<group>"; };
+		EDBF118C240E8645008A7B08 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		EDD05A6E240E532F00E96195 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EDD05A71240E533100E96195 /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
 		EDD05A74240E533500E96195 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		ED42511424029BE1005032DB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EDBF118B240E8639008A7B08 /* Data */,
 				EDE56DB9240D819100EE2049 /* Utility */,
 				ED42511124029BB9005032DB /* Models */,
 				EDAB7EA82402CA1C004D182E /* Views */,
@@ -467,6 +470,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EDBF118B240E8639008A7B08 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EDBF118C240E8645008A7B08 /* DataService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		EDE1D207240B0559009CFA60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +644,7 @@
 				EDB77B6424055081003F358A /* Cover.swift in Sources */,
 				EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
+				EDBF118D240E8645008A7B08 /* DataService.swift in Sources */,
 				EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
 				EDE56DC9240D956000EE2049 /* ThumbnailCollectionHelper.swift in Sources */,

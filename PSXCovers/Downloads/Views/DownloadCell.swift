@@ -9,5 +9,6 @@
 import UIKit
 
 class DownloadCell: UITableViewCell {
-    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var thumbnailImageView: UIImageView!
 }

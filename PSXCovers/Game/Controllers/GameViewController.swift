@@ -11,11 +11,13 @@ import UIKit
 class GameViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var noItemsView: NoItemsView!
+    @IBOutlet var rightBarButtonItem: UIBarButtonItem!
 
     lazy var thumbnailCollectionHelper = ThumbnailCollectionHelper(viewController: self)
 
     let coverThumbnailDownloader = CoverThumbnailDownloader()
 
+    var presentedFromDownloads = false
     var game: Game!
     var selectedIndexPath: IndexPath? = nil
     let destinationDismissTransition = DismissTransitionInteractor()
@@ -25,6 +27,7 @@ class GameViewController: UIViewController {
 
         collectionView.dataSource = thumbnailCollectionHelper
         collectionView.delegate = thumbnailCollectionHelper
+        updateAddButtonState()
         title = game.titleWithRegion
         if game.mainThumbnail == nil {
             if let mainThumbnailURL = game.mainThumbnailURL {
@@ -61,13 +64,41 @@ class GameViewController: UIViewController {
     }
 }
 
+//MARK: - Download helper
+extension GameViewController {
+    func updateAddButtonState() {
+        let data = DataService.shared.data
+        if data.contains(where: { $0.titleWithRegion == game.titleWithRegion }) {
+            rightBarButtonItem.image = UIImage(systemName: "square.and.arrow.down.fill")
+        } else {
+            rightBarButtonItem.image = UIImage(systemName: "square.and.arrow.down")
+        }
+    }
+}
+
 //MARK: - Actions
 extension GameViewController {
     @IBAction func didTapAdd(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: "You tapped add", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(action)
-        present(alert, animated: true)
+        guard let game = game else { return }
+        let data = DataService.shared.data
+        if data.contains(where: { $0.titleWithRegion == game.titleWithRegion }) {
+            let alert = UIAlertController(title: "Delete download", message: "Do you wish to delete this game from your Downloads?", preferredStyle: .alert)
+            let buttonDelete = UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+                guard let game = self?.game else { return }
+                DataService.shared.data.removeAll { $0.titleWithRegion == game.titleWithRegion }
+                self?.updateAddButtonState()
+                if self?.presentedFromDownloads == true {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            })
+            let buttonCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            alert.addAction(buttonDelete)
+            alert.addAction(buttonCancel)
+            present(alert, animated: true)
+        } else {
+            DataService.shared.data.append(game)
+        }
+        updateAddButtonState()
     }
 }
 
