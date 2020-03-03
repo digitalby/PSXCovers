@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GameViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
@@ -17,18 +18,24 @@ class GameViewController: UIViewController {
 
     let coverThumbnailDownloader = CoverThumbnailDownloader()
 
-    var presentedFromFavorites = false
+    let realm = try! Realm()
     var game: Game!
     var selectedIndexPath: IndexPath? = nil
     let destinationDismissTransition = DismissTransitionInteractor()
 
+    var isFavorite = false
+    var presentedFromFavorites = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = game.titleWithRegion
+
+        isFavorite = DataService.shared.data.filter("(title=%@) AND (_region=%@)", game.title ?? "", game.region?.rawValue ?? "").count == 1
+        updateAddButtonState()
+
         collectionView.dataSource = thumbnailCollectionHelper
         collectionView.delegate = thumbnailCollectionHelper
-        updateAddButtonState()
-        title = game.titleWithRegion
         if game.mainThumbnail == nil {
             if let mainThumbnailURL = game.mainThumbnailURL {
                 coverThumbnailDownloader.downloadThumbnail(at: mainThumbnailURL) { [weak self] thumbnailImage in
@@ -57,6 +64,15 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool { false }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        self.commitFavoriteToRealm()
+        if self.presentedFromFavorites {
+            let favorites = self.navigationController?.viewControllers.first as? FavoritesViewController
+            favorites?.favoritesTableView.reloadData()
+        }
+        super.viewWillDisappear(animated)
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         type(of: coverThumbnailDownloader).session.cancelAllRequests() {
             super.viewDidDisappear(animated)
@@ -67,11 +83,41 @@ class GameViewController: UIViewController {
 //MARK: - Favorite helper
 extension GameViewController {
     func updateAddButtonState() {
-        let data = DataService.shared.data
-        if data.contains(where: { $0.titleWithRegion == game.titleWithRegion }) {
+        if isFavorite {
             rightBarButtonItem.image = UIImage(systemName: "star.fill")
         } else {
             rightBarButtonItem.image = UIImage(systemName: "star")
+        }
+    }
+
+    func commitFavoriteToRealm() {
+        let title = game.title ?? ""
+        let region = game.region?.rawValue ?? ""
+        let results = DataService.shared.data.filter("(title=%@) AND (_region=%@)", title, region)
+        if isFavorite {
+            do {
+                guard results.count == 0 else { return }
+                try DataService.realm.write {
+                    DataService.realm.add(game)
+                }
+            } catch {
+                let alert = UIAlertController(title: "Error", message: "Failed to add favorite.", preferredStyle: .alert)
+                let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(buttonOk)
+                present(alert, animated: true)
+            }
+        } else {
+            do {
+                guard results.count == 1 else { return }
+                try DataService.realm.write {
+                    DataService.realm.delete(results)
+                }
+            } catch {
+                let alert = UIAlertController(title: "Error", message: "Failed to delete favorite.", preferredStyle: .alert)
+                let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(buttonOk)
+                present(alert, animated: true)
+            }
         }
     }
 }
@@ -79,25 +125,7 @@ extension GameViewController {
 //MARK: - Actions
 extension GameViewController {
     @IBAction func didTapAdd(_ sender: Any) {
-        guard let game = game else { return }
-        let data = DataService.shared.data
-        if data.contains(where: { $0.titleWithRegion == game.titleWithRegion }) {
-            let alert = UIAlertController(title: "Delete favorite", message: "Do you wish to delete this game from your Favorites?", preferredStyle: .alert)
-            let buttonDelete = UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
-                guard let game = self?.game else { return }
-                DataService.shared.data.removeAll { $0.titleWithRegion == game.titleWithRegion }
-                self?.updateAddButtonState()
-                if self?.presentedFromFavorites == true {
-                    self?.navigationController?.popViewController(animated: true)
-                }
-            })
-            let buttonCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-            alert.addAction(buttonCancel)
-            alert.addAction(buttonDelete)
-            present(alert, animated: true)
-        } else {
-            DataService.shared.data.append(game)
-        }
+        isFavorite.toggle()
         updateAddButtonState()
     }
 }

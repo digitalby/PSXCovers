@@ -23,7 +23,9 @@ extension ThumbnailCollectionHelper: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         let count = sectionTitles.count
-        viewController?.noItemsView?.isHidden = count != 0
+        let noItems = count == 0
+        viewController?.noItemsView?.isHidden = !noItems
+        viewController?.rightBarButtonItem.isEnabled = !noItems
         return count
     }
 

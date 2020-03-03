@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DataService {
     static let shared = DataService()
+    static let realm = try! Realm()
 
-    var data: [Game] = []
+    lazy var data: Results<Game> = {
+        type(of: self).realm.objects(Game.self)
+    }()
 }

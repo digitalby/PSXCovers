@@ -61,6 +61,17 @@ extension FavoritesTableViewHelper {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        DataService.shared.data.remove(at: indexPath.row)
+        do {
+            let object = DataService.shared.data[indexPath.row]
+            try DataService.realm.write {
+                DataService.realm.delete(object)
+                tableView.deleteRows(at: [indexPath], with: .left)
+            }
+        } catch {
+            let alert = UIAlertController(title: "Error", message: "Failed to delete item.", preferredStyle: .alert)
+            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(buttonOk)
+            viewController?.present(alert, animated: true)
+        }
     }
 }
