@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Region {
+enum Region: String {
     case pal
     case ntscU
     case ntscJ

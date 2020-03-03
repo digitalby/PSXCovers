@@ -40,6 +40,7 @@
 		EDB77B6F24056C8C003F358A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6E24056C8B003F358A /* GameViewController.swift */; };
 		EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B7024058015003F358A /* ValidationErrorHandler.swift */; };
 		EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B722405809E003F358A /* NetworkErrorHandler.swift */; };
+		EDBE034E240F054200B200F8 /* ThumbnailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE034D240F054200B200F8 /* ThumbnailImage.swift */; };
 		EDBE0880240E6F1400BBD592 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE087F240E6F1400BBD592 /* FavoritesViewController.swift */; };
 		EDBE0882240E6F8000BBD592 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0881240E6F8000BBD592 /* FavoriteCell.swift */; };
 		EDBE0885240E701100BBD592 /* FavoritesTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0884240E701100BBD592 /* FavoritesTableViewHelper.swift */; };
@@ -121,6 +122,7 @@
 		EDB77B6E24056C8B003F358A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EDB77B7024058015003F358A /* ValidationErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorHandler.swift; sourceTree = "<group>"; };
 		EDB77B722405809E003F358A /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
+		EDBE034D240F054200B200F8 /* ThumbnailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImage.swift; sourceTree = "<group>"; };
 		EDBE087F240E6F1400BBD592 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		EDBE0881240E6F8000BBD592 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		EDBE0884240E701100BBD592 /* FavoritesTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewHelper.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				EDB77B6324055081003F358A /* Cover.swift */,
 				EDB77B6124055076003F358A /* Game.swift */,
 				EDB77B682405693F003F358A /* Region.swift */,
+				EDBE034D240F054200B200F8 /* ThumbnailImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDBF118D240E8645008A7B08 /* DataService.swift in Sources */,
+				EDBE034E240F054200B200F8 /* ThumbnailImage.swift in Sources */,
 				EDE92BA124072BCA00B1ACC7 /* AppActivityObserver.swift in Sources */,
 				EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */,
 				EDE56DC9240D956000EE2049 /* ThumbnailCollectionHelper.swift in Sources */,

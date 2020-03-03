@@ -7,16 +7,57 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Game {
-    let url: URL
-    let title: String
-    let region: Region?
-    let mainThumbnailURL: URL?
-    var mainThumbnail: ThumbnailImage?
-    let covers: [Cover]
+class Game: Object {
+    @objc dynamic private var _url: String? = nil
+    var url: URL? {
+        get {
+            URL(string: _url ?? "")
+        }
+        set {
+            _url = newValue?.absoluteString
+        }
+    }
+    @objc dynamic var title: String? = nil
+    @objc dynamic private var _mainThumbnailURL: String? = nil
+    var mainThumbnailURL: URL? {
+        get {
+            URL(string: _mainThumbnailURL ?? "")
+        }
+        set {
+            _mainThumbnailURL = newValue?.absoluteString
+        }
+    }
 
-    init(url: URL, title: String, mainThumbnailURL: URL? = nil, mainThumbnail: ThumbnailImage? = nil, region: Region? = nil, covers: [Cover] = []) {
+    var covers: [Cover] {
+        get {
+            return _covers.map { $0 }
+        }
+        set {
+            _covers.removeAll()
+            _covers.append(objectsIn: newValue.map { $0 } )
+        }
+    }
+    private let _covers = List<Cover>()
+
+    @objc dynamic private var _mainThumbnail: PersistentThumbnailImage? = nil
+    var mainThumbnail: ThumbnailImage? {
+        get { _mainThumbnail?.thumbnailImage }
+        set {
+            _mainThumbnail = PersistentThumbnailImage()
+            _mainThumbnail?.thumbnailImage = newValue
+        }
+    }
+
+    @objc dynamic private var _region: String? = nil
+    var region: Region? {
+      get { Region(rawValue: _region ?? "") }
+      set { _region = newValue?.rawValue }
+    }
+
+    convenience init(url: URL, title: String, mainThumbnailURL: URL? = nil, mainThumbnail: ThumbnailImage? = nil, region: Region? = nil, covers: [Cover] = []) {
+        self.init()
         self.url = url
         self.title = title
         self.mainThumbnailURL = mainThumbnailURL
@@ -29,7 +70,7 @@ struct Game {
 //MARK: - Title/Region Helpers
 extension Game {
     var titleWithRegion: String {
-        var title = self.title
+        guard var title = self.title else { return "" }
         if
             !title.isEmptyOrWhitespace,
             let regionString = region?.stringValue {
