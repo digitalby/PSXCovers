@@ -29,10 +29,6 @@
 		ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC15C240722B90086D378 /* TextFieldObserver.swift */; };
 		EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */; };
 		EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */; };
-		EDB77B3B2402D991003F358A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3A2402D991003F358A /* Alamofire.framework */; };
-		EDB77B3C2402D991003F358A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3A2402D991003F358A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EDB77B3F2402D995003F358A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3E2402D995003F358A /* AlamofireImage.framework */; };
-		EDB77B402402D995003F358A /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B3E2402D995003F358A /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */; };
 		EDB77B5424044C27003F358A /* UIAlertController+WaitAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */; };
 		EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */; };
@@ -40,12 +36,18 @@
 		EDB77B5C240544D2003F358A /* GameHTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B5B240544D2003F358A /* GameHTMLParser.swift */; };
 		EDB77B6224055076003F358A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6124055076003F358A /* Game.swift */; };
 		EDB77B6424055081003F358A /* Cover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6324055081003F358A /* Cover.swift */; };
-		EDB77B6624055AFC003F358A /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B6524055AFC003F358A /* HTMLReader.framework */; };
-		EDB77B6724055AFC003F358A /* HTMLReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDB77B6524055AFC003F358A /* HTMLReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDB77B692405693F003F358A /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B682405693F003F358A /* Region.swift */; };
 		EDB77B6F24056C8C003F358A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6E24056C8B003F358A /* GameViewController.swift */; };
 		EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B7024058015003F358A /* ValidationErrorHandler.swift */; };
 		EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B722405809E003F358A /* NetworkErrorHandler.swift */; };
+		EDD05A6F240E532F00E96195 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; };
+		EDD05A70240E532F00E96195 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDD05A72240E533100E96195 /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; };
+		EDD05A73240E533100E96195 /* HTMLReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDD05A75240E533500E96195 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; };
+		EDD05A76240E533500E96195 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDD05A78240E533700E96195 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; };
+		EDD05A79240E533700E96195 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */; };
 		EDE56DBD240D81E500EE2049 /* GameURLValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */; };
 		EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */; };
@@ -69,9 +71,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EDB77B3C2402D991003F358A /* Alamofire.framework in Embed Frameworks */,
-				EDB77B6724055AFC003F358A /* HTMLReader.framework in Embed Frameworks */,
-				EDB77B402402D995003F358A /* AlamofireImage.framework in Embed Frameworks */,
+				EDD05A76240E533500E96195 /* Realm.framework in Embed Frameworks */,
+				EDD05A73240E533100E96195 /* HTMLReader.framework in Embed Frameworks */,
+				EDD05A79240E533700E96195 /* RealmSwift.framework in Embed Frameworks */,
+				EDD05A70240E532F00E96195 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,8 +106,6 @@
 		ED6AC15C240722B90086D378 /* TextFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObserver.swift; sourceTree = "<group>"; };
 		EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorViewDelegate.swift; sourceTree = "<group>"; };
 		EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintObserver.swift; sourceTree = "<group>"; };
-		EDB77B3A2402D991003F358A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		EDB77B3E2402D995003F358A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
 		EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+WaitAlert.swift"; sourceTree = "<group>"; };
 		EDB77B56240461A2003F358A /* GameHTMLDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHTMLDownloader.swift; sourceTree = "<group>"; };
@@ -112,11 +113,14 @@
 		EDB77B5B240544D2003F358A /* GameHTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHTMLParser.swift; sourceTree = "<group>"; };
 		EDB77B6124055076003F358A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EDB77B6324055081003F358A /* Cover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cover.swift; sourceTree = "<group>"; };
-		EDB77B6524055AFC003F358A /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
 		EDB77B682405693F003F358A /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		EDB77B6E24056C8B003F358A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EDB77B7024058015003F358A /* ValidationErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorHandler.swift; sourceTree = "<group>"; };
 		EDB77B722405809E003F358A /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
+		EDD05A6E240E532F00E96195 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EDD05A71240E533100E96195 /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
+		EDD05A74240E533500E96195 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		EDD05A77240E533700E96195 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerFactory.swift; sourceTree = "<group>"; };
 		EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLValidationError.swift; sourceTree = "<group>"; };
 		EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageDownloadError.swift; sourceTree = "<group>"; };
@@ -138,9 +142,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB77B3B2402D991003F358A /* Alamofire.framework in Frameworks */,
-				EDB77B6624055AFC003F358A /* HTMLReader.framework in Frameworks */,
-				EDB77B3F2402D995003F358A /* AlamofireImage.framework in Frameworks */,
+				EDD05A75240E533500E96195 /* Realm.framework in Frameworks */,
+				EDD05A72240E533100E96195 /* HTMLReader.framework in Frameworks */,
+				EDD05A78240E533700E96195 /* RealmSwift.framework in Frameworks */,
+				EDD05A6F240E532F00E96195 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +353,10 @@
 		EDB77B392402D991003F358A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EDB77B6524055AFC003F358A /* HTMLReader.framework */,
-				EDB77B3E2402D995003F358A /* AlamofireImage.framework */,
-				EDB77B3A2402D991003F358A /* Alamofire.framework */,
+				EDD05A77240E533700E96195 /* RealmSwift.framework */,
+				EDD05A74240E533500E96195 /* Realm.framework */,
+				EDD05A71240E533100E96195 /* HTMLReader.framework */,
+				EDD05A6E240E532F00E96195 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -558,8 +564,9 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/HTMLReader.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputFileListPaths = (
 			);

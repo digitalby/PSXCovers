@@ -1,3 +1,4 @@
 github "Alamofire/Alamofire"
-github "Alamofire/AlamofireImage"
+#github "Alamofire/AlamofireImage"
 github "nolanw/HTMLReader"
+github "realm/realm-cocoa"
