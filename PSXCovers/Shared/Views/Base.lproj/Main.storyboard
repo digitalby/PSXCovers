@@ -376,6 +376,6 @@
     </scenes>
     <resources>
         <image name="overlay_gradient" width="0.3333333432674408" height="341.33334350585938"/>
-        <image name="placeholder_loading" width="96" height="96"/>
+        <image name="placeholder_loading" width="128" height="128"/>
     </resources>
 </document>

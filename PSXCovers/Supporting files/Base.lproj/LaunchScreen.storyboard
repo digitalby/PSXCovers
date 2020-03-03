@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +12,32 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="psxcovers_splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="d9G-du-4te">
+                                <rect key="frame" x="18.333333333333343" y="361.66666666666669" width="393.33333333333326" height="172.66666666666669"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="d9G-du-4te" secondAttribute="height" multiplier="807/354" id="Boj-qX-RQu"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="uJk-2I-nZk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="psxcovers_splash_digitalby" translatesAutoresizingMaskIntoConstraints="NO" id="JI6-0r-aUM">
+                                <rect key="frame" x="85.333333333333314" y="705" width="243.33333333333337" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="JI6-0r-aUM" secondAttribute="width" multiplier="115/457" id="vVT-qe-fJS"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="d9G-du-4te" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5CK-jt-uo0"/>
+                            <constraint firstItem="JI6-0r-aUM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CdG-2W-Itu"/>
+                            <constraint firstItem="d9G-du-4te" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="8" id="FwX-0c-vVD"/>
+                            <constraint firstItem="JI6-0r-aUM" firstAttribute="width" secondItem="d9G-du-4te" secondAttribute="width" multiplier="0.618" id="jew-yB-2FJ"/>
+                            <constraint firstItem="d9G-du-4te" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.95" priority="750" id="qm9-TZ-uh3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JI6-0r-aUM" secondAttribute="bottom" constant="96" id="vR6-f9-Eo6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +46,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="psxcovers_splash_digitalby" width="152.33332824707031" height="38.333332061767578"/>
+        <image name="psxcovers_splash_logo" width="269" height="118"/>
+    </resources>
 </document>
