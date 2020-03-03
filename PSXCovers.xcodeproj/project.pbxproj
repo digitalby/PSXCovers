@@ -40,9 +40,9 @@
 		EDB77B6F24056C8C003F358A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B6E24056C8B003F358A /* GameViewController.swift */; };
 		EDB77B7124058015003F358A /* ValidationErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B7024058015003F358A /* ValidationErrorHandler.swift */; };
 		EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B722405809E003F358A /* NetworkErrorHandler.swift */; };
-		EDBE0880240E6F1400BBD592 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE087F240E6F1400BBD592 /* DownloadsViewController.swift */; };
-		EDBE0882240E6F8000BBD592 /* DownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0881240E6F8000BBD592 /* DownloadCell.swift */; };
-		EDBE0885240E701100BBD592 /* DownloadsTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0884240E701100BBD592 /* DownloadsTableViewHelper.swift */; };
+		EDBE0880240E6F1400BBD592 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE087F240E6F1400BBD592 /* FavoritesViewController.swift */; };
+		EDBE0882240E6F8000BBD592 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0881240E6F8000BBD592 /* FavoriteCell.swift */; };
+		EDBE0885240E701100BBD592 /* FavoritesTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0884240E701100BBD592 /* FavoritesTableViewHelper.swift */; };
 		EDBF118D240E8645008A7B08 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF118C240E8645008A7B08 /* DataService.swift */; };
 		EDD05A6F240E532F00E96195 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; };
 		EDD05A70240E532F00E96195 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -121,9 +121,9 @@
 		EDB77B6E24056C8B003F358A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EDB77B7024058015003F358A /* ValidationErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationErrorHandler.swift; sourceTree = "<group>"; };
 		EDB77B722405809E003F358A /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
-		EDBE087F240E6F1400BBD592 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
-		EDBE0881240E6F8000BBD592 /* DownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCell.swift; sourceTree = "<group>"; };
-		EDBE0884240E701100BBD592 /* DownloadsTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsTableViewHelper.swift; sourceTree = "<group>"; };
+		EDBE087F240E6F1400BBD592 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		EDBE0881240E6F8000BBD592 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		EDBE0884240E701100BBD592 /* FavoritesTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewHelper.swift; sourceTree = "<group>"; };
 		EDBF118C240E8645008A7B08 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		EDD05A6E240E532F00E96195 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EDD05A71240E533100E96195 /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				ED5C304E24096D040013CDEE /* Cover */,
 				EDB77B6A24056C14003F358A /* Game */,
 				ED42511024029BA0005032DB /* Start */,
-				EDBE087B240E683E00BBD592 /* Downloads */,
+				EDBE087B240E683E00BBD592 /* Favorites */,
 				ED42510F24029B5E005032DB /* Supporting files */,
 			);
 			path = PSXCovers;
@@ -436,20 +436,20 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		EDBE087B240E683E00BBD592 /* Downloads */ = {
+		EDBE087B240E683E00BBD592 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
 				EDBE0883240E6FF200BBD592 /* Helpers */,
 				EDBE087E240E6F0800BBD592 /* Views */,
 				EDBE087D240E684A00BBD592 /* Controllers */,
 			);
-			path = Downloads;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		EDBE087D240E684A00BBD592 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EDBE087F240E6F1400BBD592 /* DownloadsViewController.swift */,
+				EDBE087F240E6F1400BBD592 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -457,7 +457,7 @@
 		EDBE087E240E6F0800BBD592 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EDBE0881240E6F8000BBD592 /* DownloadCell.swift */,
+				EDBE0881240E6F8000BBD592 /* FavoriteCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 		EDBE0883240E6FF200BBD592 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				EDBE0884240E701100BBD592 /* DownloadsTableViewHelper.swift */,
+				EDBE0884240E701100BBD592 /* FavoritesTableViewHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -637,7 +637,7 @@
 			files = (
 				EDB77B6F24056C8C003F358A /* GameViewController.swift in Sources */,
 				ED5C305424097C4E0013CDEE /* CoversPageViewController.swift in Sources */,
-				EDBE0880240E6F1400BBD592 /* DownloadsViewController.swift in Sources */,
+				EDBE0880240E6F1400BBD592 /* FavoritesViewController.swift in Sources */,
 				ED5C304D240950140013CDEE /* CoverThumbnailDownloader.swift in Sources */,
 				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
 				EDE56DC4240D840F00EE2049 /* GameURLPasteboardListener.swift in Sources */,
@@ -659,7 +659,7 @@
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */,
 				EDE56DD1240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift in Sources */,
-				EDBE0885240E701100BBD592 /* DownloadsTableViewHelper.swift in Sources */,
+				EDBE0885240E701100BBD592 /* FavoritesTableViewHelper.swift in Sources */,
 				EDE56DCF240DA20000EE2049 /* CoverViewControllerErrorHandler.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */,
@@ -669,7 +669,7 @@
 				EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */,
 				ED5C305224096D350013CDEE /* CoverViewController.swift in Sources */,
 				ED5C305724097F070013CDEE /* CoverImageDownloader.swift in Sources */,
-				EDBE0882240E6F8000BBD592 /* DownloadCell.swift in Sources */,
+				EDBE0882240E6F8000BBD592 /* FavoriteCell.swift in Sources */,
 				ED1E67BA240998450089CCC3 /* ImageErrorView.swift in Sources */,
 				EDE56DD3240DA7C700EE2049 /* CoverThumbnailCellConfigurator.swift in Sources */,
 				ED42511624029F59005032DB /* GameURLSelectionView.swift in Sources */,

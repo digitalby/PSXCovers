@@ -1,5 +1,5 @@
 //
-//  DownloadsTableViewHelper.swift
+//  FavoritesTableViewHelper.swift
 //  PSXCovers
 //
 //  Created by Digital on 03/03/2020.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class DownloadsTableViewHelper: NSObject, UITableViewDataSource, UITableViewDelegate {
-    weak var viewController: DownloadsViewController? = nil
+class FavoritesTableViewHelper: NSObject, UITableViewDataSource, UITableViewDelegate {
+    weak var viewController: FavoritesViewController? = nil
 
-    init(viewController: DownloadsViewController) {
+    init(viewController: FavoritesViewController) {
         self.viewController = viewController
     }
 }
 
 //MARK: - Data Source
-extension DownloadsTableViewHelper {
+extension FavoritesTableViewHelper {
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
@@ -29,7 +29,7 @@ extension DownloadsTableViewHelper {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DownloadCell", for: indexPath) as? DownloadCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as? FavoriteCell else { fatalError() }
         let data = DataService.shared.data
         let row = indexPath.row
         if (0..<data.count).contains(row) {
@@ -48,7 +48,7 @@ extension DownloadsTableViewHelper {
 }
 
 //MARK: - Delegate
-extension DownloadsTableViewHelper {
+extension FavoritesTableViewHelper {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let viewController = viewController else { return }

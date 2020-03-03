@@ -18,7 +18,7 @@ class ThumbnailCollectionHelper: NSObject {
 
 //MARK: - Data Source
 extension ThumbnailCollectionHelper: UICollectionViewDataSource {
-    var sectionedData: [[Cover]] { viewController?.game?.coversGroupedByCategory ?? [[]] }
+    var sectionedData: [[Cover]] { viewController?.game?.coversGroupedByCategory ?? [] }
     var sectionTitles: [String?] { viewController?.game?.sortedUniqueCoverCategories ?? [] }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

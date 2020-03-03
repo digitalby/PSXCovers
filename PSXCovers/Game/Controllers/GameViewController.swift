@@ -17,7 +17,7 @@ class GameViewController: UIViewController {
 
     let coverThumbnailDownloader = CoverThumbnailDownloader()
 
-    var presentedFromDownloads = false
+    var presentedFromFavorites = false
     var game: Game!
     var selectedIndexPath: IndexPath? = nil
     let destinationDismissTransition = DismissTransitionInteractor()
@@ -64,14 +64,14 @@ class GameViewController: UIViewController {
     }
 }
 
-//MARK: - Download helper
+//MARK: - Favorite helper
 extension GameViewController {
     func updateAddButtonState() {
         let data = DataService.shared.data
         if data.contains(where: { $0.titleWithRegion == game.titleWithRegion }) {
-            rightBarButtonItem.image = UIImage(systemName: "square.and.arrow.down.fill")
+            rightBarButtonItem.image = UIImage(systemName: "star.fill")
         } else {
-            rightBarButtonItem.image = UIImage(systemName: "square.and.arrow.down")
+            rightBarButtonItem.image = UIImage(systemName: "star")
         }
     }
 }
@@ -82,18 +82,18 @@ extension GameViewController {
         guard let game = game else { return }
         let data = DataService.shared.data
         if data.contains(where: { $0.titleWithRegion == game.titleWithRegion }) {
-            let alert = UIAlertController(title: "Delete download", message: "Do you wish to delete this game from your Downloads?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete favorite", message: "Do you wish to delete this game from your Favorites?", preferredStyle: .alert)
             let buttonDelete = UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
                 guard let game = self?.game else { return }
                 DataService.shared.data.removeAll { $0.titleWithRegion == game.titleWithRegion }
                 self?.updateAddButtonState()
-                if self?.presentedFromDownloads == true {
+                if self?.presentedFromFavorites == true {
                     self?.navigationController?.popViewController(animated: true)
                 }
             })
             let buttonCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-            alert.addAction(buttonDelete)
             alert.addAction(buttonCancel)
+            alert.addAction(buttonDelete)
             present(alert, animated: true)
         } else {
             DataService.shared.data.append(game)

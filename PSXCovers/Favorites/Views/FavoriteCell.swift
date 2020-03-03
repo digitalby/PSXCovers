@@ -1,5 +1,5 @@
 //
-//  DownloadCell.swift
+//  FavoriteCell.swift
 //  PSXCovers
 //
 //  Created by Digital on 03/03/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DownloadCell: UITableViewCell {
+class FavoriteCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var thumbnailImageView: UIImageView!
 }
