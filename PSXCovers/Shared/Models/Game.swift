@@ -12,11 +12,15 @@ struct Game {
     let url: URL
     let title: String
     let region: Region?
+    let mainThumbnailURL: URL?
+    var mainThumbnail: ThumbnailImage?
     let covers: [Cover]
 
-    init(url: URL, title: String, region: Region? = nil, covers: [Cover] = []) {
+    init(url: URL, title: String, mainThumbnailURL: URL? = nil, mainThumbnail: ThumbnailImage? = nil, region: Region? = nil, covers: [Cover] = []) {
         self.url = url
         self.title = title
+        self.mainThumbnailURL = mainThumbnailURL
+        self.mainThumbnail = mainThumbnail
         self.region = region
         self.covers = covers
     }

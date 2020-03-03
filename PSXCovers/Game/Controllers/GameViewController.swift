@@ -26,6 +26,14 @@ class GameViewController: UIViewController {
         collectionView.dataSource = thumbnailCollectionHelper
         collectionView.delegate = thumbnailCollectionHelper
         title = game.titleWithRegion
+        if game.mainThumbnail == nil {
+            if let mainThumbnailURL = game.mainThumbnailURL {
+                coverThumbnailDownloader.downloadThumbnail(at: mainThumbnailURL) { [weak self] thumbnailImage in
+                    guard case .with(_) = thumbnailImage else { return }
+                    self?.game.mainThumbnail = thumbnailImage
+                }
+            }
+        }
         game.covers
             .filter { $0.thumbnailImage == nil }
             .forEach { cover in
@@ -45,6 +53,12 @@ class GameViewController: UIViewController {
     }
 
     override var prefersStatusBarHidden: Bool { false }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        type(of: coverThumbnailDownloader).session.cancelAllRequests() {
+            super.viewDidDisappear(animated)
+        }
+    }
 }
 
 //MARK: - Actions

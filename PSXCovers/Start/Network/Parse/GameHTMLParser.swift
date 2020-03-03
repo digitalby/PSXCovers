@@ -18,7 +18,9 @@ class GameHTMLParser {
 
     func makeGame(fromHTML html: String) -> Game {
         let doc = HTMLDocument(string: html)
-        let gameDescriptionTable = doc.firstNode(matchingSelector: "#table4") ?? HTMLElement()
+        let gameIdentificationTable = doc.firstNode(matchingSelector: "#table2") ?? HTMLElement()
+        let mainThumbnailURL = getMainThumbnailURL(fromTable: gameIdentificationTable)
+        let gameDescriptionTable = gameIdentificationTable.firstNode(matchingSelector: "#table4") ?? HTMLElement()
         let title = getTitle(fromTable: gameDescriptionTable) ?? ""
         let region = getRegion(fromTable: gameDescriptionTable)
         let gameCoversTables = doc.nodes(matchingSelector: "#table28")
@@ -30,7 +32,13 @@ class GameHTMLParser {
             getCovers(fromTable: $0)
         })
 
-        let game = Game(url: gameURL, title: title, region: region, covers: covers)
+        let game = Game(
+            url: gameURL,
+            title: title,
+            mainThumbnailURL: mainThumbnailURL,
+            region: region,
+            covers: covers
+        )
         return game
     }
 }
@@ -80,6 +88,12 @@ private extension GameHTMLParser {
             }
         }
         return nil
+    }
+
+    func getMainThumbnailURL(fromTable node: HTMLNode) -> URL? {
+        let thumbnailImageNode = node.firstNode(matchingSelector: "img[width=250][height=250]")
+        guard let urlString = thumbnailImageNode?.attributes["src"] else { return nil }
+        return URL(string: urlString, relativeTo: gameURL)
     }
 
     func getCovers(fromTable node: HTMLNode) -> [Cover] {

@@ -19,11 +19,15 @@ class CoverThumbnailDownloader {
             completion?(.error)
             return
         }
-        guard coverURL.absoluteString.range(of: missingCoverURLString) == nil else {
+        downloadThumbnail(at: coverURL, completion: completion)
+    }
+
+    func downloadThumbnail(at url: URL, completion: ((ThumbnailImage)->())? = nil) {
+        guard url.absoluteString.range(of: missingCoverURLString) == nil else {
             completion?(.missing)
             return
         }
-        type(of: self).session.request(coverURL).validate().response { response in
+        type(of: self).session.request(url).validate().response { response in
             guard
                 response.error == nil,
                 let data = response.data,
