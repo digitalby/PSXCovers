@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6g-NM-ZcX">
-                    <rect key="frame" x="0.0" y="270" width="520" height="41"/>
+                    <rect key="frame" x="16" y="270" width="488" height="41"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                     </accessibility>
@@ -33,10 +33,10 @@
                 <accessibilityTraits key="traits" notEnabled="YES"/>
             </accessibility>
             <constraints>
-                <constraint firstItem="A6g-NM-ZcX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="710-kJ-yoo"/>
+                <constraint firstItem="A6g-NM-ZcX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="710-kJ-yoo"/>
                 <constraint firstItem="A6g-NM-ZcX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Cy4-Jk-lND"/>
                 <constraint firstItem="A6g-NM-ZcX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FrP-ni-Vny"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A6g-NM-ZcX" secondAttribute="trailing" id="HzL-hB-ReN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A6g-NM-ZcX" secondAttribute="trailing" constant="16" id="HzL-hB-ReN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

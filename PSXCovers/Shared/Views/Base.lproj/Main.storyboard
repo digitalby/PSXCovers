@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EjO-n3-uda">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uzp-jJ-3TI">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1o-Vm-CfV" customClass="GameURLSelectionView" customModule="PSXCovers" customModuleProvider="target">
-                                <rect key="frame" x="16" y="91" width="288" height="477"/>
+                                <rect key="frame" x="16" y="91" width="288" height="428"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -38,6 +38,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" systemItem="search" id="rDY-eq-Wro"/>
                     <navigationItem key="navigationItem" title="PSXCovers" id="RCu-4T-aFU">
                         <barButtonItem key="rightBarButtonItem" title="Go" style="done" id="v2s-g3-PfC">
                             <connections>
@@ -65,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1P-qQ-u76">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="hCv-Vd-OWH">
                                     <size key="itemSize" width="150" height="150"/>
@@ -152,7 +153,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfh-KK-j3g" customClass="NoItemsView" customModule="PSXCovers" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="91" width="320" height="477"/>
+                                <rect key="frame" x="0.0" y="91" width="320" height="428"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -175,7 +176,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wIP-6l-ad9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="w7k-Us-dQ3"/>
+                    <navigationItem key="navigationItem" id="w7k-Us-dQ3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BVB-at-Foc">
+                            <connections>
+                                <action selector="didTapAdd:" destination="jAf-KF-fez" id="uTt-ZR-Sif"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="T1P-qQ-u76" id="o8d-SC-l9N"/>
                         <outlet property="noItemsView" destination="Nfh-KK-j3g" id="ixr-Xt-PEi"/>
@@ -342,7 +349,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2741" y="852"/>
+            <point key="canvasLocation" x="2739" y="912"/>
         </scene>
         <!--Covers Page View Controller-->
         <scene sceneID="2fU-LZ-QOV">
@@ -356,6 +363,7 @@
         <scene sceneID="VjI-Go-8Gu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EjO-n3-uda" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Ifv-U0-ejq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="brm-mm-cvb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
@@ -366,12 +374,103 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3om-eq-X7E"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bGh-RD-gLf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sea-co-ie3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="138.98050974512745"/>
+            <point key="canvasLocation" x="68" y="138"/>
+        </scene>
+        <!--Downloads-->
+        <scene sceneID="89a-ve-GAF">
+            <objects>
+                <viewController id="SJ8-53-O8H" customClass="DownloadsViewController" customModule="PSXCovers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wfS-mj-fde">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DmA-xz-xMB">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DownloadCell" id="h0m-Wn-kRh" customClass="DownloadCell" customModule="PSXCovers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h0m-Wn-kRh" id="VaS-BR-rz1">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4C-tt-lrw" customClass="NoItemsView" customModule="PSXCovers" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="mainLabelText" value="There are no downloads."/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DmA-xz-xMB" firstAttribute="top" secondItem="p6I-jF-RuW" secondAttribute="top" id="H0d-8c-GYB"/>
+                            <constraint firstItem="W4C-tt-lrw" firstAttribute="trailing" secondItem="p6I-jF-RuW" secondAttribute="trailing" id="HBf-AJ-eJd"/>
+                            <constraint firstItem="W4C-tt-lrw" firstAttribute="leading" secondItem="p6I-jF-RuW" secondAttribute="leading" id="VWs-OC-OqP"/>
+                            <constraint firstItem="DmA-xz-xMB" firstAttribute="leading" secondItem="p6I-jF-RuW" secondAttribute="leading" id="eh6-6J-kZo"/>
+                            <constraint firstItem="p6I-jF-RuW" firstAttribute="trailing" secondItem="DmA-xz-xMB" secondAttribute="trailing" id="hUJ-Nb-zWx"/>
+                            <constraint firstItem="p6I-jF-RuW" firstAttribute="bottom" secondItem="W4C-tt-lrw" secondAttribute="bottom" id="rAM-0A-99I"/>
+                            <constraint firstItem="p6I-jF-RuW" firstAttribute="bottom" secondItem="DmA-xz-xMB" secondAttribute="bottom" id="rDE-rO-dKw"/>
+                            <constraint firstItem="W4C-tt-lrw" firstAttribute="top" secondItem="p6I-jF-RuW" secondAttribute="top" id="wTX-jz-Xp9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p6I-jF-RuW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Downloads" id="gUS-7n-d8B"/>
+                    <connections>
+                        <outlet property="downloadsTableView" destination="DmA-xz-xMB" id="DCX-p7-0cU"/>
+                        <outlet property="noItemsView" destination="W4C-tt-lrw" id="hhb-3n-oM2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oaz-TA-BVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999" y="926"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6gP-MI-gL8">
+            <objects>
+                <tabBarController id="uzp-jJ-3TI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8QD-OW-z8J"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BHg-gq-7sb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EjO-n3-uda" kind="relationship" relationship="viewControllers" id="tbl-Xb-ysA"/>
+                        <segue destination="yFb-kN-Vrv" kind="relationship" relationship="viewControllers" id="CwU-Tx-0rL"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xL-UU-VmN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-908" y="523"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="idf-bi-8Sf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yFb-kN-Vrv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="ZPs-ao-lcm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="8xI-P7-1pc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SJ8-53-O8H" kind="relationship" relationship="rootViewController" id="6Sj-p5-fdh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6N-gU-Xid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="926"/>
         </scene>
     </scenes>
     <resources>

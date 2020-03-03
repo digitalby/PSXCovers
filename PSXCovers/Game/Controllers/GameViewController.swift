@@ -26,7 +26,9 @@ class GameViewController: UIViewController {
         collectionView.dataSource = thumbnailCollectionHelper
         collectionView.delegate = thumbnailCollectionHelper
         title = game.titleWithRegion
-        game.covers.forEach { cover in
+        game.covers
+            .filter { $0.thumbnailImage == nil }
+            .forEach { cover in
             coverThumbnailDownloader.downloadThumbnail(for: cover) { [weak self] image in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
@@ -37,7 +39,22 @@ class GameViewController: UIViewController {
         }
     }
 
+    override var hidesBottomBarWhenPushed: Bool {
+        get { true }
+        set { self.hidesBottomBarWhenPushed = newValue }
+    }
+
     override var prefersStatusBarHidden: Bool { false }
+}
+
+//MARK: - Actions
+extension GameViewController {
+    @IBAction func didTapAdd(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "You tapped add", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 }
 
 //MARK: - Segue
