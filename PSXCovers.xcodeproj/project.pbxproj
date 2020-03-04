@@ -27,6 +27,7 @@
 		ED5E00DE240C4D1B0077FD99 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5E00DD240C4D1B0077FD99 /* ImageConstants.swift */; };
 		ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC158240722090086D378 /* PasteboardObserver.swift */; };
 		ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC15C240722B90086D378 /* TextFieldObserver.swift */; };
+		ED74F952240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74F951240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift */; };
 		EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */; };
 		EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */; };
 		EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */; };
@@ -111,6 +112,7 @@
 		ED5E00DD240C4D1B0077FD99 /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
 		ED6AC158240722090086D378 /* PasteboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardObserver.swift; sourceTree = "<group>"; };
 		ED6AC15C240722B90086D378 /* TextFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldObserver.swift; sourceTree = "<group>"; };
+		ED74F951240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLSelectorViewDelegate.swift; sourceTree = "<group>"; };
 		EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintObserver.swift; sourceTree = "<group>"; };
 		EDB77B4E24044A3B003F358A /* String+IsEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB77B5324044C27003F358A /* UIAlertController+WaitAlert.swift */,
+				ED74F951240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift */,
 			);
 			path = UIAlertControllerEx;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				EDB77B4F24044A3B003F358A /* String+IsEmptyOrWhitespace.swift in Sources */,
 				EDE56DC4240D840F00EE2049 /* GameURLPasteboardListener.swift in Sources */,
 				EDB77B6424055081003F358A /* Cover.swift in Sources */,
+				ED74F952240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift in Sources */,
 				EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */,
 				EDB77B57240461A2003F358A /* GameHTMLDownloader.swift in Sources */,
 				EDBF118D240E8645008A7B08 /* DataService.swift in Sources */,

@@ -79,10 +79,13 @@ extension ThumbnailCollectionHelper: UICollectionViewDelegate {
         let cover = sectionedData[section][row]
         viewController?.selectedIndexPath = indexPath
         if cover.thumbnailImageURL == nil && cover.fullSizeImageURL == nil {
-            let alert = UIAlertController(title: "Error", message: "Can't load cover.", preferredStyle: .alert)
-            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(buttonOk)
-            viewController?.present(alert, animated: true)
+            viewController?.present(
+                UIAlertController.makeSimpleAlertWith(
+                    title: "Error",
+                    message: "Can't load cover."
+                ),
+                animated: true
+            )
             return
         }
         viewController?.performSegue(withIdentifier: "PresentCover", sender: self)

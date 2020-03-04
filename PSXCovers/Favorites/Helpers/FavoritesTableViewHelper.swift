@@ -64,10 +64,13 @@ extension FavoritesTableViewHelper {
                 tableView.deleteRows(at: [indexPath], with: .left)
             }
         } catch {
-            let alert = UIAlertController(title: "Error", message: "Failed to delete item.", preferredStyle: .alert)
-            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(buttonOk)
-            viewController?.present(alert, animated: true)
+            viewController?.present(
+                UIAlertController.makeSimpleAlertWith(
+                    title: "Error",
+                    message: "Failed to delete item."
+                ),
+                animated: true
+            )
         }
     }
 }

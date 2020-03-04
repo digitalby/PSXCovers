@@ -50,10 +50,12 @@ extension GameFavoriteHelper {
                     DataService.realm.add(game)
                 }
             } catch {
-                let alert = UIAlertController(title: "Error", message: "Failed to add favorite.", preferredStyle: .alert)
-                let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(buttonOk)
-                viewController.present(alert, animated: true)
+                viewController.present(
+                    UIAlertController.makeSimpleAlertWith(
+                        title: "Error",
+                        message: "Failed to add favorite."
+                    ), animated: true
+                )
             }
         } else {
             do {
@@ -62,10 +64,12 @@ extension GameFavoriteHelper {
                     DataService.realm.delete(results)
                 }
             } catch {
-                let alert = UIAlertController(title: "Error", message: "Failed to delete favorite.", preferredStyle: .alert)
-                let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(buttonOk)
-                viewController.present(alert, animated: true)
+                viewController.present(
+                    UIAlertController.makeSimpleAlertWith(
+                        title: "Error",
+                        message: "Failed to delete favorite."
+                    ), animated: true
+                )
             }
         }
     }

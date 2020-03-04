@@ -23,9 +23,6 @@ class ValidationErrorHandler {
             message = "The link that you've provided is not a valid PSX game link. "
                 + "Please check your link and try again."
         }
-        let alert = UIAlertController(title: "URL Error", message: message, preferredStyle: .alert)
-        let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(buttonOk)
-        return alert
+        return UIAlertController.makeSimpleAlertWith(title: "URL Error", message: message)
     }
 }

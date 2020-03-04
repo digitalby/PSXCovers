@@ -40,9 +40,6 @@ class NetworkErrorHandler {
         } else {
             message = error.localizedDescription
         }
-        let alert = UIAlertController(title: "Network Error", message: message, preferredStyle: .alert)
-        let buttonOk = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(buttonOk)
-        return alert
+        return UIAlertController.makeSimpleAlertWith(title: "Network Error", message: message)
     }
 }
