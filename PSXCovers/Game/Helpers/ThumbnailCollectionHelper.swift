@@ -8,12 +8,8 @@
 
 import UIKit
 
-class ThumbnailCollectionHelper: NSObject {
+final class ThumbnailCollectionHelper: NSObject, ViewControllerHelper {
     weak var viewController: GameViewController? = nil
-
-    init(viewController: GameViewController) {
-        self.viewController = viewController
-    }
 }
 
 //MARK: - Data Source

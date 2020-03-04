@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoverViewControllerGestureHandler: NSObject, UIGestureRecognizerDelegate {
+final class CoverViewControllerGestureHandler: NSObject, ViewControllerHelper, UIGestureRecognizerDelegate {
     weak var viewController: CoverViewController? = nil
 
     var displayingToolbars = true {
@@ -30,10 +30,6 @@ class CoverViewControllerGestureHandler: NSObject, UIGestureRecognizerDelegate {
     }
 
     var isTrackingPanLocation = false
-
-    init(viewController: CoverViewController) {
-        self.viewController = viewController
-    }
 }
 
 //MARK: - Delegate

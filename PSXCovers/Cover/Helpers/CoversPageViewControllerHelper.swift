@@ -8,19 +8,15 @@
 
 import UIKit
 
-class CoversPageViewControllerHelper: NSObject {
-    weak var coversPageViewController: CoversPageViewController? = nil
-
-    init(coversPageViewController: CoversPageViewController) {
-        self.coversPageViewController = coversPageViewController
-    }
+final class CoversPageViewControllerHelper: NSObject, ViewControllerHelper {
+    weak var viewController: CoversPageViewController? = nil
 }
 
 //MARK: - Page Data Source
 extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard
-            let coversPageViewController = coversPageViewController,
+            let coversPageViewController = self.viewController,
             let coverViewController = viewController as? CoverViewController,
             let cover = coverViewController.cover
             else { return nil }
@@ -41,7 +37,7 @@ extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard
-            let coversPageViewController = coversPageViewController,
+            let coversPageViewController = self.viewController,
             let coverViewController = viewController as? CoverViewController,
             let cover = coverViewController.cover
             else { return nil }
@@ -62,7 +58,7 @@ extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
     }
 
     private func prepare(newViewController: CoverViewController?) {
-        let currentDisplayingToolbars = coversPageViewController?.currentCoverViewController?.gestureHandler.displayingToolbars
+        let currentDisplayingToolbars = self.viewController?.currentCoverViewController?.gestureHandler.displayingToolbars
         newViewController?.gestureHandler.displayingToolbars = currentDisplayingToolbars ?? true
     }
 }
@@ -70,8 +66,8 @@ extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
 //MARK: - Page Delegate
 extension CoversPageViewControllerHelper: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        coversPageViewController?.currentCoverViewController?.panGestureRecognizer.isEnabled = false
-        coversPageViewController?.currentCoverViewController?.dismissTransition?.cancel()
+        self.viewController?.currentCoverViewController?.panGestureRecognizer.isEnabled = false
+        self.viewController?.currentCoverViewController?.dismissTransition?.cancel()
         pendingViewControllers.forEach { prepare(newViewController: ($0 as? CoverViewController)) }
     }
 
@@ -79,7 +75,7 @@ extension CoversPageViewControllerHelper: UIPageViewControllerDelegate {
         if completed {
             previousViewControllers.forEach { ($0 as? CoverViewController)?.panGestureRecognizer.isEnabled = true }
         } else {
-            coversPageViewController?.currentCoverViewController?.panGestureRecognizer.isEnabled = true
+            self.viewController?.currentCoverViewController?.panGestureRecognizer.isEnabled = true
         }
     }
 }

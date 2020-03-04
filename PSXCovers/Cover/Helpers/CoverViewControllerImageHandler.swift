@@ -8,12 +8,8 @@
 
 import UIKit
 
-class CoverViewControllerImageHandler: NSObject {
+final class CoverViewControllerImageHandler: NSObject, ViewControllerHelper {
     weak var viewController: CoverViewController? = nil
-
-    init(viewController: CoverViewController) {
-        self.viewController = viewController
-    }
 }
 
 //MARK: - Displaying an image

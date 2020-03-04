@@ -8,13 +8,8 @@
 
 import Foundation
 
-class CoverViewControllerErrorHandler {
-
+final class CoverViewControllerErrorHandler: ViewControllerHelper {
     weak var viewController: CoverViewController? = nil
-
-    init(viewController: CoverViewController) {
-        self.viewController = viewController
-    }
 
     func displayErrorViewWithGenericText() {
         displayErrorViewWithText("Cover download error.")

@@ -53,6 +53,8 @@
 		EDD05A76240E533500E96195 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDD05A78240E533700E96195 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; };
 		EDD05A79240E533700E96195 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDD9C00D240FA160007BAFA8 /* GameFavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD9C00C240FA160007BAFA8 /* GameFavoriteHelper.swift */; };
+		EDD9C00F240FA192007BAFA8 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD9C00E240FA192007BAFA8 /* ViewControllerHelper.swift */; };
 		EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */; };
 		EDE56DBD240D81E500EE2049 /* GameURLValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */; };
 		EDE56DBF240D824500EE2049 /* CoverImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */; };
@@ -131,6 +133,8 @@
 		EDD05A71240E533100E96195 /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
 		EDD05A74240E533500E96195 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		EDD05A77240E533700E96195 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		EDD9C00C240FA160007BAFA8 /* GameFavoriteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFavoriteHelper.swift; sourceTree = "<group>"; };
+		EDD9C00E240FA192007BAFA8 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerFactory.swift; sourceTree = "<group>"; };
 		EDE56DBC240D81E500EE2049 /* GameURLValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameURLValidationError.swift; sourceTree = "<group>"; };
 		EDE56DBE240D824500EE2049 /* CoverImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageDownloadError.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 			children = (
 				EDBF118B240E8639008A7B08 /* Data */,
 				EDE56DB9240D819100EE2049 /* Utility */,
+				EDD9C010240FA32C007BAFA8 /* Protocols */,
 				ED42511124029BB9005032DB /* Models */,
 				EDAB7EA82402CA1C004D182E /* Views */,
 			);
@@ -481,6 +486,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		EDD9C010240FA32C007BAFA8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EDD9C00E240FA192007BAFA8 /* ViewControllerHelper.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		EDE1D207240B0559009CFA60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +547,7 @@
 			children = (
 				EDE56DC8240D956000EE2049 /* ThumbnailCollectionHelper.swift */,
 				EDE56DD2240DA7C700EE2049 /* CoverThumbnailCellConfigurator.swift */,
+				EDD9C00C240FA160007BAFA8 /* GameFavoriteHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -658,12 +672,14 @@
 				EDE56DCB240D9CE800EE2049 /* CoversPageViewControllerHelper.swift in Sources */,
 				ED2075852406F16A00CDB8CB /* CoverThumbnailCell.swift in Sources */,
 				ED09CF632409CB6A00A7E26F /* DismissTransitionInteractor.swift in Sources */,
+				EDD9C00F240FA192007BAFA8 /* ViewControllerHelper.swift in Sources */,
 				EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */,
 				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */,
 				EDE56DD1240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift in Sources */,
 				EDBE0885240E701100BBD592 /* FavoritesTableViewHelper.swift in Sources */,
+				EDD9C00D240FA160007BAFA8 /* GameFavoriteHelper.swift in Sources */,
 				EDE56DCF240DA20000EE2049 /* CoverViewControllerErrorHandler.swift in Sources */,
 				EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */,
 				ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */,

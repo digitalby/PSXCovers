@@ -8,7 +8,8 @@
 
 import UIKit
 
-class GameURLPasteboardListener {
+final class GameURLPasteboardListener: ViewControllerHelper {
+
     weak var viewController: UIViewController? = nil
     var ignoreString: String? = nil
     fileprivate(set) var lastValidPasteboardString: String? = nil
@@ -26,6 +27,8 @@ class GameURLPasteboardListener {
         appActivityObserver = AppActivityObserver(becameActiveCallback: checkPasteboard)
         checkPasteboard()
     }
+
+    init() { }
 
     fileprivate func pasteFromPasteboardIfNeeded(pasteboardString: String) {
         do {

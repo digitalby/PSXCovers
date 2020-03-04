@@ -45,7 +45,7 @@ extension FavoritesViewController {
                 let game = senderViewController.game
                 else { return }
             destinationViewController.game = game
-            destinationViewController.presentedFromFavorites = true
+            destinationViewController.gameFavoriteHelper.presentedFromFavorites = true
         default:
             return
         }

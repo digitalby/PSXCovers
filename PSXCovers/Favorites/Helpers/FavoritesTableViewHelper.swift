@@ -8,12 +8,8 @@
 
 import UIKit
 
-class FavoritesTableViewHelper: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class FavoritesTableViewHelper: NSObject, ViewControllerHelper, UITableViewDataSource, UITableViewDelegate {
     weak var viewController: FavoritesViewController? = nil
-
-    init(viewController: FavoritesViewController) {
-        self.viewController = viewController
-    }
 }
 
 //MARK: - Data Source
