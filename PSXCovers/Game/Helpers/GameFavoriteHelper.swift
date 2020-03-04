@@ -48,6 +48,14 @@ extension GameFavoriteHelper {
                 )
             }
         } else {
+            let newGame = Game(
+                url: game.url,
+                title: game.title,
+                mainThumbnailURL: game.mainThumbnailURL,
+                mainThumbnail: game.mainThumbnail,
+                region: game.region,
+                covers: game.covers
+            )
             do {
                 try DataService.shared.delete(game: game)
             } catch {
@@ -58,6 +66,7 @@ extension GameFavoriteHelper {
                     ), animated: true
                 )
             }
+            viewController.game = newGame
         }
     }
 

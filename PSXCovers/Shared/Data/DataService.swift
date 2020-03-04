@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 class DataService {
-    static let shared = DataService()
     static let realm = try! Realm()
+    static let shared = DataService()
 
     lazy var data: Results<Game> = {
         type(of: self).realm.objects(Game.self).sorted(byKeyPath: "_region").sorted(byKeyPath: "title")
@@ -42,7 +42,15 @@ extension DataService {
     }
 
     func games(matching game: Game) -> Results<Game> {
-        gamesWith(title: game.title, region: game.region)
+        gamesWith(url: game.url)
+    }
+
+    func gamesWith(url: URL?) -> Results<Game> {
+        let data = DataService.shared.data.filter(
+            "(_url=%@)",
+            url?.absoluteString as Any
+        )
+        return data
     }
 
     func gamesWith(title: String?, region: Region?) -> Results<Game> {

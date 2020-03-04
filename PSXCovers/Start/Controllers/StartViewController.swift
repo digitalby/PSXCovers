@@ -81,7 +81,13 @@ extension StartViewController {
         }
         do {
             let psxGameURL = try GameURLValidator().makeValidatedPSXGameURL(urlString: urlString)
-            downloadGame(at: psxGameURL)
+            let downloads = DataService.shared.gamesWith(url: psxGameURL)
+            if downloads.count == 1, let game = downloads.first {
+                self.game = game
+                performSegue(withIdentifier: "ShowGameFromURL", sender: self)
+            } else {
+                downloadGame(at: psxGameURL)
+            }
         } catch let error as GameURLValidationError {
             let alert = ValidationErrorHandler().makeAlertController(for: error)
             present(alert, animated: true)

@@ -56,14 +56,14 @@ class Game: Object {
       set { _region = newValue?.rawValue }
     }
 
-    convenience init(url: URL, title: String, mainThumbnailURL: URL? = nil, mainThumbnail: ThumbnailImage? = nil, region: Region? = nil, covers: [Cover] = []) {
+    convenience init(url: URL? = nil, title: String? = nil, mainThumbnailURL: URL? = nil, mainThumbnail: ThumbnailImage? = nil, region: Region? = nil, covers: [Cover]? = []) {
         self.init()
         self.url = url
         self.title = title
         self.mainThumbnailURL = mainThumbnailURL
         self.mainThumbnail = mainThumbnail
         self.region = region
-        self.covers = covers
+        self.covers = covers ?? []
     }
 }
 

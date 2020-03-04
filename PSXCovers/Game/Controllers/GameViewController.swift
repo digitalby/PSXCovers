@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class GameViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
@@ -19,8 +18,8 @@ class GameViewController: UIViewController {
 
     let coverThumbnailDownloader = CoverThumbnailDownloader()
 
-    let realm = try! Realm()
     var game: Game!
+
     var selectedIndexPath: IndexPath? = nil
     let destinationDismissTransition = DismissTransitionInteractor()
 
@@ -61,7 +60,7 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool { false }
 
     override func viewWillDisappear(_ animated: Bool) {
-        gameFavoriteHelper.commitFavoriteToRealm()
+//        gameFavoriteHelper.commitFavoriteToRealm()
         gameFavoriteHelper.updateFavoritesViewControllerIfNeeded()
         super.viewWillDisappear(animated)
     }
@@ -77,6 +76,7 @@ class GameViewController: UIViewController {
 extension GameViewController {
     @IBAction func didTapAdd(_ sender: Any) {
         gameFavoriteHelper.isFavorite.toggle()
+        gameFavoriteHelper.commitFavoriteToRealm()
         gameFavoriteHelper.updateAddButtonState()
     }
 }
