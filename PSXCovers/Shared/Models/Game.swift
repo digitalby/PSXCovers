@@ -32,7 +32,7 @@ class Game: Object {
 
     var covers: [Cover] {
         get {
-            return _covers.map { $0 }
+            _covers.map { $0 }
         }
         set {
             _covers.removeAll()
