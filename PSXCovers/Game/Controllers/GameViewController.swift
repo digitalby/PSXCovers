@@ -90,7 +90,7 @@ extension GameViewController {
                 let destination = segue.destination as? CoversPageViewController,
                 let indexPath = selectedIndexPath
                 else { return }
-            let coverIndex = flattenIndexPath(indexPath)
+            let coverIndex = IndexPath.flattenIndexPath(indexPath, for: collectionView)
             destination.game = game
             destination.initialCoverIndex = coverIndex
             destination.transitioningDelegate = destination
@@ -99,15 +99,5 @@ extension GameViewController {
         default:
             return
         }
-    }
-
-    /// This method assumes the collection view is not empty and a valid index path was provided.
-    private func flattenIndexPath(_ indexPath: IndexPath) -> Int {
-        var sum = 0
-        for section in 0..<indexPath.section {
-            sum += collectionView.numberOfItems(inSection: section)
-        }
-        sum += indexPath.row
-        return sum
     }
 }

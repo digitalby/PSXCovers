@@ -16,6 +16,23 @@ class DataService {
     lazy var data: Results<Game> = {
         type(of: self).realm.objects(Game.self).sorted(byKeyPath: "_region").sorted(byKeyPath: "title")
     }()
+    var uniqueFirstLetters: [String] {
+        var firstLetters = [String]()
+        for game in data {
+            guard let letter = game.title?.first?.uppercased() else { continue }
+            firstLetters.append(String(letter))
+        }
+        return Array(Set(firstLetters)).sorted()
+    }
+    var sectionedData: [[Game]] {
+        uniqueFirstLetters.map { letter in
+            let filtered = data.filter {
+                guard let rhs = $0.title?.first else { return false }
+                return letter == String(rhs)
+            }
+            return filtered.sorted { $0.title ?? "" < $1.title ?? "" }
+        }
+    }
 }
 
 //MARK: - Convenience methods

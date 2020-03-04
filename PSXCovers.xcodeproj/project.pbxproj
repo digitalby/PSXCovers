@@ -55,6 +55,7 @@
 		EDD05A76240E533500E96195 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDD05A78240E533700E96195 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; };
 		EDD05A79240E533700E96195 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDD705382410465D0015EE32 /* IndexPath+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD705372410465D0015EE32 /* IndexPath+Flatten.swift */; };
 		EDD9C00D240FA160007BAFA8 /* GameFavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD9C00C240FA160007BAFA8 /* GameFavoriteHelper.swift */; };
 		EDD9C00F240FA192007BAFA8 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD9C00E240FA192007BAFA8 /* ViewControllerHelper.swift */; };
 		EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */; };
@@ -137,6 +138,7 @@
 		EDD05A71240E533100E96195 /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = "<group>"; };
 		EDD05A74240E533500E96195 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		EDD05A77240E533700E96195 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		EDD705372410465D0015EE32 /* IndexPath+Flatten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Flatten.swift"; sourceTree = "<group>"; };
 		EDD9C00C240FA160007BAFA8 /* GameFavoriteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFavoriteHelper.swift; sourceTree = "<group>"; };
 		EDD9C00E240FA192007BAFA8 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		EDE1D208240B056D009CFA60 /* CoverViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 		EDB77B4C24044A24003F358A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EDD70536241046400015EE32 /* IndexPathEx */,
 				EDB77B4D24044A2A003F358A /* StringEx */,
 				EDB77B5224044C09003F358A /* UIAlertControllerEx */,
 			);
@@ -498,6 +501,14 @@
 				ED895F62240FDB6A00286D69 /* Settings.bundle */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		EDD70536241046400015EE32 /* IndexPathEx */ = {
+			isa = PBXGroup;
+			children = (
+				EDD705372410465D0015EE32 /* IndexPath+Flatten.swift */,
+			);
+			path = IndexPathEx;
 			sourceTree = "<group>";
 		};
 		EDD9C010240FA32C007BAFA8 /* Protocols */ = {
@@ -691,6 +702,7 @@
 				EDD9C00F240FA192007BAFA8 /* ViewControllerHelper.swift in Sources */,
 				EDE1D209240B056D009CFA60 /* CoverViewControllerFactory.swift in Sources */,
 				EDB77B732405809E003F358A /* NetworkErrorHandler.swift in Sources */,
+				EDD705382410465D0015EE32 /* IndexPath+Flatten.swift in Sources */,
 				EDB77B692405693F003F358A /* Region.swift in Sources */,
 				EDE56DC1240D825400EE2049 /* Typealiases.swift in Sources */,
 				EDE56DD1240DA4B100EE2049 /* CoverViewControllerGestureHandler.swift in Sources */,
