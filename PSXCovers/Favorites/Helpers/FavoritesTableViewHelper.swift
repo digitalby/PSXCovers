@@ -58,11 +58,9 @@ extension FavoritesTableViewHelper {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         do {
-            let object = DataService.shared.data[indexPath.row]
-            try DataService.realm.write {
-                DataService.realm.delete(object)
-                tableView.deleteRows(at: [indexPath], with: .left)
-            }
+            let game = DataService.shared.data[indexPath.row]
+            try DataService.shared.delete(game: game)
+            tableView.deleteRows(at: [indexPath], with: .left)
         } catch {
             viewController?.present(
                 UIAlertController.makeSimpleAlertWith(

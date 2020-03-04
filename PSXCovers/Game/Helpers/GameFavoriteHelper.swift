@@ -16,11 +16,7 @@ final class GameFavoriteHelper: ViewControllerHelper {
 
     func setup() {
         guard let game = viewController?.game else { return }
-        isFavorite = DataService.shared.data.filter(
-            "(title=%@) AND (_region=%@)",
-            game.title ?? "",
-            game.region?.rawValue ?? "")
-            .count == 1
+        isFavorite = DataService.shared.isGameFavorite(game)
         updateAddButtonState()
     }
 }
@@ -40,15 +36,9 @@ extension GameFavoriteHelper {
             let viewController = viewController,
             let game = viewController.game
             else { return }
-        let title = game.title ?? ""
-        let region = game.region?.rawValue ?? ""
-        let results = DataService.shared.data.filter("(title=%@) AND (_region=%@)", title, region)
         if isFavorite {
             do {
-                guard results.count == 0 else { return }
-                try DataService.realm.write {
-                    DataService.realm.add(game)
-                }
+                try DataService.shared.add(game: game)
             } catch {
                 viewController.present(
                     UIAlertController.makeSimpleAlertWith(
@@ -59,10 +49,7 @@ extension GameFavoriteHelper {
             }
         } else {
             do {
-                guard results.count == 1 else { return }
-                try DataService.realm.write {
-                    DataService.realm.delete(results)
-                }
+                try DataService.shared.delete(game: game)
             } catch {
                 viewController.present(
                     UIAlertController.makeSimpleAlertWith(
@@ -71,6 +58,13 @@ extension GameFavoriteHelper {
                     ), animated: true
                 )
             }
+        }
+    }
+
+    func updateFavoritesViewControllerIfNeeded() {
+        if presentedFromFavorites {
+            let favorites = viewController?.navigationController?.viewControllers.first as? FavoritesViewController
+            favorites?.favoritesTableView.reloadData()
         }
     }
 }

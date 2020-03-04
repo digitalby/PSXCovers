@@ -13,7 +13,7 @@ class CoverImageDownloader {
     static let session = Session()
     static var pendingURLs = Set<URL>()
 
-    func downloadImage(for cover: Cover, completion: UIImageDownloadCompletion? = nil) {
+    func downloadImage(for cover: Cover, completion: UIImageDownloadCallback? = nil) {
         guard
             cover.thumbnailImage != .missing,
             let url = cover.fullSizeImageURL
@@ -21,7 +21,7 @@ class CoverImageDownloader {
                 completion?(nil, CoverImageDownloadError.coverIsMissing)
                 return
         }
-        let removePendingAndComplete: UIImageDownloadCompletion = { image, error in
+        let removePendingAndComplete: UIImageDownloadCallback = { image, error in
             type(of: self).pendingURLs.remove(url)
             completion?(image, error)
         }

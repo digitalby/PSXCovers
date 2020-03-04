@@ -62,10 +62,7 @@ class GameViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         gameFavoriteHelper.commitFavoriteToRealm()
-        if gameFavoriteHelper.presentedFromFavorites {
-            let favorites = navigationController?.viewControllers.first as? FavoritesViewController
-            favorites?.favoritesTableView.reloadData()
-        }
+        gameFavoriteHelper.updateFavoritesViewControllerIfNeeded()
         super.viewWillDisappear(animated)
     }
 
