@@ -24,7 +24,7 @@ final class GameURLPasteboardListener: ViewControllerHelper {
         self.pasteCallback = pasteCallback
         self.pasteAndGoCallback = pasteAndGoCallback
         pasteboardObserver = PasteboardObserver(changedCallback: checkPasteboard)
-        appActivityObserver = AppActivityObserver(becameActiveCallback: checkPasteboard)
+        appActivityObserver = AppActivityObserver(didBecomeActiveCallback: checkPasteboard)
         checkPasteboard()
     }
 

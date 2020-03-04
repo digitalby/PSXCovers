@@ -10,10 +10,10 @@ import UIKit
 
 class AppActivityObserver {
 
-    let callback: () -> Void
+    let didBecomeActiveCallback: VoidCallback?
 
-    init(becameActiveCallback: @escaping () -> Void) {
-        self.callback = becameActiveCallback
+    init(didBecomeActiveCallback: VoidCallback? = nil) {
+        self.didBecomeActiveCallback = didBecomeActiveCallback
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(didBecomeActive),
@@ -34,6 +34,6 @@ class AppActivityObserver {
 //MARK: - Selectors
 private extension AppActivityObserver {
     @objc func didBecomeActive(_ notification: Notification) {
-        callback()
+        didBecomeActiveCallback?()
     }
 }

@@ -10,9 +10,9 @@ import UIKit
 
 class PasteboardObserver {
 
-    let callback: () -> ()
+    let callback: VoidCallback
 
-    init(changedCallback: @escaping () -> ()) {
+    init(changedCallback: @escaping VoidCallback) {
         self.callback = changedCallback
         NotificationCenter.default.addObserver(
             self,

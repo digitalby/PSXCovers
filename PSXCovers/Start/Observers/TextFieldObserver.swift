@@ -10,10 +10,10 @@ import UIKit
 
 class TextFieldObserver {
 
-    let callback: () -> Void
+    let callback: VoidCallback
     let textField: UITextField
 
-    init(textField: UITextField, textDidChangeCallback: @escaping () -> Void) {
+    init(textField: UITextField, textDidChangeCallback: @escaping VoidCallback) {
         self.textField = textField
         callback = textDidChangeCallback
         NotificationCenter.default.addObserver(

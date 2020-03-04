@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIAlertController {
-    class func makeWaitAlert(onCancel: (() -> Void)?) -> Self {
+    class func makeWaitAlert(onCancel: VoidCallback? = nil) -> Self {
         let alert = Self(title: "Please wait, working...", message: nil, preferredStyle: .alert)
 //FIXME: Throbber omitted because its placement has issues with Dynamic Type.
 //        let throbber = UIActivityIndicatorView(style: .medium)
