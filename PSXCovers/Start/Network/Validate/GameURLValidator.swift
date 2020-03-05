@@ -21,6 +21,7 @@ class GameURLValidator {
     //Part 4 - Type: S = Software, D = Demo.
     //Some games use M and T. Also, H = Hardware.
     //Part 5 - Item Serial Number: uses -\d{5} pattern for software. Some hardware uses -\d{3-6} .
+    //PSXDataCenter has some NTSC-U prototype games marked as -0XXXX
     //There are also games not conformant to this format:
     //PBPX is for PAL/NTSC-U demos.
     //SPUS is for NTSC-U PlayStation Picks.
@@ -28,7 +29,7 @@ class GameURLValidator {
     //Some NTSC-J games use completely different 4-letter codes.
     //Lightspan discs (NTSC-U) use LSP-\d{6} pattern.
     fileprivate var gamePartEUAlphaCodesPattern: String { #"((S[CL]E[SD])|(PBPX))-\d{5}"# }
-    fileprivate var gamePartUSAlphaCodesPattern: String { #"(((S[CLP]US)|(PBPX))-\d{5})|(LSP-\d{6})"# }
+    fileprivate var gamePartUSAlphaCodesPattern: String { #"(((S[CLP]US)|(PBPX))-((\d{5})|(0XXXX)))|(LSP-\d{6})"# }
     fileprivate var gamePartJPAlphaCodesPattern: String { #"(([PS][ACIL][BPKZ][ADMSX])|(ESPM))-\d{5}"# }
     fileprivate var pathGamePartNumberPattern: String {
         pathAlphabetGroupPattern
