@@ -54,6 +54,14 @@
 			<key>Title</key>
 			<string>Frameworks</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+			<key>FooterText</key>
+			<string>acknowledgements_body</string>
+		</dict>
 	</array>
 </dict>
 </plist>
