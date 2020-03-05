@@ -19,16 +19,23 @@ class DataService {
     var uniqueFirstLetters: [String] {
         var firstLetters = [String]()
         for game in data {
-            guard let letter = game.title?.first?.uppercased() else { continue }
+            guard var letter = game.title?.first?.uppercased() else { continue }
+            if letter.rangeOfCharacter(from: .letters) == nil {
+                letter = "#"
+            }
             firstLetters.append(String(letter))
         }
         return Array(Set(firstLetters)).sorted()
     }
     var sectionedData: [[Game]] {
-        uniqueFirstLetters.map { letter in
+        uniqueFirstLetters.map { lhs in
             let filtered = data.filter {
-                guard let rhs = $0.title?.first else { return false }
-                return letter == String(rhs)
+                guard let charRHS = $0.title?.first else { return false }
+                var rhs = String(charRHS)
+                if rhs.rangeOfCharacter(from: .letters) == nil {
+                    rhs = "#"
+                }
+                return lhs == String(rhs)
             }
             return filtered.sorted { $0.title ?? "" < $1.title ?? "" }
         }
