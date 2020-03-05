@@ -65,7 +65,6 @@ extension CoverViewControllerGestureHandler {
         guard let viewController = viewController else { return }
         let translation = panGesture.translation(in: viewController.view)
         if panGesture.state == .began && viewController.scrollView.contentOffset.y == 0 {
-            panGesture.setTranslation(.zero, in: viewController.scrollView)
             isTrackingPanLocation = true
         } else if
             ![UIGestureRecognizer.State.ended, .cancelled, .failed].contains(panGesture.state),
@@ -96,6 +95,9 @@ extension CoverViewControllerGestureHandler {
 
         let percentThreshold: CGFloat = 0.25
 
+        let percentThresholdX: CGFloat = 0.1
+        let horizontalMovement = abs(translation.x) / viewController.view.bounds.width
+
         let verticalMovement = translation.y / viewController.view.bounds.height
         let downwardMovement = max(verticalMovement, 0.0)
         let downwardMovementPercent = min(downwardMovement, 1.0)
@@ -106,8 +108,12 @@ extension CoverViewControllerGestureHandler {
             dismissTransition.hasStarted = true
             viewController.dismiss(animated: true, completion: nil)
         case .changed:
+            if horizontalMovement > percentThresholdX {
+                dismissTransition.cancel()
+            } else {
             dismissTransition.shouldFinish = progress > percentThreshold
             dismissTransition.update(progress * 3.0)
+            }
         default:
             break
         }

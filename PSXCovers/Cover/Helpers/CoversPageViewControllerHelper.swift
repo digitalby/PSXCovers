@@ -66,16 +66,6 @@ extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
 //MARK: - Page Delegate
 extension CoversPageViewControllerHelper: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        self.viewController?.currentCoverViewController?.panGestureRecognizer.isEnabled = false
-        self.viewController?.currentCoverViewController?.dismissTransition?.cancel()
         pendingViewControllers.forEach { prepare(newViewController: ($0 as? CoverViewController)) }
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed {
-            previousViewControllers.forEach { ($0 as? CoverViewController)?.panGestureRecognizer.isEnabled = true }
-        } else {
-            self.viewController?.currentCoverViewController?.panGestureRecognizer.isEnabled = true
-        }
     }
 }
