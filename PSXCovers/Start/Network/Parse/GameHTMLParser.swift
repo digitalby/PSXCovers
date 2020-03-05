@@ -118,33 +118,42 @@ private extension GameHTMLParser {
                 .textContent
                 .trimmingCharacters(in: .whitespacesAndNewlines)
         }.filter { !$0.isEmpty }
-        let fullResLinks = thumbnailCols.flatMap { $0.nodes(matchingSelector: "a") }
-        let thumbnailImgs = thumbnailCols.flatMap { $0.nodes(matchingSelector: "img") }
-        var fullResHTMLHrefs = fullResLinks
-            .map { $0.attributes["href"] }
-            .map {
-                $0?.replacingOccurrences(
+        var fullResLinks = [String?]()
+        var thumbnailImgs = [String?]()
+        for node in thumbnailCols {
+            var fullRes: String? = nil
+            var thumbnailImg: String? = nil
+            if let a = node.firstNode(matchingSelector: "a") {
+                //Has a hires thumbnail
+                fullRes = a.attributes["href"]?.replacingOccurrences(
                     of: #"\.html"#,
                     with: #".jpg"#,
                     options: [.regularExpression]
                 )
+                if let img = a.firstNode(matchingSelector: "img") {
+                    thumbnailImg = img.attributes["src"]
+                }
+            } else if let img = node.firstNode(matchingSelector: "img") {
+                thumbnailImg = img.attributes["src"]
+            } else {
+                continue
+            }
+            fullResLinks.append(fullRes)
+            thumbnailImgs.append(thumbnailImg)
         }
-        let thumbnailSrcs = thumbnailImgs.map { $0.attributes["src"] }
-        let delta = thumbnailSrcs.count - fullResHTMLHrefs.count
-        for _ in 0..<delta {
-            fullResHTMLHrefs.append(nil)
-        }
+        let delta = thumbnailImgs.count - fullResLinks.count
         guard
-            labels.count == thumbnailSrcs.count,
-            labels.count == fullResHTMLHrefs.count
+            delta == 0,
+            labels.count == thumbnailImgs.count,
+            labels.count == fullResLinks.count
         else { return array }
         for i in 0..<labels.count {
             var thumbnailURL: URL? = nil
             var fullSizeURL: URL? = nil
-            if let thumbnailURLString = thumbnailSrcs[i] {
+            if let thumbnailURLString = thumbnailImgs[i] {
                 thumbnailURL = URL(string: thumbnailURLString, relativeTo: gameURL)
             }
-            if let fullSizeURLString = fullResHTMLHrefs[i] {
+            if let fullSizeURLString = fullResLinks[i] {
                 fullSizeURL = URL(string: fullSizeURLString, relativeTo: gameURL)
             }
             let cover = Cover(
