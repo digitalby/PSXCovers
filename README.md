@@ -1,16 +1,15 @@
-PSXCovers
-======
+# PSXCovers
 
-![banner][banner]
+![banner](banner.png)
 
-####Designed for browsing games at the PlayStation DataCenter, a video game preservation website created by CRX and Gladiator. 
+#### Designed for browsing games at the PlayStation DataCenter, a video game preservation website created by CRX and Gladiator. 
 
 ---
 
-Visit the official PlayStation DataCenter website at [www.psxdatacenter.com](https://psxdatacenter.com)
-
 Visit the official DIGITALBY website at
 [www.digitalby.me](https://digitalby.me)
+
+Visit the official PlayStation DataCenter website at [www.psxdatacenter.com](https://psxdatacenter.com)
 
 This project is not sponsored by or affiliated with the DataCenter's creators. This project has been created entirely for recreational purposes.
 
@@ -54,5 +53,3 @@ Building the project requires installing dependencies using `carthage update`.
 *SONY, the Sony logo, the Sony Computer Entertainment logo are registered trademarks of Sony Corporation.*
 
 *All rights reserved.*
-
-[banner]: banner.png
