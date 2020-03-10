@@ -44,6 +44,28 @@ class DataService {
 
 //MARK: - Convenience methods
 extension DataService {
+    func performSafeWriteOperation(for game: Game, operation: ()->()) {
+        let isGameInRealm = DataService.shared.games(matching: game).count > 0
+        if isGameInRealm {
+            DataService.realm.beginWrite()
+        }
+        operation()
+        if isGameInRealm {
+            try? DataService.realm.commitWrite()
+        }
+    }
+
+    func performSafeWriteOperation(for cover: Cover, operation: ()->()) {
+        let isGameInRealm = DataService.shared.covers(matching: cover).count > 0
+        if isGameInRealm {
+            DataService.realm.beginWrite()
+        }
+        operation()
+        if isGameInRealm {
+            try? DataService.realm.commitWrite()
+        }
+    }
+
     func add(game: Game) throws {
         let results = games(matching: game)
         guard results.count == 0 else { return }
@@ -67,6 +89,15 @@ extension DataService {
 
     func games(matching game: Game) -> Results<Game> {
         gamesWith(url: game.url)
+    }
+
+    func covers(matching cover: Cover) -> Results<Cover> {
+        let data = type(of: self).realm.objects(Cover.self).filter(
+            "(_thumbnailImageURL=%@) AND (_fullSizeImageURL=%@)",
+            cover.thumbnailImageURL?.absoluteString as Any,
+            cover.fullSizeImageURL?.absoluteString as Any
+        )
+        return data
     }
 
     func gamesWith(url: URL?) -> Results<Game> {

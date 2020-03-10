@@ -34,8 +34,10 @@ class GameViewController: UIViewController {
         if game.mainThumbnail == nil {
             if let mainThumbnailURL = game.mainThumbnailURL {
                 coverThumbnailDownloader.downloadThumbnail(at: mainThumbnailURL) { [weak self] thumbnailImage in
-                    guard case .with(_) = thumbnailImage else { return }
-                    self?.game.mainThumbnail = thumbnailImage
+                    guard let self = self, case .with(_) = thumbnailImage else { return }
+                    DataService.shared.performSafeWriteOperation(for: self.game) {
+                        self.game.mainThumbnail = thumbnailImage
+                    }
                 }
             }
         }
@@ -45,7 +47,9 @@ class GameViewController: UIViewController {
             coverThumbnailDownloader.downloadThumbnail(for: cover) { [weak self] image in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
-                    cover.thumbnailImage = image
+                    DataService.shared.performSafeWriteOperation(for: self.game) {
+                        cover.thumbnailImage = image
+                    }
                     self.collectionView.reloadData()
                 }
             }

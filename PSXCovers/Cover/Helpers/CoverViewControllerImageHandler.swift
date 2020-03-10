@@ -31,13 +31,16 @@ extension CoverViewControllerImageHandler {
             return
         }
         viewController.coverImageDownloader.downloadImage(for: cover) { [weak cover, weak self] image, error in
+            guard let self = self, let cover = cover else { return }
             if let error = error {
-                self?.viewController?.errorHandler.displayErrorViewWithError(error)
+                self.viewController?.errorHandler.displayErrorViewWithError(error)
                 return
             }
             if let image = image {
-                cover?.fullSizeImage = image
-                self?.loadCoverImage()
+                DataService.shared.performSafeWriteOperation(for: cover) {
+                    cover.fullSizeImage = image
+                }
+                self.loadCoverImage()
             }
         }
     }
