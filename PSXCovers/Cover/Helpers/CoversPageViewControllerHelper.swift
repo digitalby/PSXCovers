@@ -22,7 +22,7 @@ extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
             else { return nil }
         let flatCovers = coversPageViewController.flatCovers
         guard
-            let index = flatCovers.firstIndex(of: cover)
+            let index = flatCovers.firstIndex(where: { cover.fullSizeImageURL == $0.fullSizeImageURL })
             else { return nil }
 
         let newIndex = index - 1
@@ -43,7 +43,7 @@ extension CoversPageViewControllerHelper: UIPageViewControllerDataSource {
             else { return nil }
         let flatCovers = coversPageViewController.flatCovers
         guard
-            let index = flatCovers.firstIndex(of: cover)
+            let index = flatCovers.firstIndex(where: { cover.fullSizeImageURL == $0.fullSizeImageURL })
             else { return nil }
 
         let newIndex = index + 1
