@@ -109,7 +109,7 @@ extension ThumbnailCollectionHelper: UICollectionViewDelegate {
 //MARK: - Flow Layout Delegate
 extension ThumbnailCollectionHelper: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let bounds = UIScreen.main.bounds
+        let bounds = collectionView.bounds
         let cellWidth = bounds.width / 2 - 16
         let cellHeight = bounds.height / 2 - 16
         let minimumDimension = min(cellWidth, cellHeight)
