@@ -14,4 +14,6 @@ class ImageConstants {
     static let placeholderError = UIImage(named: "placeholder_error")!
     static let accessoryError = UIImage(named: "accessory_error")!
     static let background = UIImage(named: "background")!
+    static let star = UIImage(named: "star")!
+    static let starFill = UIImage(named: "star_fill")!
 }

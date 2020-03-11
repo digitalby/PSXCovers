@@ -41,5 +41,9 @@ import UIKit
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        if #available(iOS 11.0, *) {
+            mainLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        }
     }
 }

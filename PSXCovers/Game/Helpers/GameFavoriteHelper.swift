@@ -25,9 +25,9 @@ extension GameFavoriteHelper {
     func updateAddButtonState() {
         guard let viewController = viewController else { return }
         if isFavorite {
-            viewController.rightBarButtonItem.image = UIImage(systemName: "star.fill")
+            viewController.rightBarButtonItem.image = ImageConstants.starFill
         } else {
-            viewController.rightBarButtonItem.image = UIImage(systemName: "star")
+            viewController.rightBarButtonItem.image = ImageConstants.star
         }
     }
 

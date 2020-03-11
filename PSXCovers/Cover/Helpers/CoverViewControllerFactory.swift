@@ -20,7 +20,7 @@ class CoverViewControllerFactory {
 
     func makeCoverViewController(with cover: Cover) -> CoverViewController? {
         guard
-            let viewController = storyboard?.instantiateViewController(identifier: "CoverViewController") as? CoverViewController
+            let viewController = storyboard?.instantiateViewController(withIdentifier: "CoverViewController") as? CoverViewController
             else { return nil }
 
         viewController.cover = cover

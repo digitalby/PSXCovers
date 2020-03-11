@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uzp-jJ-3TI">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -177,7 +178,7 @@
                         <viewLayoutGuide key="safeArea" id="wIP-6l-ad9"/>
                     </view>
                     <navigationItem key="navigationItem" id="w7k-Us-dQ3">
-                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="BVB-at-Foc">
+                        <barButtonItem key="rightBarButtonItem" image="star" id="BVB-at-Foc">
                             <connections>
                                 <action selector="didTapAdd:" destination="jAf-KF-fez" id="uTt-ZR-Sif"/>
                             </connections>
@@ -226,10 +227,8 @@
                                     <constraint firstItem="cx2-UE-6dE" firstAttribute="centerX" secondItem="cyl-N6-jsC" secondAttribute="centerX" placeholder="YES" id="nlG-NP-abc"/>
                                     <constraint firstAttribute="bottom" secondItem="cx2-UE-6dE" secondAttribute="bottom" id="tCL-sL-sb9"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="hHz-0j-Lay"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Nck-pb-4FT"/>
                             </scrollView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yJM-5P-cAI">
                                 <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
@@ -506,7 +505,7 @@
     <resources>
         <image name="overlay_gradient" width="0.3333333432674408" height="341.33334350585938"/>
         <image name="placeholder_loading" width="128" height="128"/>
-        <image name="star" catalog="system" width="64" height="58"/>
+        <image name="star" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kZx-pf-cxa"/>

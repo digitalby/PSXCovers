@@ -24,7 +24,7 @@ Do not distribute this app as your own.
 * Browse high-resolution game covers in fullscreen with gesture support
 * Share and save covers to Photos
 * Add games to Favorites 
-* Universal (iPhone/iPad) app
+* Universal (iPhone/iPad) app compatible with iOS 10 or later
 * Support for Dark Mode
 
 ## Build 
@@ -40,6 +40,7 @@ Building the project requires installing dependencies using `carthage update`.
 
 ## Known Issues
 
+* Older iOS versions have non-critical layout glitches
 * Some games do not work because their HTML cannot be downloaded
 * There are some subtle inconsistencies with the image viewer
 * Data persistence and downloads could use more optimization

@@ -50,6 +50,9 @@ import UIKit
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         gameURLField.delegate = self
+        if #available(iOS 11, *) {
+            gameURLField.contentHorizontalAlignment = .leading
+        }
     }
 }
 
