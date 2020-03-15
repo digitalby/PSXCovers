@@ -19,7 +19,7 @@ Do not distribute this app as your own.
 
 ## Features
 
-* Support for any PSX game available at [psxdatacenter.com](psxdatacenter.com)
+* Support for any PSX game available at [www.psxdatacenter.com](https://psxdatacenter.com)
 * Quickly insert a game URL from the clipboard
 * Browse high-resolution game covers in fullscreen with gesture support
 * Share and save covers to Photos
