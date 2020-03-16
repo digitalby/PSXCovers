@@ -28,6 +28,14 @@
 		ED6AC159240722090086D378 /* PasteboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC158240722090086D378 /* PasteboardObserver.swift */; };
 		ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC15C240722B90086D378 /* TextFieldObserver.swift */; };
 		ED74F952240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74F951240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift */; };
+		ED7A02E824201A2D00322088 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; };
+		ED7A02E924201A2D00322088 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED7A02EA24201A2D00322088 /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; };
+		ED7A02EB24201A2D00322088 /* HTMLReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED7A02EC24201A2D00322088 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; };
+		ED7A02ED24201A2D00322088 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED7A02EE24201A2D00322088 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; };
+		ED7A02EF24201A2D00322088 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED895F63240FDB6A00286D69 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED895F62240FDB6A00286D69 /* Settings.bundle */; };
 		EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */; };
 		EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */; };
@@ -47,14 +55,6 @@
 		EDBE0882240E6F8000BBD592 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0881240E6F8000BBD592 /* FavoriteCell.swift */; };
 		EDBE0885240E701100BBD592 /* FavoritesTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0884240E701100BBD592 /* FavoritesTableViewHelper.swift */; };
 		EDBF118D240E8645008A7B08 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBF118C240E8645008A7B08 /* DataService.swift */; };
-		EDD05A6F240E532F00E96195 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; };
-		EDD05A70240E532F00E96195 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EDD05A72240E533100E96195 /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; };
-		EDD05A73240E533100E96195 /* HTMLReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EDD05A75240E533500E96195 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; };
-		EDD05A76240E533500E96195 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EDD05A78240E533700E96195 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; };
-		EDD05A79240E533700E96195 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDD705382410465D0015EE32 /* IndexPath+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD705372410465D0015EE32 /* IndexPath+Flatten.swift */; };
 		EDD9C00D240FA160007BAFA8 /* GameFavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD9C00C240FA160007BAFA8 /* GameFavoriteHelper.swift */; };
 		EDD9C00F240FA192007BAFA8 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD9C00E240FA192007BAFA8 /* ViewControllerHelper.swift */; };
@@ -75,16 +75,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EDB77B3D2402D991003F358A /* Embed Frameworks */ = {
+		ED7A02F024201A2D00322088 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EDD05A76240E533500E96195 /* Realm.framework in Embed Frameworks */,
-				EDD05A73240E533100E96195 /* HTMLReader.framework in Embed Frameworks */,
-				EDD05A79240E533700E96195 /* RealmSwift.framework in Embed Frameworks */,
-				EDD05A70240E532F00E96195 /* Alamofire.framework in Embed Frameworks */,
+				ED7A02ED24201A2D00322088 /* Realm.framework in Embed Frameworks */,
+				ED7A02EB24201A2D00322088 /* HTMLReader.framework in Embed Frameworks */,
+				ED7A02EF24201A2D00322088 /* RealmSwift.framework in Embed Frameworks */,
+				ED7A02E924201A2D00322088 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,10 +162,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD05A75240E533500E96195 /* Realm.framework in Frameworks */,
-				EDD05A72240E533100E96195 /* HTMLReader.framework in Frameworks */,
-				EDD05A78240E533700E96195 /* RealmSwift.framework in Frameworks */,
-				EDD05A6F240E532F00E96195 /* Alamofire.framework in Frameworks */,
+				ED7A02EC24201A2D00322088 /* Realm.framework in Frameworks */,
+				ED7A02EA24201A2D00322088 /* HTMLReader.framework in Frameworks */,
+				ED7A02EE24201A2D00322088 /* RealmSwift.framework in Frameworks */,
+				ED7A02E824201A2D00322088 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,8 +587,8 @@
 				ED4250F224029639005032DB /* Sources */,
 				ED4250F324029639005032DB /* Frameworks */,
 				ED4250F424029639005032DB /* Resources */,
-				EDB77B3D2402D991003F358A /* Embed Frameworks */,
 				EDB77B412402D9A4003F358A /* ShellScript */,
+				ED7A02F024201A2D00322088 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -871,6 +871,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KVZVUNQ279;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -885,6 +886,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.digitalby.PSXCovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -894,6 +896,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KVZVUNQ279;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -908,6 +911,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.digitalby.PSXCovers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
