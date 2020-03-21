@@ -29,13 +29,9 @@
 		ED6AC15D240722B90086D378 /* TextFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6AC15C240722B90086D378 /* TextFieldObserver.swift */; };
 		ED74F952240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED74F951240FAEC20038CCB7 /* UIAlertController+SimpleAlert.swift */; };
 		ED7A02E824201A2D00322088 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; };
-		ED7A02E924201A2D00322088 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A6E240E532F00E96195 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED7A02EA24201A2D00322088 /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; };
-		ED7A02EB24201A2D00322088 /* HTMLReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A71240E533100E96195 /* HTMLReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED7A02EC24201A2D00322088 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; };
-		ED7A02ED24201A2D00322088 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A74240E533500E96195 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED7A02EE24201A2D00322088 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; };
-		ED7A02EF24201A2D00322088 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDD05A77240E533700E96195 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED895F63240FDB6A00286D69 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED895F62240FDB6A00286D69 /* Settings.bundle */; };
 		EDAB7EA42402B479004D182E /* GameURLSelectorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA32402B479004D182E /* GameURLSelectorViewDelegate.swift */; };
 		EDAB7EA62402BE74004D182E /* KeyboardConstraintObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB7EA52402BE74004D182E /* KeyboardConstraintObserver.swift */; };
@@ -73,23 +69,6 @@
 		EDE92BA32407D3DC00B1ACC7 /* NoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE92BA22407D3DC00B1ACC7 /* NoItemsView.swift */; };
 		EDE92BA52407D42600B1ACC7 /* NoItemsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDE92BA42407D42600B1ACC7 /* NoItemsView.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		ED7A02F024201A2D00322088 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				ED7A02ED24201A2D00322088 /* Realm.framework in Embed Frameworks */,
-				ED7A02EB24201A2D00322088 /* HTMLReader.framework in Embed Frameworks */,
-				ED7A02EF24201A2D00322088 /* RealmSwift.framework in Embed Frameworks */,
-				ED7A02E924201A2D00322088 /* Alamofire.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		ED09CF602409C3FD00A7E26F /* DismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
@@ -588,7 +567,6 @@
 				ED4250F324029639005032DB /* Frameworks */,
 				ED4250F424029639005032DB /* Resources */,
 				EDB77B412402D9A4003F358A /* ShellScript */,
-				ED7A02F024201A2D00322088 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -666,6 +644,10 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(BUILT_PROJECTS)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PROJECTS)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
+				"$(BUILT_PROJECTS)/$(FRAMEWORKS_FOLDER_PATH)/HTMLReader.framework",
+				"$(BUILT_PROJECTS)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
