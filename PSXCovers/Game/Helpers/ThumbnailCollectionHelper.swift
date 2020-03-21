@@ -64,7 +64,7 @@ extension ThumbnailCollectionHelper: UICollectionViewDataSource {
             }
             return header
         default:
-            assert(false)
+            return UICollectionReusableView(frame: .zero)
         }
     }
 }
@@ -113,7 +113,7 @@ extension ThumbnailCollectionHelper: UICollectionViewDelegateFlowLayout {
         let cellWidth = bounds.width / 2 - 16
         let cellHeight = bounds.height / 2 - 16
         let minimumDimension = min(cellWidth, cellHeight)
-        let cellSize = min(minimumDimension, 238)
+        let cellSize = min(minimumDimension, 144)
         return CGSize(width: cellSize, height: cellSize)
     }
 }
