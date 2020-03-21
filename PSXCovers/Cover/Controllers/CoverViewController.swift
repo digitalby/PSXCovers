@@ -73,6 +73,7 @@ extension CoverViewController {
         guard !array.isEmpty else { return }
 
         let activityViewController = UIActivityViewController(activityItems: array, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.barButtonItem = topToolbarActionItem
         present(activityViewController, animated: true)
     }
 
