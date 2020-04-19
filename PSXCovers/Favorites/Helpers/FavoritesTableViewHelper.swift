@@ -77,7 +77,11 @@ extension FavoritesTableViewHelper {
         let game = sectionedData[section][row]
         do {
             try DataService.shared.delete(game: game)
-            tableView.deleteRows(at: [indexPath], with: .left)
+            if tableView.numberOfRows(inSection: indexPath.section) == 1 {
+                tableView.deleteSections([indexPath.section], with: .left)
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .left)
+            }
         } catch {
             viewController?.present(
                 UIAlertController.makeSimpleAlertWith(
