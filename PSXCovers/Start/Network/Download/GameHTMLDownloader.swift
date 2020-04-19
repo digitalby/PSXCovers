@@ -14,17 +14,25 @@ class GameHTMLDownloader {
     static let session = Session()
 
     func downloadGameHTML(at url: URL, completion: HTMLDownloadCallback? = nil) {
-        GameHTMLDownloader.session.request(url).validate().responseString { string in
-            if let error = string.error {
+        GameHTMLDownloader.session.request(url).validate().responseString { responseString in
+            if let error = responseString.error {
                 completion?(nil, error)
                 return
             }
-            guard let data = string.value else {
-                let error = AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .isoLatin1))
+            guard let data = responseString.data else {
+                let error = AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength)
                 completion?(nil, error)
                 return
             }
-            completion?(data, nil)
+            let string = data.starts(with: [0xff, 0xfe]) ?
+                String(bytes: data, encoding: .utf16) :
+                responseString.value
+            if let string = string {
+                completion?(string, nil)
+            } else {
+                let error = AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .utf8))
+                completion?(nil, error)
+            }
         }
     }
 }
